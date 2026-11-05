@@ -8,4 +8,4 @@ Logo A: a gold crescent (moonlight) on the night sky. No star next to it, so it 
   - `mark*.svg`: the crescent alone (gradient, dark, light)
   - `icon-1024.png` (social avatars), `icon-512.png` (Google Play developer icon), `apple-touch-icon.png`, `favicon*.svg|png`
   - `wordmark-on-dark|light.svg|png`
-  - `play-header-4096x2304.png`: the Google Play developer page header
+  - `play-header-4096x2304.png`, `play-icon-512.png`: the Google Play developer page images (24-bit PNG, no transparency, as Play asks; converted from the renders with PIL)
