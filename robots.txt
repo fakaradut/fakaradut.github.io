@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://moonarcworks.com/exhale-site/sitemap-index.xml
