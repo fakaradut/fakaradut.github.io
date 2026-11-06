@@ -3,21 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Moon Arc Works</title>
+<title>Moon Arc Works – calm, useful mobile apps and games</title>
 <meta name="description" content="Moon Arc Works is an independent studio making calm, useful mobile apps and games.">
 <meta name="theme-color" content="#070B1C">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="canonical" href="https://moonarcworks.com/">
+<link rel="alternate" hreflang="en" href="https://moonarcworks.com/">
+<link rel="alternate" hreflang="tr" href="https://moonarcworks.com/tr/">
+<link rel="alternate" hreflang="x-default" href="https://moonarcworks.com/">
 <link rel="preload" href="/assets/Sora-600.ttf" as="font" type="font/ttf" crossorigin>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://moonarcworks.com/">
 <meta property="og:title" content="Moon Arc Works">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Moon Arc Works">
 <meta property="og:description" content="An independent studio making calm, useful mobile apps and games.">
 <meta property="og:image" content="https://moonarcworks.com/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Moon Arc Works","url":"https://moonarcworks.com/","logo":"https://moonarcworks.com/brand/out/icon-512.png","email":"support@moonarcworks.com"}</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","@id":"https://moonarcworks.com/#org","name":"Moon Arc Works","url":"https://moonarcworks.com/","logo":"https://moonarcworks.com/brand/out/icon-512.png","email":"support@moonarcworks.com","description":"An independent studio making calm, useful mobile apps and games."},{"@context":"https://schema.org","@type":"WebSite","name":"Moon Arc Works","url":"https://moonarcworks.com/","publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":"MobileApplication","name":"Exhale","alternateName":"Dumansız","url":"https://moonarcworks.com/exhale-site/","operatingSystem":"iOS, Android","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://moonarcworks.com/#org"}}]</script>
 <style>
   @font-face { font-family: Sora; font-weight: 400; src: url(/assets/Sora-400.ttf) format('truetype'); font-display: swap; }
   @font-face { font-family: Sora; font-weight: 600; src: url(/assets/Sora-600.ttf) format('truetype'); font-display: swap; }
@@ -658,8 +663,11 @@
       phases: ['yeni ay', 'büyüyen hilal', 'ilk dördün', 'büyüyen şişkin ay', 'dolunay', 'küçülen şişkin ay', 'son dördün', 'küçülen hilal'],
     },
   };
+  // Each language has its own address (/ and /tr/) so search engines index both; the page's own language comes
+  // first, and the bare address sends a Turkish browser (or someone who picked Turkish before) to /tr/.
   const stored = (() => { try { return localStorage.getItem('lang'); } catch { return null; } })();
-  let lang = stored || (/^tr\b/i.test(navigator.language || '') ? 'tr' : 'en');
+  let lang = document.documentElement.lang === 'tr' ? 'tr' : 'en';
+  if (lang === 'en' && location.pathname === '/' && (stored === 'tr' || (!stored && /^tr\b/i.test(navigator.language || '')))) location.replace('/tr/' + location.hash);
   const pad = (n) => String(n).padStart(2, '0');
   let launched = false;
 
@@ -682,7 +690,7 @@
   document.getElementById('lang').addEventListener('click', () => {
     const next = lang === 'en' ? 'tr' : 'en';
     try { localStorage.setItem('lang', next); } catch {}
-    apply(next, true);
+    location.href = (next === 'tr' ? '/tr/' : '/') + location.hash;
   });
 
   // The smoke-free clock in the floating card ticks like the app's.

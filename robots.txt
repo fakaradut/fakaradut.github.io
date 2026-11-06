@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://moonarcworks.com/sitemap.xml
 Sitemap: https://moonarcworks.com/exhale-site/sitemap-index.xml
