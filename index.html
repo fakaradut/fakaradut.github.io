@@ -310,7 +310,7 @@
             <div><b data-u="s">00</b><span data-i18n="sec">sec</span></div>
           </div>
           <div class="stores">
-            <a class="btn btn-ghost store" hidden href="https://apps.apple.com/app/id6828166971"><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.4-.6 3.1-1.5z"/></svg>App Store</a>
+            <a class="btn btn-ghost store" id="appstore" href="https://apps.apple.com/app/id6828166971"><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.4-.6 3.1-1.5z"/></svg><span id="appstore-label" data-i18n="preorder">Pre-order on the App Store</span></a>
             <a class="btn btn-ghost store" hidden href="https://play.google.com/store/apps/details?id=com.dumansiz.app"><svg viewBox="0 0 24 24"><path d="M3.6 2.3c-.3.3-.4.7-.4 1.2v17c0 .5.1.9.4 1.2l9.4-9.7-9.4-9.7zm10.6 10.9 2.6 2.7-11.4 6.6 8.8-9.3zm3.9-4 3 1.7c.9.5.9 1.8 0 2.3l-3 1.8-2.9-2.9 2.9-2.9zM5.4 1.5l11.4 6.6-2.6 2.7-8.8-9.3z"/></svg>Google Play</a>
             <a class="btn btn-gold" id="site-link" href="/exhale-site/en/" data-i18n="visit">Visit the Exhale site →</a>
           </div>
@@ -625,6 +625,7 @@
       s1h: 'Count every smoke-free second.', s1p: 'A live counter, a 30-day quit plan and the money you save, growing from the first minute.',
       s2h: 'Watch your body heal.', s2p: 'From 20 minutes to 10 years: see what changes inside you, based on World Health Organization data.',
       s3h: 'Turn savings into something you love.', s3p: 'Pick a reward and see how close every smoke-free day brings you.',
+      preorder: 'Pre-order on the App Store',
       launchSoon: 'Launching on the App Store and Google Play in', launchOut: 'Out now on the App Store and Google Play.',
       days: 'days', hours: 'hours', min: 'min', sec: 'sec', dayShort: 'd',
       visit: 'Visit the Exhale site →', site: '/exhale-site/en/',
@@ -650,6 +651,7 @@
       s1h: 'Dumansız her saniyeyi say.', s1p: 'Canlı sayaç, 30 günlük bırakma planı ve ilk dakikadan büyüyen birikimin.',
       s2h: 'Vücudunun iyileşmesini izle.', s2p: '20 dakikadan 10 yıla: içinde neyin değiştiğini Dünya Sağlık Örgütü verilerine göre gör.',
       s3h: 'Birikimini sevdiğin bir şeye dönüştür.', s3p: 'Bir ödül seç, her dumansız günün seni ona ne kadar yaklaştırdığını gör.',
+      preorder: "App Store'da ön sipariş ver",
       launchSoon: "App Store ve Google Play'de çıkışa kalan süre", launchOut: "Şimdi App Store ve Google Play'de.",
       days: 'gün', hours: 'saat', min: 'dk', sec: 'sn', dayShort: 'g',
       visit: 'Dumansız sitesine git →', site: '/exhale-site/tr/',
@@ -700,8 +702,9 @@
   const clock = document.getElementById('clock');
   const tick = () => { const d = Math.floor(secs / 86400), h = Math.floor(secs % 86400 / 3600), mi = Math.floor(secs % 3600 / 60), s = secs % 60; clock.textContent = `${d}${T[lang].dayShort} ${pad(h)}:${pad(mi)}:${pad(s)}`; secs++; };
 
-  /* ---------- Launch countdown; the store buttons appear on launch day ---------- */
-  const LAUNCH = Date.parse('2026-12-07T10:00:00+03:00');
+  /* ---------- Launch countdown; the App Store pre-order shows now, Google Play on launch day ---------- */
+  // Midnight of 7 December where the visitor is: when the App Store releases the pre-order there.
+  const LAUNCH = new Date(2026, 11, 7).getTime();
   const units = Object.fromEntries([...document.querySelectorAll('#countdown b')].map((b) => [b.dataset.u, b]));
   const countdown = () => {
     const left = LAUNCH - Date.now();
@@ -710,6 +713,8 @@
       document.getElementById('countdown').hidden = true;
       document.getElementById('launch-label').textContent = T[lang].launchOut;
       document.querySelectorAll('.store').forEach((s) => (s.hidden = false));
+      const label = document.getElementById('appstore-label');
+      label.removeAttribute('data-i18n'); label.textContent = 'App Store';
       return false;
     }
     const s = Math.floor(left / 1000);
