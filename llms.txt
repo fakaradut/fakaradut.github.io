@@ -1,0 +1,31 @@
+# Moon Arc Works
+
+> Moon Arc Works is an independent studio that makes mobile apps for iPhone and Android, each written for 34 languages. Its first app is Exhale (Dumansız in Turkish), a quit smoking and vaping app, launching on the App Store and Google Play on 7 December 2026.
+
+## Exhale: quit smoking and vaping
+
+Exhale helps people quit cigarettes and vapes: a smoke-free counter, money saved at real pack prices for 101 countries, a 30-day quit plan, a 3-minute craving rescue, a health recovery timeline and badges. It needs no account (data stays on the phone) and is free with ads; Exhale Plus removes ads and opens the full 30-day program.
+
+- [Exhale (English)](https://moonarcworks.com/exhale-site/en/): the app, the savings calculator and FAQ
+- [Exhale in all 34 languages](https://moonarcworks.com/exhale-site/): pick a language
+- [Dumansız (Türkçe)](https://moonarcworks.com/exhale-site/tr/)
+
+## Guides
+
+- [Nicotine withdrawal: symptoms and how long they last](https://moonarcworks.com/exhale-site/en/guides/nicotine-withdrawal/)
+- [How to beat a craving](https://moonarcworks.com/exhale-site/en/guides/beat-a-craving/)
+- [How to quit: a plan](https://moonarcworks.com/exhale-site/en/guides/how-to-quit/)
+- [What happens when you quit: the timeline](https://moonarcworks.com/exhale-site/en/guides/what-happens-when-you-quit/)
+
+## Cost of smoking by country
+
+The typical price of a pack of 20 cigarettes in 101 countries, and what a pack or half a pack a day costs per month, year and decade. Prices are the app's own feed, updated when taxes change.
+
+- [Cigarette prices by country](https://moonarcworks.com/exhale-site/en/cost-of-smoking/)
+- Country pages follow the pattern https://moonarcworks.com/exhale-site/en/cost-of-smoking/<country>/ (for example [Germany](https://moonarcworks.com/exhale-site/en/cost-of-smoking/germany/), [Japan](https://moonarcworks.com/exhale-site/en/cost-of-smoking/japan/), [Türkiye](https://moonarcworks.com/exhale-site/en/cost-of-smoking/turkiye/))
+- [Price feed (JSON)](https://moonarcworks.com/exhale-site/prices.json)
+
+## Contact
+
+- Support: support@moonarcworks.com
+- [Privacy policy](https://moonarcworks.com/exhale-site/privacy.html)

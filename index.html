@@ -129,7 +129,7 @@
   h2 { font-weight: 600; font-size: clamp(36px, 5vw, 68px); line-height: 1.02; letter-spacing: -2px; }
   h2 .serif { font-size: 1.1em; color: var(--gold-light); }
 
-  /* Languages: two ribbons of greetings drifting in opposite directions. */
+  /* Languages: two ribbons of greetings drifting in opposite directions, each a link to Exhale in that language. */
   .langs { padding-block: 70px; }
   .langs .note { text-align: center; color: var(--muted); font-size: 15px; margin-bottom: 30px; }
   .langs .note b { color: var(--ink); font-weight: 600; }
@@ -138,8 +138,8 @@
   .track { display: flex; gap: 14px; width: max-content; animation: slide 60s linear infinite; }
   .ribbon.rev .track { animation-direction: reverse; animation-duration: 70s; }
   .ribbon:hover .track { animation-play-state: paused; }
-  .track span { flex: none; padding: 12px 22px; border: 1px solid var(--line); border-radius: 999px; font-size: 18px; color: #C9D0E8; background: rgba(255, 255, 255, .025); transition: color .3s, border-color .3s, background .3s; }
-  .track span:hover { color: var(--night); background: var(--gold-light); border-color: var(--gold-light); }
+  .track a { flex: none; text-decoration: none; padding: 12px 22px; border: 1px solid var(--line); border-radius: 999px; font-size: 18px; color: #C9D0E8; background: rgba(255, 255, 255, .025); transition: color .3s, border-color .3s, background .3s; }
+  .track a:hover, .track a:focus-visible { color: var(--night); background: var(--gold-light); border-color: var(--gold-light); }
   @keyframes slide { to { transform: translateX(-50%); } }
 
   /* Exhale: the text steps scroll past while the phone stays put and changes screen. */
@@ -272,8 +272,8 @@
 
   <div class="langs">
     <p class="note" data-reveal data-i18n="langNote">Every app speaks <b>34 languages</b> from day one.</p>
-    <div class="ribbon"><div class="track" id="t1"></div></div>
-    <div class="ribbon rev"><div class="track" id="t2"></div></div>
+    <div class="ribbon"><div class="track" id="t1"><a href="/exhale-site/en/" hreflang="en" lang="en">Hello</a><a href="/exhale-site/tr/" hreflang="tr" lang="tr">Merhaba</a><a href="/exhale-site/de/" hreflang="de" lang="de">Hallo</a><a href="/exhale-site/es/" hreflang="es" lang="es">Hola</a><a href="/exhale-site/fr/" hreflang="fr" lang="fr">Bonjour</a><a href="/exhale-site/it/" hreflang="it" lang="it">Ciao</a><a href="/exhale-site/pt/" hreflang="pt" lang="pt">Olá</a><a href="/exhale-site/ja/" hreflang="ja" lang="ja">こんにちは</a><a href="/exhale-site/ko/" hreflang="ko" lang="ko">안녕하세요</a><a href="/exhale-site/zh-hans/" hreflang="zh-hans" lang="zh-hans">你好</a><a href="/exhale-site/zh-hant/" hreflang="zh-hant" lang="zh-hant">您好</a><a href="/exhale-site/ar/" hreflang="ar" lang="ar">مرحبا</a><a href="/exhale-site/he/" hreflang="he" lang="he">שלום</a><a href="/exhale-site/hi/" hreflang="hi" lang="hi">नमस्ते</a><a href="/exhale-site/th/" hreflang="th" lang="th">สวัสดี</a><a href="/exhale-site/vi/" hreflang="vi" lang="vi">Xin chào</a><a href="/exhale-site/id/" hreflang="id" lang="id">Halo</a></div></div>
+    <div class="ribbon rev"><div class="track" id="t2"><a href="/exhale-site/ms/" hreflang="ms" lang="ms">Selamat</a><a href="/exhale-site/ru/" hreflang="ru" lang="ru">Привет</a><a href="/exhale-site/uk/" hreflang="uk" lang="uk">Привіт</a><a href="/exhale-site/bg/" hreflang="bg" lang="bg">Здравей</a><a href="/exhale-site/sr/" hreflang="sr" lang="sr">Здраво</a><a href="/exhale-site/el/" hreflang="el" lang="el">Γειά σου</a><a href="/exhale-site/pl/" hreflang="pl" lang="pl">Cześć</a><a href="/exhale-site/cs/" hreflang="cs" lang="cs">Ahoj</a><a href="/exhale-site/sk/" hreflang="sk" lang="sk">Dobrý deň</a><a href="/exhale-site/hu/" hreflang="hu" lang="hu">Szia</a><a href="/exhale-site/ro/" hreflang="ro" lang="ro">Salut</a><a href="/exhale-site/hr/" hreflang="hr" lang="hr">Bok</a><a href="/exhale-site/nl/" hreflang="nl" lang="nl">Hoi</a><a href="/exhale-site/da/" hreflang="da" lang="da">Hej</a><a href="/exhale-site/sv/" hreflang="sv" lang="sv">Hejsan</a><a href="/exhale-site/fi/" hreflang="fi" lang="fi">Hei</a><a href="/exhale-site/nb/" hreflang="nb" lang="nb">God dag</a></div></div>
   </div>
 
   <section id="apps">
@@ -589,10 +589,12 @@
   document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
 
   /* ---------- Greetings ---------- */
-  const hello = ['Hello', 'Merhaba', 'Hallo', 'Hola', 'Bonjour', 'Ciao', 'Olá', 'こんにちは', '안녕하세요', '你好', '您好', 'مرحبا', 'שלום', 'नमस्ते', 'สวัสดี', 'Xin chào', 'Halo', 'Selamat', 'Привет', 'Привіт', 'Здравей', 'Здраво', 'Γειά σου', 'Cześć', 'Ahoj', 'Dobrý deň', 'Szia', 'Salut', 'Bok', 'Hoi', 'Hej', 'Hejsan', 'Hei', 'God dag'];
-  const fill = (el, list) => { el.innerHTML = [...list, ...list].map((w) => `<span>${w}</span>`).join(''); };
-  fill(document.getElementById('t1'), hello.slice(0, 17));
-  fill(document.getElementById('t2'), hello.slice(17));
+  // Each greeting opens Exhale's site in that language; a second copy, hidden from readers, closes the loop.
+  for (const track of document.querySelectorAll('.track')) {
+    const copy = track.cloneNode(true);
+    for (const a of copy.children) { a.setAttribute('aria-hidden', 'true'); a.tabIndex = -1; }
+    track.append(...copy.children);
+  }
 
   /* ---------- Exhale: steps switch the phone screen, the phone follows the pointer ---------- */
   const shots = [...document.querySelectorAll('.screen img')], steps = [...document.querySelectorAll('.step')];
