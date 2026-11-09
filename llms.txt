@@ -23,7 +23,7 @@ The typical price of a pack of 20 cigarettes in 101 countries, and what a pack o
 
 - [Cigarette prices by country](https://moonarcworks.com/exhale-site/en/cost-of-smoking/)
 - Country pages follow the pattern https://moonarcworks.com/exhale-site/en/cost-of-smoking/<country>/ (for example [Germany](https://moonarcworks.com/exhale-site/en/cost-of-smoking/germany/), [Japan](https://moonarcworks.com/exhale-site/en/cost-of-smoking/japan/), [Türkiye](https://moonarcworks.com/exhale-site/en/cost-of-smoking/turkiye/))
-- [Price feed (JSON)](https://moonarcworks.com/exhale-site/prices.json)
+- Price data, free to reuse under CC BY 4.0 (credit Exhale by Moon Arc Works): [CSV](https://moonarcworks.com/exhale-site/data/cigarette-prices.csv), [JSON](https://moonarcworks.com/exhale-site/prices.json)
 
 ## Contact
 
