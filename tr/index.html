@@ -22,7 +22,7 @@
 <meta property="og:description" content="Sakin ve işe yarar mobil uygulamalar ve oyunlar yapan bağımsız bir stüdyo.">
 <meta property="og:image" content="https://moonarcworks.com/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","@id":"https://moonarcworks.com/#org","name":"Moon Arc Works","url":"https://moonarcworks.com/","logo":"https://moonarcworks.com/brand/out/icon-512.png","email":"support@moonarcworks.com","description":"An independent studio making calm, useful mobile apps and games."},{"@context":"https://schema.org","@type":"WebSite","name":"Moon Arc Works","url":"https://moonarcworks.com/","publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":"MobileApplication","name":"Exhale","alternateName":"Dumansız","url":"https://moonarcworks.com/exhale-site/","operatingSystem":"iOS, Android","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://moonarcworks.com/#org"}}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","@id":"https://moonarcworks.com/#org","name":"Moon Arc Works","url":"https://moonarcworks.com/","logo":"https://moonarcworks.com/brand/out/icon-512.png","email":"support@moonarcworks.com","description":"An independent studio making calm, useful mobile apps and games."},{"@context":"https://schema.org","@type":"WebSite","name":"Moon Arc Works","url":"https://moonarcworks.com/","publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":"MobileApplication","name":"Exhale","alternateName":"Dumansız","url":"https://moonarcworks.com/exhale-site/","operatingSystem":"iOS, Android","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":["VideoGame","MobileApplication"],"@id":"https://moonarcworks.com/fluffytail/#game","name":"Fluffytail: Squirrel Adventure","alternateName":"Fluffytail: Sincap Macerası","url":"https://moonarcworks.com/fluffytail/","operatingSystem":"iOS, Android","applicationCategory":"GameApplication","audience":{"@type":"PeopleAudience","suggestedMinAge":6,"suggestedMaxAge":8},"publisher":{"@id":"https://moonarcworks.com/#org"}}]</script>
 <style>
   @font-face { font-family: Sora; font-weight: 400; src: url(/assets/Sora-400.ttf) format('truetype'); font-display: swap; }
   @font-face { font-family: Sora; font-weight: 600; src: url(/assets/Sora-600.ttf) format('truetype'); font-display: swap; }
@@ -182,6 +182,14 @@
   .float.f2 b { color: #7EE0B5; }
   @keyframes bob { 50% { translate: 0 -12px; } }
 
+  /* Fluffytail: the second app, a card under Exhale's showcase. */
+  .game { margin-top: 70px; display: flex; align-items: center; gap: 24px; padding: 26px 28px; border-radius: 28px; border: 1px solid var(--line); background: linear-gradient(150deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .015)); backdrop-filter: blur(16px); transition: border-color .3s, transform .5s var(--ease); }
+  .game:hover { border-color: rgba(244, 195, 106, .45); transform: translateY(-3px); }
+  .game .ph { flex: none; width: 72px; height: 72px; border-radius: 18px; display: block; }
+  .game h3 { font-weight: 600; font-size: 26px; letter-spacing: -.5px; line-height: 1.15; }
+  .game p { color: var(--muted); font-size: 15px; margin-top: 4px; }
+  .game .more { margin-left: auto; flex: none; color: var(--gold-light); font-weight: 600; font-size: 15px; }
+
   /* Principles: cards with a light that follows the pointer. */
   .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px; }
   .tile { position: relative; padding: 34px 30px 36px; border-radius: 28px; border: 1px solid var(--line); background: rgba(255, 255, 255, .025); backdrop-filter: blur(14px); overflow: hidden; }
@@ -231,6 +239,8 @@
     .step::before { transform: scaleY(1); }
     .grid3 { grid-template-columns: 1fr; }
     .next { flex-direction: column; align-items: flex-start; }
+    .game { flex-wrap: wrap; margin-top: 40px; padding: 22px; }
+    .game .more { margin-left: 0; width: 100%; }
     .contact { padding-block: 34vh 90px; }
     .contact h2 { letter-spacing: -3px; }
   }
@@ -329,6 +339,13 @@
         </div>
       </div>
     </div>
+    <div class="wrap">
+      <a class="game" id="ft-link" href="/tr/fluffytail/" data-reveal>
+        <img class="ph" src="/assets/fluffytail-icon.png" alt="" width="72" height="72">
+        <div><h3 data-i18n="ftName">Fluffytail: Squirrel Adventure</h3><p data-i18n="ftTag">A 3D adventure for kids aged 6–8. No ads, works offline. Coming soon to the App Store and Google Play.</p></div>
+        <span class="more" data-i18n="ftMore">See the game →</span>
+      </a>
+    </div>
   </section>
 
   <section id="studio">
@@ -376,7 +393,7 @@
   <div class="wrap">
     <span>© 2026 Moon Arc Works</span>
     <span class="tonight"><canvas id="tonight" width="44" height="44" aria-hidden="true"></canvas><span id="tonight-text">Tonight's moon</span></span>
-    <nav><a href="/exhale-site/" data-i18n="appName">Exhale</a><a href="/exhale-site/privacy.html" data-i18n="privacy">Privacy</a><a href="mailto:support@moonarcworks.com" data-i18n="navContact">Contact</a></nav>
+    <nav><a href="/exhale-site/" data-i18n="appName">Exhale</a><a id="ft-foot" href="/tr/fluffytail/" data-i18n="ftShort">Fluffytail</a><a href="/exhale-site/privacy.html" data-i18n="privacy">Privacy</a><a href="mailto:support@moonarcworks.com" data-i18n="navContact">Contact</a></nav>
   </div>
 </footer>
 
@@ -637,6 +654,8 @@
       nextH: 'The next phase is rising.', nextP: 'A new app is in the works. It will show up here first.',
       contactH: 'Say <span class="serif shimmer">hello.</span>', contactP: 'Questions, ideas or press: we read every message.',
       privacy: 'Privacy',
+      ftName: 'Fluffytail: Squirrel Adventure', ftShort: 'Fluffytail', ftMore: 'See the game →', ftSite: '/fluffytail/',
+      ftTag: 'A 3D adventure for kids aged 6–8. No ads, works offline. Coming soon to the App Store and Google Play.',
       tonight: (name, pct) => `Tonight's moon: ${name}, ${pct}% lit`,
       phases: ['new moon', 'waxing crescent', 'first quarter', 'waxing gibbous', 'full moon', 'waning gibbous', 'last quarter', 'waning crescent'],
     },
@@ -663,6 +682,8 @@
       nextH: 'Sıradaki evre doğuyor.', nextP: 'Yeni bir uygulama yolda. İlk burada görünecek.',
       contactH: '<span class="serif shimmer">Merhaba</span> de.', contactP: 'Sorular, fikirler ya da basın: her mesajı okuyoruz.',
       privacy: 'Gizlilik',
+      ftName: 'Fluffytail: Sincap Macerası', ftShort: 'Fluffytail', ftMore: 'Oyuna göz at →', ftSite: '/tr/fluffytail/',
+      ftTag: "6–8 yaş çocuklar için 3D bir macera. Reklam yok, internetsiz oynanır. Yakında App Store ve Google Play'de.",
       tonight: (name, pct) => `Bu gece ay: ${name}, %${pct} aydınlık`,
       phases: ['yeni ay', 'büyüyen hilal', 'ilk dördün', 'büyüyen şişkin ay', 'dolunay', 'küçülen şişkin ay', 'son dördün', 'küçülen hilal'],
     },
@@ -685,6 +706,7 @@
       ? `<span class="rise" style="--i:${i++}"><span class="serif shimmer">${w.slice(1)}</span></span>`
       : `<span class="rise" style="--i:${i++}">${w}</span>`).join(' ')).join('<br>');
     document.getElementById('site-link').href = t.site;
+    document.getElementById('ft-link').href = t.ftSite; document.getElementById('ft-foot').href = t.ftSite;
     document.querySelectorAll('[data-shot]').forEach((img) => { img.src = `/assets/exhale-${img.dataset.shot}-${lang}.webp`; });
     const sw = document.getElementById('lang'); sw.textContent = t.switchTo; sw.setAttribute('aria-label', t.switchLabel);
     document.getElementById('launch-label').textContent = launched ? t.launchOut : t.launchSoon;

@@ -1,6 +1,6 @@
 # Moon Arc Works
 
-> Moon Arc Works is an independent studio that makes mobile apps for iPhone and Android, each written for 34 languages. Its first app is Exhale (Dumansız in Turkish), a quit smoking and vaping app, launching on the App Store and Google Play on 7 December 2026.
+> Moon Arc Works is an independent studio that makes mobile apps and games for iPhone and Android, each written for 34 languages. Its first app is Exhale (Dumansız in Turkish), a quit smoking and vaping app, launching on the App Store and Google Play on 7 December 2026. Its first game, Fluffytail: Squirrel Adventure, a 3D platformer for kids aged 6 to 8, is coming soon.
 
 ## Exhale: quit smoking and vaping
 
@@ -25,7 +25,17 @@ The typical price of a pack of 20 cigarettes in 101 countries, and what a pack o
 - Country pages follow the pattern https://moonarcworks.com/exhale-site/en/cost-of-smoking/<country>/ (for example [Germany](https://moonarcworks.com/exhale-site/en/cost-of-smoking/germany/), [Japan](https://moonarcworks.com/exhale-site/en/cost-of-smoking/japan/), [Türkiye](https://moonarcworks.com/exhale-site/en/cost-of-smoking/turkiye/))
 - Price data, free to reuse under CC BY 4.0 (credit Exhale by Moon Arc Works): [CSV](https://moonarcworks.com/exhale-site/data/cigarette-prices.csv), [JSON](https://moonarcworks.com/exhale-site/prices.json)
 
+## Fluffytail: Squirrel Adventure
+
+A 3D platformer for kids aged 6 to 8 (Fluffytail: Sincap Macerası in Turkish): a little squirrel runs, climbs and glides through five worlds, all the way to the Moon, to bring little Peanut, stolen away by a fox, back home. No ads, no tracking, no accounts, no chat; it works offline and collects no personal data. The first two chapters are free; one optional purchase, behind a grown-up question, unlocks the Full Adventure. iPhone, iPad and Android, 34 languages. Coming soon.
+
+- [Fluffytail (English)](https://moonarcworks.com/fluffytail/)
+- [Fluffytail: Sincap Macerası (Türkçe)](https://moonarcworks.com/tr/fluffytail/)
+- [Privacy policy](https://moonarcworks.com/fluffytail/privacy/)
+- [Support and FAQ for parents](https://moonarcworks.com/fluffytail/support/)
+
 ## Contact
 
 - Support: support@moonarcworks.com
-- [Privacy policy](https://moonarcworks.com/exhale-site/privacy.html)
+- [Exhale privacy policy](https://moonarcworks.com/exhale-site/privacy.html)
+- [Fluffytail privacy policy](https://moonarcworks.com/fluffytail/privacy/)
