@@ -19,7 +19,8 @@ const swaps = [
   ['<meta property="og:description" content="An independent studio making calm, useful mobile apps and games.">',
     '<meta property="og:description" content="Sakin ve işe yarar mobil uygulamalar ve oyunlar yapan bağımsız bir stüdyo.">'],
   // Links to the game point at its Turkish pages (the page's script sets the same for visitors).
-  ['<a class="game" id="ft-link" href="/fluffytail/" data-reveal>', '<a class="game" id="ft-link" href="/fluffytail/tr/" data-reveal>'],
+  ['<a class="btn btn-gold" id="ft-link" href="/fluffytail/" data-i18n="ftVisit">', '<a class="btn btn-gold" id="ft-link" href="/fluffytail/tr/" data-i18n="ftVisit">'],
+  ['https://www.youtube.com/watch?v=0Ahu6HM9Otw', 'https://www.youtube.com/watch?v=qovEDOjrpmY'],
   ['<a id="ft-foot" href="/fluffytail/" data-i18n="ftShort">', '<a id="ft-foot" href="/fluffytail/tr/" data-i18n="ftShort">'],
 ];
 let tr = en;

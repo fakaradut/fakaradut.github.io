@@ -183,6 +183,14 @@
   @keyframes bob { 50% { translate: 0 -12px; } }
 
   /* Fluffytail: the second app, a card under Exhale's showcase. */
+  /* Fluffytail: mirrored showcase, a landscape tablet instead of the phone. */
+  .showcase.ft { margin-top: 160px; grid-template-columns: 1.1fr 1fr; }
+  .tablet { width: min(600px, 100%); aspect-ratio: 2796 / 1290; border-radius: 34px; padding: 10px; transform: rotateY(var(--ry, 12deg)) rotateX(var(--rx, 6deg)); }
+  .tablet .screen { border-radius: 25px; }
+  .tablet .float.f1 { left: -6%; top: 82%; }
+  .tablet .float.f2 { right: -6%; top: -8%; left: auto; }
+  .tablet .float b { color: var(--gold-light); }
+  .stores .btn svg { width: 16px; height: 16px; fill: currentColor; }
   .game { margin-top: 70px; display: flex; align-items: center; gap: 24px; padding: 26px 28px; border-radius: 28px; border: 1px solid var(--line); background: linear-gradient(150deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .015)); backdrop-filter: blur(16px); transition: border-color .3s, transform .5s var(--ease); }
   .game:hover { border-color: rgba(244, 195, 106, .45); transform: translateY(-3px); }
   .game .ph { flex: none; width: 72px; height: 72px; border-radius: 18px; display: block; }
@@ -231,6 +239,11 @@
     .showcase > div:first-child { display: contents; }
     .kicker { order: 1; } .app-head { order: 2; } .stage { order: 3; } .steps { order: 4; } .launch { order: 5; }
     .stage { position: relative; top: 0; height: auto; min-height: 0; padding: 30px 0 20px; }
+    .showcase.ft { margin-top: 90px; grid-template-columns: 1fr; }
+    .showcase.ft > .stage { display: grid; order: 3; }
+    .showcase.ft > div:last-child { display: contents; }
+    .phone.tablet { width: 100%; }
+    .tablet .float.f1 { left: 2%; top: 86%; } .tablet .float.f2 { right: 2%; top: -10%; }
     .phone { width: min(250px, 62vw); }
     .float.f1 { left: -22%; }
     .float.f2 { right: -20%; }
@@ -339,12 +352,56 @@
         </div>
       </div>
     </div>
-    <div class="wrap">
-      <a class="game" id="ft-link" href="/fluffytail/tr/" data-reveal>
-        <img class="ph" src="/assets/fluffytail-icon.png" alt="" width="72" height="72">
-        <div><h3 data-i18n="ftName">Fluffytail: Squirrel Adventure</h3><p data-i18n="ftTag">A 3D adventure for kids aged 6–8. No ads, works offline. Coming soon to the App Store and Google Play.</p></div>
-        <span class="more" data-i18n="ftMore">See the game →</span>
-      </a>
+    <!-- Fluffytail: the same scroll story, mirrored, with a landscape tablet showing the localized store screenshots. -->
+    <div class="wrap showcase ft" id="fluffytail">
+      <div class="stage">
+        <div class="phone tablet">
+          <div class="screen">
+            <img class="on" data-ft="01" src="/fluffytail/gen/shots/en/01-1600.webp" alt="Fluffytail: the golden valley seen from above the treetops">
+            <img data-ft="02" src="/fluffytail/gen/shots/en/02-1600.webp" alt="Fluffytail: the squirrel rides a dragonfly through a ring" loading="lazy">
+            <img data-ft="05" src="/fluffytail/gen/shots/en/05-1600.webp" alt="Fluffytail: the Snow Owl flies in behind the squirrel" loading="lazy">
+            <img data-ft="07" src="/fluffytail/gen/shots/en/07-1600.webp" alt="Fluffytail: the squirrel on the Moon, the Earth in the sky" loading="lazy">
+          </div>
+          <div class="float f1"><span data-i18n="ftWorlds">Worlds</span><b>5</b></div>
+          <div class="float f2"><span data-i18n="ftLangs">Languages</span><b>34</b></div>
+        </div>
+      </div>
+      <div>
+        <div class="kicker" data-reveal data-i18n="ourGames">Our games</div>
+        <div class="app-head" data-reveal style="--d:1">
+          <img src="/assets/fluffytail-icon.png" alt="Fluffytail game icon">
+          <div><h3 data-i18n="ftShort">Fluffytail</h3><p data-i18n="ftSub">Squirrel Adventure · for kids aged 6–8</p></div>
+        </div>
+        <div class="steps">
+          <div class="step on" data-screen="0">
+            <small>01</small>
+            <h4 data-i18n="f1h">A storybook adventure to the Moon.</h4>
+            <p data-i18n="f1p">Redtail the fox has carried little Peanut away. Run, climb, double jump and glide on your fluffy tail through five worlds to bring her home.</p>
+          </div>
+          <div class="step" data-screen="1">
+            <small>02</small>
+            <h4 data-i18n="f2h">Sled, sail and fly.</h4>
+            <p data-i18n="f2p">Ride a dragonfly through the rings, race a sled down the snow, row a boat between little islands and take a rocket to the Moon.</p>
+          </div>
+          <div class="step" data-screen="2">
+            <small>03</small>
+            <h4 data-i18n="f3h">Bosses who become friends.</h4>
+            <p data-i18n="f3p">The Snow Owl, a giant hermit crab, Baron Magpie in his junk robot: beaten foes just get dizzy. Nobody gets hurt, and many become friends.</p>
+          </div>
+          <div class="step" data-screen="3">
+            <small>04</small>
+            <h4 data-i18n="f4h">Made for kids, kind to parents.</h4>
+            <p data-i18n="f4p">No ads, no tracking, works offline. The first two chapters are free, and one single purchase unlocks the whole adventure.</p>
+          </div>
+        </div>
+        <div class="launch" data-reveal>
+          <div class="label" data-i18n="ftSoon">Coming soon to the App Store and Google Play, on iPhone, iPad and Android.</div>
+          <div class="stores" style="margin-top:16px">
+            <a class="btn btn-gold" id="ft-link" href="/fluffytail/tr/" data-i18n="ftVisit">Visit the Fluffytail site →</a>
+            <a class="btn btn-ghost store" id="ft-trailer" href="https://www.youtube.com/watch?v=qovEDOjrpmY" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg><span data-i18n="ftTrailer">Watch the trailer</span></a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -614,20 +671,22 @@
   }
 
   /* ---------- Exhale: steps switch the phone screen, the phone follows the pointer ---------- */
-  const shots = [...document.querySelectorAll('.screen img')], steps = [...document.querySelectorAll('.step')];
-  const show = (i) => { shots.forEach((s, j) => s.classList.toggle('on', i === j)); steps.forEach((s, j) => s.classList.toggle('on', i === j)); };
-  if (innerWidth >= 900) {
-    const so = new IntersectionObserver((entries) => { for (const e of entries) if (e.isIntersecting) show(+e.target.dataset.screen); }, { rootMargin: '-45% 0px -45% 0px' });
-    steps.forEach((s) => so.observe(s));
-  } else if (!reduced) {
-    let i = 0; setInterval(() => { i = (i + 1) % shots.length; shots.forEach((s, j) => s.classList.toggle('on', i === j)); }, 3200);
+  for (const sc of document.querySelectorAll('.showcase')) {
+    const shots = [...sc.querySelectorAll('.screen img')], steps = [...sc.querySelectorAll('.step')];
+    const show = (i) => { shots.forEach((s, j) => s.classList.toggle('on', i === j)); steps.forEach((s, j) => s.classList.toggle('on', i === j)); };
+    if (innerWidth >= 900) {
+      const so = new IntersectionObserver((entries) => { for (const e of entries) if (e.isIntersecting) show(+e.target.dataset.screen); }, { rootMargin: '-45% 0px -45% 0px' });
+      steps.forEach((s) => so.observe(s));
+    } else if (!reduced) {
+      let i = 0; setInterval(() => { i = (i + 1) % shots.length; shots.forEach((s, j) => s.classList.toggle('on', i === j)); }, 3200);
+    }
+    const device = sc.querySelector('.phone'), stage = sc.querySelector('.stage');
+    if (!reduced) stage.addEventListener('pointermove', (e) => {
+      const r = stage.getBoundingClientRect();
+      device.style.setProperty('--ry', ((e.clientX - r.left) / r.width - .5) * 26 + 'deg');
+      device.style.setProperty('--rx', -((e.clientY - r.top) / r.height - .5) * 16 + 'deg');
+    });
   }
-  const phone = document.getElementById('phone'), stage = document.querySelector('.stage');
-  if (!reduced) stage.addEventListener('pointermove', (e) => {
-    const r = stage.getBoundingClientRect();
-    phone.style.setProperty('--ry', ((e.clientX - r.left) / r.width - .5) * 26 + 'deg');
-    phone.style.setProperty('--rx', -((e.clientY - r.top) / r.height - .5) * 16 + 'deg');
-  });
 
   /* ---------- Words in English and Turkish ---------- */
   const T = {
@@ -654,6 +713,12 @@
       nextH: 'The next phase is rising.', nextP: 'A new app is in the works. It will show up here first.',
       contactH: 'Say <span class="serif shimmer">hello.</span>', contactP: 'Questions, ideas or press: we read every message.',
       privacy: 'Privacy',
+      ourGames: 'Our games', ftSub: 'Squirrel Adventure · for kids aged 6–8', ftWorlds: 'Worlds', ftLangs: 'Languages',
+      f1h: 'A storybook adventure to the Moon.', f1p: 'Redtail the fox has carried little Peanut away. Run, climb, double jump and glide on your fluffy tail through five worlds to bring her home.',
+      f2h: 'Sled, sail and fly.', f2p: 'Ride a dragonfly through the rings, race a sled down the snow, row a boat between little islands and take a rocket to the Moon.',
+      f3h: 'Bosses who become friends.', f3p: 'The Snow Owl, a giant hermit crab, Baron Magpie in his junk robot: beaten foes just get dizzy. Nobody gets hurt, and many become friends.',
+      f4h: 'Made for kids, kind to parents.', f4p: 'No ads, no tracking, works offline. The first two chapters are free, and one single purchase unlocks the whole adventure.',
+      ftSoon: 'Coming soon to the App Store and Google Play, on iPhone, iPad and Android.', ftVisit: 'Visit the Fluffytail site →', ftTrailer: 'Watch the trailer', ftVideo: '0Ahu6HM9Otw',
       ftName: 'Fluffytail: Squirrel Adventure', ftShort: 'Fluffytail', ftMore: 'See the game →', ftSite: '/fluffytail/',
       ftTag: 'A 3D adventure for kids aged 6–8. No ads, works offline. Coming soon to the App Store and Google Play.',
       tonight: (name, pct) => `Tonight's moon: ${name}, ${pct}% lit`,
@@ -682,6 +747,12 @@
       nextH: 'Sıradaki evre doğuyor.', nextP: 'Yeni bir uygulama yolda. İlk burada görünecek.',
       contactH: '<span class="serif shimmer">Merhaba</span> de.', contactP: 'Sorular, fikirler ya da basın: her mesajı okuyoruz.',
       privacy: 'Gizlilik',
+      ourGames: 'Oyunlarımız', ftSub: 'Sincap Macerası · 6–8 yaş çocuklar için', ftWorlds: 'Dünya', ftLangs: 'Dil',
+      f1h: "Ay'a uzanan bir masal macerası.", f1p: "Tilki Kızılkuyruk minik Fıstık'ı kaçırdı. Onu eve getirmek için beş dünyada koş, tırman, çift zıpla ve kabarık kuyruğunla süzül.",
+      f2h: 'Kay, kürek çek, uç.', f2p: "Yusufçukla halkaların içinden geç, karda kızakla yarış, adacıklar arasında kayıkla dolaş ve roketle Ay'a uç.",
+      f3h: 'Dost olan bosslar.', f3p: 'Kar Baykuşu, dev keşiş yengeci, hurda robotuyla Saksağan Baron: yenilenler sadece sersemler. Kimse incinmez, çoğu dost olur.',
+      f4h: 'Çocuklar için, ebeveynlere saygılı.', f4p: 'Reklam yok, takip yok, internetsiz oynanır. İlk iki bölüm ücretsiz; tek bir satın alma bütün macerayı açar.',
+      ftSoon: "Yakında App Store ve Google Play'de; iPhone, iPad ve Android için.", ftVisit: 'Fluffytail sitesine git →', ftTrailer: 'Fragmanı izle', ftVideo: 'qovEDOjrpmY',
       ftName: 'Fluffytail: Sincap Macerası', ftShort: 'Fluffytail', ftMore: 'Oyuna göz at →', ftSite: '/fluffytail/tr/',
       ftTag: "6–8 yaş çocuklar için 3D bir macera. Reklam yok, internetsiz oynanır. Yakında App Store ve Google Play'de.",
       tonight: (name, pct) => `Bu gece ay: ${name}, %${pct} aydınlık`,
@@ -708,6 +779,8 @@
     document.getElementById('site-link').href = t.site;
     document.getElementById('ft-link').href = t.ftSite; document.getElementById('ft-foot').href = t.ftSite;
     document.querySelectorAll('[data-shot]').forEach((img) => { img.src = `/assets/exhale-${img.dataset.shot}-${lang}.webp`; });
+    document.querySelectorAll('[data-ft]').forEach((img) => { img.src = `/fluffytail/gen/shots/${lang}/${img.dataset.ft}-1600.webp`; });
+    document.getElementById('ft-trailer').href = `https://www.youtube.com/watch?v=${t.ftVideo}`;
     const sw = document.getElementById('lang'); sw.textContent = t.switchTo; sw.setAttribute('aria-label', t.switchLabel);
     document.getElementById('launch-label').textContent = launched ? t.launchOut : t.launchSoon;
     tonightText();
