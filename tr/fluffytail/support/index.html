@@ -7,9 +7,9 @@
 <meta name="description" content="Ebeveynler için yardım: Tam Macera'yı geri yükleme, Aile Paylaşımı, kaydı silme, diller ve cihaz gereksinimleri.">
 <meta name="theme-color" content="#070B1C">
 <meta name="color-scheme" content="dark">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="/favicon-32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/fluffytail/gen/icon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/fluffytail/gen/icon/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/fluffytail/gen/icon/apple-touch-icon.png">
 <link rel="canonical" href="https://moonarcworks.com/tr/fluffytail/support/">
 <link rel="alternate" hreflang="en" href="https://moonarcworks.com/fluffytail/support/">
 <link rel="alternate" hreflang="tr" href="https://moonarcworks.com/tr/fluffytail/support/">
@@ -20,8 +20,9 @@
 <meta property="og:description" content="Ebeveynler için yardım: Tam Macera'yı geri yükleme, Aile Paylaşımı, kaydı silme, diller ve cihaz gereksinimleri.">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="Moon Arc Works">
-<!-- PLACEHOLDER: swap for a Fluffytail share image (1200x630) once the art is picked. -->
-<meta property="og:image" content="https://moonarcworks.com/assets/og.png">
+<meta property="og:image" content="https://moonarcworks.com/fluffytail/gen/og/tr.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Destek – Fluffytail: Sincap Macerası | Moon Arc Works","url":"https://moonarcworks.com/tr/fluffytail/support/","inLanguage":"tr","about":{"@id":"https://moonarcworks.com/fluffytail/#game"},"publisher":{"@id":"https://moonarcworks.com/#org"}}</script>
 <style>
@@ -83,21 +84,8 @@
   .soon { cursor: default; }
   .soon small { font-weight: 400; color: var(--muted); font-size: 13px; }
 
-  /* Game page */
-  .hero { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: start; }
-  .icon { width: 128px; height: 128px; border-radius: 28px; display: block; }
-  .icon-ph { width: 128px; height: 128px; border-radius: 28px; border: 2px dashed rgba(244, 195, 106, .5); display: grid; place-items: center; text-align: center; padding: 10px; font-size: 12px; line-height: 1.3; color: var(--muted); background: rgba(244, 195, 106, .05); }
-  .shots { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  /* PLACEHOLDER: screenshots (landscape, 16:9) go here. */
-  .shot-ph { aspect-ratio: 16 / 9; border-radius: 16px; border: 2px dashed var(--line); display: grid; place-items: center; color: var(--muted); font-size: 13px; background: var(--card); text-align: center; padding: 8px; }
-  .tiles { margin-top: 20px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .tile { padding: 22px 22px 24px; border-radius: 22px; border: 1px solid var(--line); background: var(--card); }
-  .tile h3 { margin-top: 0; }
-  .tile p { color: var(--muted); font-size: 15px; margin-top: 6px; }
-  .checks { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 24px; }
-  .checks li { margin: 0; padding-left: 30px; position: relative; }
-  .checks li::before { content: "✓"; position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: rgba(244, 195, 106, .15); color: var(--gold-light); font-size: 13px; display: grid; place-items: center; margin-top: 3px; }
-  .links { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .kicker { display: flex; align-items: center; gap: 12px; }
+  .kicker-icon { width: 40px; height: 40px; border-radius: 10px; flex: none; }
 
   /* Support page */
   details { border: 1px solid var(--line); border-radius: 18px; background: var(--card); margin-top: 12px; }
@@ -117,9 +105,6 @@
 
   @media (max-width: 640px) {
     main { padding-block: 36px 60px; }
-    .hero { grid-template-columns: 1fr; gap: 20px; }
-    .icon-ph { width: 96px; height: 96px; border-radius: 22px; }
-    .shots, .tiles, .checks { grid-template-columns: 1fr; }
     .btn { width: 100%; justify-content: center; }
   }
 </style>
@@ -129,12 +114,12 @@
 <header>
   <div class="wrap">
     <a class="brand" href="/tr/" aria-label="Moon Arc Works ana sayfa"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE7B3"/><stop offset="1" stop-color="#E39E3C"/></linearGradient></defs><path transform="translate(3 -2.3)" d="M41.723 16.552 A36 36 0 1 0 82.071 63.625 A31 31 0 0 1 41.723 16.552 Z" fill="url(#g)"/></svg>Moon Arc Works</a>
-    <nav aria-label="Fluffytail: Sincap Macerası"><a href="/tr/fluffytail/">Oyun</a><a href="/tr/fluffytail/privacy/">Gizlilik</a><a href="/tr/fluffytail/support/" aria-current="page">Destek</a><a class="lang" href="/fluffytail/support/" hreflang="en" lang="en" aria-label="English">EN</a></nav>
+    <nav aria-label="Fluffytail: Sincap Macerası"><a href="/fluffytail/tr/">Oyun</a><a href="/tr/fluffytail/privacy/">Gizlilik</a><a href="/tr/fluffytail/support/" aria-current="page">Destek</a><a class="lang" href="/fluffytail/support/" hreflang="en" lang="en" aria-label="English">EN</a></nav>
   </div>
 </header>
 <main id="main" class="wrap doc">
 
-  <p class="kicker"><span lang="en">Fluffytail</span>: Sincap Macerası</p>
+  <p class="kicker"><img class="kicker-icon" src="/fluffytail/gen/icon/icon-256.webp" alt="" width="40" height="40"><span lang="en">Fluffytail</span>: Sincap Macerası</p>
   <h1>Destek</h1>
   <p class="lead">Yardım mı lazım? Bize yaz; her mesajı okuyoruz ve genellikle birkaç gün içinde cevap veriyoruz.</p>
   <div class="actions"><a class="btn btn-gold" href="mailto:support@moonarcworks.com?subject=Fluffytail">support@moonarcworks.com</a></div>
@@ -232,14 +217,14 @@
   </details>
 
   <div class="links">
-    <a class="btn btn-ghost" href="/tr/fluffytail/">Oyun hakkında</a>
+    <a class="btn btn-ghost" href="/fluffytail/tr/">Oyun hakkında</a>
     <a class="btn btn-ghost" href="/tr/fluffytail/privacy/">Gizlilik politikası</a>
   </div>
 </main>
 <footer>
   <div class="wrap">
     <span>© 2026 Moon Arc Works</span>
-    <nav aria-label="Alt bilgi"><a href="/tr/">Moon Arc Works</a><a href="/tr/fluffytail/">Fluffytail: Sincap Macerası</a><a href="/tr/fluffytail/privacy/">Gizlilik</a><a href="/tr/fluffytail/support/">Destek</a><a href="mailto:support@moonarcworks.com">İletişim</a></nav>
+    <nav aria-label="Alt bilgi"><a href="/tr/">Moon Arc Works</a><a href="/fluffytail/tr/">Fluffytail: Sincap Macerası</a><a href="/tr/fluffytail/privacy/">Gizlilik</a><a href="/tr/fluffytail/support/">Destek</a><a href="mailto:support@moonarcworks.com">İletişim</a></nav>
   </div>
 </footer>
 </body>

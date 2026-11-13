@@ -1,8 +1,10 @@
-// Fluffytail: Squirrel Adventure – the game page, its privacy policy and its support page, in English and Turkish.
+// Fluffytail: Squirrel Adventure – its privacy policy and its support page, in English and Turkish.
 // build.mjs calls writeFluffytail() and writes:
-//   fluffytail/index.html          tr/fluffytail/index.html
 //   fluffytail/privacy/index.html  tr/fluffytail/privacy/index.html
 //   fluffytail/support/index.html  tr/fluffytail/support/index.html
+//   tr/fluffytail/index.html       a small page that sends the old Turkish address to /fluffytail/tr/
+// The game page itself (/fluffytail/ and /fluffytail/<lang>/ in 34 languages) is built from the game repo:
+// sincap/web (Astro), copied here by sincap/web/scripts/deploy-local.sh. Its icons live in /fluffytail/gen/.
 // Edit the words here, then run `node build.mjs`. The pages are plain HTML and CSS: no scripts, no cookies, no trackers.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -22,8 +24,6 @@ const LANGS = [
 ];
 const langList = LANGS.map(([code, name]) => `<span lang="${code}">${name}</span>`).join(', ');
 
-const APPLE_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.4-.6 3.1-1.5z"/></svg>';
-const PLAY_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.3c-.3.3-.4.7-.4 1.2v17c0 .5.1.9.4 1.2l9.4-9.7-9.4-9.7zm10.6 10.9 2.6 2.7-11.4 6.6 8.8-9.3zm3.9-4 3 1.7c.9.5.9 1.8 0 2.3l-3 1.8-2.9-2.9 2.9-2.9zM5.4 1.5l11.4 6.6-2.6 2.7-8.8-9.3z"/></svg>';
 const MARK_SVG = '<svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE7B3"/><stop offset="1" stop-color="#E39E3C"/></linearGradient></defs><path transform="translate(3 -2.3)" d="M41.723 16.552 A36 36 0 1 0 82.071 63.625 A31 31 0 0 1 41.723 16.552 Z" fill="url(#g)"/></svg>';
 
 const CSS = `
@@ -85,21 +85,8 @@ const CSS = `
   .soon { cursor: default; }
   .soon small { font-weight: 400; color: var(--muted); font-size: 13px; }
 
-  /* Game page */
-  .hero { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: start; }
-  .icon { width: 128px; height: 128px; border-radius: 28px; display: block; }
-  .icon-ph { width: 128px; height: 128px; border-radius: 28px; border: 2px dashed rgba(244, 195, 106, .5); display: grid; place-items: center; text-align: center; padding: 10px; font-size: 12px; line-height: 1.3; color: var(--muted); background: rgba(244, 195, 106, .05); }
-  .shots { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  /* PLACEHOLDER: screenshots (landscape, 16:9) go here. */
-  .shot-ph { aspect-ratio: 16 / 9; border-radius: 16px; border: 2px dashed var(--line); display: grid; place-items: center; color: var(--muted); font-size: 13px; background: var(--card); text-align: center; padding: 8px; }
-  .tiles { margin-top: 20px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .tile { padding: 22px 22px 24px; border-radius: 22px; border: 1px solid var(--line); background: var(--card); }
-  .tile h3 { margin-top: 0; }
-  .tile p { color: var(--muted); font-size: 15px; margin-top: 6px; }
-  .checks { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 24px; }
-  .checks li { margin: 0; padding-left: 30px; position: relative; }
-  .checks li::before { content: "✓"; position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: rgba(244, 195, 106, .15); color: var(--gold-light); font-size: 13px; display: grid; place-items: center; margin-top: 3px; }
-  .links { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .kicker { display: flex; align-items: center; gap: 12px; }
+  .kicker-icon { width: 40px; height: 40px; border-radius: 10px; flex: none; }
 
   /* Support page */
   details { border: 1px solid var(--line); border-radius: 18px; background: var(--card); margin-top: 12px; }
@@ -119,9 +106,6 @@ const CSS = `
 
   @media (max-width: 640px) {
     main { padding-block: 36px 60px; }
-    .hero { grid-template-columns: 1fr; gap: 20px; }
-    .icon-ph { width: 96px; height: 96px; border-radius: 22px; }
-    .shots, .tiles, .checks { grid-template-columns: 1fr; }
     .btn { width: 100%; justify-content: center; }
   }
 `;
@@ -172,102 +156,7 @@ const T = {
 };
 
 const mail = `<a href="mailto:${MAIL}">${MAIL}</a>`;
-
-/* ----- Game page ----- */
-const gameBody = {
-  en: (p) => `
-  <div class="hero">
-    <img class="icon" src="/assets/fluffytail-icon.png" alt="Fluffytail icon: a laughing squirrel" width="128" height="128">
-    <div>
-      <p class="kicker">A 3D adventure for kids aged 6–8</p>
-      <h1>${T.en.gameHtml}</h1>
-      <p class="lead">One stormy night, Redtail the fox steals the golden acorns and carries little Peanut away in his sack. Run, climb, double jump and glide on your fluffy tail through five worlds, all the way to the Moon, to bring your sister home.</p>
-      <!-- Store buttons: coming soon. Replace each <span> with a link to the store page when the game is out. -->
-      <div class="actions">
-        <span class="btn btn-ghost soon" aria-disabled="true">${APPLE_SVG}<span>App Store <small>· coming soon</small></span></span>
-        <span class="btn btn-ghost soon" aria-disabled="true">${PLAY_SVG}<span>Google Play <small>· coming soon</small></span></span>
-      </div>
-    </div>
-  </div>
-
-  <!-- PLACEHOLDER: screenshots (landscape). Replace each figure with <img src="..." alt="..." width="1920" height="1080" loading="lazy">. -->
-  <div class="shots" aria-label="Screenshots, coming soon" role="group">
-    <div class="shot-ph">Screenshot coming soon</div>
-    <div class="shot-ph">Screenshot coming soon</div>
-    <div class="shot-ph">Screenshot coming soon</div>
-  </div>
-
-  <h2>What's inside</h2>
-  <div class="tiles">
-    <div class="tile"><h3>Five worlds, sixteen chapters</h3><p>The hazelnut hills, the Winter Land, a sunny island, Baron Magpie's city of rooftops and, at last, a rocket ride to the Moon. Every chapter opens like a page of a storybook.</p></div>
-    <div class="tile"><h3>Friendly fights</h3><p>Bosses with their own tricks, and nobody gets hurt: beaten foes get dizzy and run off, and many become friends. Out of hearts? Carry on from the last checkpoint.</p></div>
-    <div class="tile"><h3>Bring the little ones home</h3><p>Penguin chicks, owlets, turtle hatchlings, kittens and bunnies are lost. Find them and they waddle after you, all the way home to their mom.</p></div>
-    <div class="tile"><h3>Never stuck</h3><p>A little bluebird flies over to show the way when a puzzle takes too long, and an arrow always points to the next goal. Easy controls made for small hands.</p></div>
-  </div>
-
-  <h2>For parents</h2>
-  <ul class="checks">
-    <li>No ads, no tracking, no accounts, no chat</li>
-    <li>Collects no personal data</li>
-    <li>Works offline</li>
-    <li>Lots of pictures, few words, in 34 languages</li>
-    <li>The first two chapters are free</li>
-    <li>One single purchase unlocks the Full Adventure; no subscription</li>
-    <li>Buying sits behind a grown-up question</li>
-    <li>iPhone, iPad and Android</li>
-  </ul>
-
-  <div class="links">
-    <a class="btn btn-gold" href="${p.privacy}">Privacy policy</a>
-    <a class="btn btn-ghost" href="${p.support}">Support and FAQ</a>
-  </div>`,
-  tr: (p) => `
-  <div class="hero">
-    <img class="icon" src="/assets/fluffytail-icon.png" alt="Fluffytail ikonu: gülen bir sincap" width="128" height="128">
-    <div>
-      <p class="kicker">6–8 yaş çocuklar için 3D macera</p>
-      <h1>${T.tr.gameHtml}</h1>
-      <p class="lead">Fırtınalı bir gece Kızılkuyruk adlı tilki altın palamutları çalar ve minik Fıstık'ı çuvalına koyup kaçırır. Kardeşini eve getirmek için beş dünyada, Ay'a kadar koş, tırman, takla atarak çift zıpla ve kabarık kuyruğunla süzül.</p>
-      <!-- Mağaza düğmeleri: yakında. Oyun çıkınca her <span>'i mağaza sayfasına giden bir bağlantıyla değiştir. -->
-      <div class="actions">
-        <span class="btn btn-ghost soon" aria-disabled="true">${APPLE_SVG}<span>App Store <small>· yakında</small></span></span>
-        <span class="btn btn-ghost soon" aria-disabled="true">${PLAY_SVG}<span>Google Play <small>· yakında</small></span></span>
-      </div>
-    </div>
-  </div>
-
-  <!-- PLACEHOLDER: ekran görüntüleri (yatay). Her kutuyu <img src="..." alt="..." width="1920" height="1080" loading="lazy"> ile değiştir. -->
-  <div class="shots" aria-label="Ekran görüntüleri, yakında" role="group">
-    <div class="shot-ph">Ekran görüntüsü yakında</div>
-    <div class="shot-ph">Ekran görüntüsü yakında</div>
-    <div class="shot-ph">Ekran görüntüsü yakında</div>
-  </div>
-
-  <h2>İçinde neler var</h2>
-  <div class="tiles">
-    <div class="tile"><h3>Beş dünya, on altı bölüm</h3><p>Fındık tepeleri, Kış Diyarı, güneşli bir ada, Saksağan Baron'un çatılarla dolu şehri ve en sonunda roketle Ay'a yolculuk. Her bölüm bir masal kitabının sayfası gibi açılır.</p></div>
-    <div class="tile"><h3>Tatlı dövüşler</h3><p>Kendi numaraları olan bosslar var ama kimse incinmez: yenilenler sersemleyip kaçar, çoğu dost olur. Canların biterse son kontrol noktasından devam edersin.</p></div>
-    <div class="tile"><h3>Yavruları eve getir</h3><p>Penguen, baykuş ve kaplumbağa yavruları, kedi yavruları ve tavşanlar kaybolmuş. Onları bul, peşine takılıp annelerine kadar seninle gelsinler.</p></div>
-    <div class="tile"><h3>Hiç takılma</h3><p>Bir bulmaca uzun sürerse küçük mavi bir kuş gelip yolu gösterir, ekrandaki işaret de hep bir sonraki hedefi gösterir. Küçük eller için kolay kontroller.</p></div>
-  </div>
-
-  <h2>Ebeveynler için</h2>
-  <ul class="checks">
-    <li>Reklam yok, takip yok, hesap yok, sohbet yok</li>
-    <li>Hiçbir kişisel veri toplamaz</li>
-    <li>İnternetsiz oynanır</li>
-    <li>Bol resim, az yazı, 34 dilde</li>
-    <li>İlk iki bölüm ücretsiz</li>
-    <li>Tek bir satın alma Tam Macera'yı açar; abonelik yok</li>
-    <li>Satın alma ebeveyn sorusunun arkasında</li>
-    <li>iPhone, iPad ve Android</li>
-  </ul>
-
-  <div class="links">
-    <a class="btn btn-gold" href="${p.privacy}">Gizlilik politikası</a>
-    <a class="btn btn-ghost" href="${p.support}">Destek ve sık sorulanlar</a>
-  </div>`,
-};
+const KICKER_ICON = '<img class="kicker-icon" src="/fluffytail/gen/icon/icon-256.webp" alt="" width="40" height="40">';
 
 /* ----- Privacy policy ----- */
 // Written against Apple guidelines 1.3 and 5.1.1(i)/5.1.4 and Google Play's User Data and Families policies:
@@ -275,7 +164,7 @@ const gameBody = {
 // how to revoke consent or ask for deletion, developer name and privacy contact, children's laws (COPPA, GDPR, KVKK).
 const privacyBody = {
   en: (p) => `
-  <p class="kicker">${T.en.game}</p>
+  <p class="kicker">${KICKER_ICON}${T.en.game}</p>
   <h1>Privacy Policy</h1>
   <p class="updated">Last updated: <time datetime="${UPDATED.iso}">${UPDATED.en}</time></p>
 
@@ -349,7 +238,7 @@ const privacyBody = {
   <h2>Contact</h2>
   <p>Moon Arc Works<br>${mail}</p>`,
   tr: (p) => `
-  <p class="kicker"><span lang="en">Fluffytail</span>: Sincap Macerası</p>
+  <p class="kicker">${KICKER_ICON}<span lang="en">Fluffytail</span>: Sincap Macerası</p>
   <h1>Gizlilik Politikası</h1>
   <p class="updated">Son güncelleme: <time datetime="${UPDATED.iso}">${UPDATED.tr}</time></p>
 
@@ -427,7 +316,7 @@ const privacyBody = {
 /* ----- Support ----- */
 const supportBody = {
   en: (p) => `
-  <p class="kicker">${T.en.game}</p>
+  <p class="kicker">${KICKER_ICON}${T.en.game}</p>
   <h1>Support</h1>
   <p class="lead">Need a hand? Write to us; we read every message and usually reply within a few days.</p>
   <div class="actions"><a class="btn btn-gold" href="mailto:${MAIL}?subject=Fluffytail">${MAIL}</a></div>
@@ -529,7 +418,7 @@ const supportBody = {
     <a class="btn btn-ghost" href="${p.privacy}">Privacy policy</a>
   </div>`,
   tr: (p) => `
-  <p class="kicker"><span lang="en">Fluffytail</span>: Sincap Macerası</p>
+  <p class="kicker">${KICKER_ICON}<span lang="en">Fluffytail</span>: Sincap Macerası</p>
   <h1>Destek</h1>
   <p class="lead">Yardım mı lazım? Bize yaz; her mesajı okuyoruz ve genellikle birkaç gün içinde cevap veriyoruz.</p>
   <div class="actions"><a class="btn btn-gold" href="mailto:${MAIL}?subject=Fluffytail">${MAIL}</a></div>
@@ -635,22 +524,16 @@ const supportBody = {
 /* ---------------------------------------------------------------- pages ---------------------------------------------------------------- */
 
 const PAGES = { game: '/fluffytail/', privacy: '/fluffytail/privacy/', support: '/fluffytail/support/' };
-const BODIES = { game: gameBody, privacy: privacyBody, support: supportBody };
-const urlFor = (lang, key) => T[lang].base + PAGES[key];
+const BODIES = { privacy: privacyBody, support: supportBody };
+// The game page is the Astro site: English at /fluffytail/, Turkish at /fluffytail/tr/.
+const urlFor = (lang, key) => (key === 'game' ? (lang === 'tr' ? '/fluffytail/tr/' : '/fluffytail/') : T[lang].base + PAGES[key]);
+const ICON = '/fluffytail/gen/icon';
 
 function jsonLd(lang, key) {
   const t = T[lang], url = SITE + urlFor(lang, key);
-  if (key !== 'game') {
-    return { '@context': 'https://schema.org', '@type': 'WebPage', name: t.pages[key].title, url, inLanguage: lang,
-      ...(key === 'privacy' ? { dateModified: UPDATED.iso } : {}),
-      about: { '@id': SITE + '/fluffytail/#game' }, publisher: { '@id': SITE + '/#org' } };
-  }
-  return { '@context': 'https://schema.org', '@type': ['VideoGame', 'MobileApplication'], '@id': SITE + '/fluffytail/#game',
-    name: T.en.game, alternateName: T.tr.game, url, description: t.pages.game.desc, inLanguage: LANGS.map(([c]) => c),
-    operatingSystem: 'iOS 17, iPadOS 17, Android 10', applicationCategory: 'GameApplication', genre: ['Platformer', 'Adventure'],
-    gamePlatform: ['iPhone', 'iPad', 'Android'], audience: { '@type': 'PeopleAudience', suggestedMinAge: 6, suggestedMaxAge: 8 },
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free to start; one optional in-app purchase unlocks the Full Adventure.' },
-    publisher: { '@id': SITE + '/#org' }, author: { '@type': 'Organization', '@id': SITE + '/#org', name: 'Moon Arc Works', url: SITE + '/', email: MAIL } };
+  return { '@context': 'https://schema.org', '@type': 'WebPage', name: t.pages[key].title, url, inLanguage: lang,
+    ...(key === 'privacy' ? { dateModified: UPDATED.iso } : {}),
+    about: { '@id': SITE + '/fluffytail/#game' }, publisher: { '@id': SITE + '/#org' } };
 }
 
 function page(lang, key) {
@@ -667,9 +550,9 @@ function page(lang, key) {
 <meta name="description" content="${meta.desc.replace(/"/g, '&quot;')}">
 <meta name="theme-color" content="#070B1C">
 <meta name="color-scheme" content="dark">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="/favicon-32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="${ICON}/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="${ICON}/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="${ICON}/apple-touch-icon.png">
 <link rel="canonical" href="${SITE}${urlFor(lang, key)}">
 <link rel="alternate" hreflang="en" href="${SITE}${urlFor('en', key)}">
 <link rel="alternate" hreflang="tr" href="${SITE}${urlFor('tr', key)}">
@@ -680,8 +563,9 @@ function page(lang, key) {
 <meta property="og:description" content="${meta.desc.replace(/"/g, '&quot;')}">
 <meta property="og:locale" content="${t.locale}">
 <meta property="og:site_name" content="Moon Arc Works">
-<!-- PLACEHOLDER: swap for a Fluffytail share image (1200x630) once the art is picked. -->
-<meta property="og:image" content="${SITE}/assets/og.png">
+<meta property="og:image" content="${SITE}/fluffytail/gen/og/${lang}.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">${JSON.stringify(jsonLd(lang, key))}</script>
 <style>${CSS}</style>
@@ -694,7 +578,7 @@ function page(lang, key) {
     <nav aria-label="${t.game}">${nav}<a class="lang" href="${otherUrl}" hreflang="${t.other}" lang="${t.other}" aria-label="${t.otherLabel}">${t.otherShort}</a></nav>
   </div>
 </header>
-<main id="main" class="wrap${key === 'game' ? '' : ' doc'}">
+<main id="main" class="wrap doc">
 ${BODIES[key][lang](links)}
 </main>
 <footer>
@@ -708,10 +592,26 @@ ${BODIES[key][lang](links)}
 `;
 }
 
-// Writes the six pages and returns their sitemap entries as [url, {en, tr}] pairs.
+// The old Turkish game address (/tr/fluffytail/) now lives at /fluffytail/tr/: a tiny page that sends visitors on.
+const redirect = (to) => `<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Fluffytail: Sincap Macerası</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="${SITE}${to}">
+<meta http-equiv="refresh" content="0; url=${to}">
+</head>
+<body>
+<p><a href="${to}">Fluffytail: Sincap Macerası</a></p>
+</body>
+</html>
+`;
+
+// Writes the four legal pages and the redirect, and returns the legal pages' sitemap entries as [url, {en, tr}] pairs.
 export function writeFluffytail() {
   const entries = [];
-  for (const key of Object.keys(PAGES)) {
+  for (const key of ['privacy', 'support']) {
     const alt = { en: SITE + urlFor('en', key), tr: SITE + urlFor('tr', key) };
     for (const lang of ['en', 'tr']) {
       const file = path.join('.', urlFor(lang, key), 'index.html');
@@ -720,5 +620,7 @@ export function writeFluffytail() {
       entries.push([alt[lang], alt]);
     }
   }
+  fs.mkdirSync('tr/fluffytail', { recursive: true });
+  fs.writeFileSync('tr/fluffytail/index.html', redirect(urlFor('tr', 'game')));
   return entries;
 }
