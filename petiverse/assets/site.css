@@ -1,9 +1,9 @@
 /* Petiverse sitesi. Renkler uygulamanın tema token'larıyla aynı; marka aşamasında rafine edilecek. */
-:root { --bg: #FFFFFF; --soft: #F4F5F7; --card: #FFFFFF; --text: #17181C; --muted: #6A6F7A; --tint: #2E6BE6;
-  --tint-soft: #E8EFFD; --line: #E3E5EA; --danger: #D23B3B; --warn: #C77700; --ok: #2E9E5B; color-scheme: light dark; }
+:root { --bg: #FFFFFF; --soft: #F4F5F7; --card: #FFFFFF; --text: #17181C; --muted: #6A6F7A; --tint: #0B7C68;
+  --tint-soft: #E3F4F0; --line: #E3E5EA; --danger: #D23B3B; --warn: #C77700; --ok: #2E9E5B; color-scheme: light dark; }
 @media (prefers-color-scheme: dark) {
-  :root { --bg: #121318; --soft: #1B1D24; --card: #1E2028; --text: #F2F3F5; --muted: #9AA0AC; --tint: #6D9BFF;
-    --tint-soft: #22304D; --line: #2B2E38; --danger: #FF6B6B; --warn: #F0A63A; --ok: #4FBF7F; }
+  :root { --bg: #121318; --soft: #1B1D24; --card: #1E2028; --text: #F2F3F5; --muted: #9AA0AC; --tint: #1FB596;
+    --tint-soft: #173A33; --line: #2B2E38; --danger: #FF6B6B; --warn: #F0A63A; --ok: #4FBF7F; }
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
