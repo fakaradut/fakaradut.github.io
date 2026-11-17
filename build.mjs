@@ -3,7 +3,8 @@
 // The page's script fills in the Turkish words; this sets what search engines and link previews read first.
 // It also writes the Fluffytail privacy and support pages (English and Turkish) from content/fluffytail.mjs, and
 // merges the Fluffytail game site's own sitemap (fluffytail/sitemap-0.xml, 34 languages, built by sincap/web) into
-// sitemap.xml. Run it after sincap/web/scripts/deploy-local.sh has copied the game site in.
+// sitemap.xml, and Petiverse's sitemap (petiverse/sitemap.xml, built by pet-care/site/build.mjs --deploy).
+// Run it after sincap/web/scripts/deploy-local.sh has copied the game site in.
 import fs from 'node:fs';
 import { writeFluffytail } from './content/fluffytail.mjs';
 
@@ -43,6 +44,10 @@ const gameMap = 'fluffytail/sitemap-0.xml';
 const game = fs.existsSync(gameMap) ? fs.readFileSync(gameMap, 'utf8').match(/<url>[\s\S]*?<\/url>/g) ?? [] : [];
 if (!game.length) console.warn(`No ${gameMap}: run sincap/web/scripts/deploy-local.sh first to add the game pages.`);
 for (const u of game) entries.push(`  ${u.replace('</loc>', `</loc><lastmod>${today}</lastmod>`)}`);
+// Petiverse's pages (34 languages as they arrive, with hreflang), built by pet-care/site/build.mjs --deploy.
+const petMap = 'petiverse/sitemap.xml';
+const pet = fs.existsSync(petMap) ? fs.readFileSync(petMap, 'utf8').match(/<url>[\s\S]*?<\/url>/g) ?? [] : [];
+for (const u of pet) entries.push(`  ${u}`);
 fs.writeFileSync(
   'sitemap.xml',
   `<?xml version="1.0" encoding="UTF-8"?>
@@ -51,4 +56,4 @@ ${entries.join('\n')}
 </urlset>
 `,
 );
-console.log(`Wrote tr/index.html, ${fluffytail.length} Fluffytail legal pages, the /tr/fluffytail/ redirect and sitemap.xml (${entries.length} URLs, ${game.length} from the game site)`);
+console.log(`Wrote tr/index.html, ${fluffytail.length} Fluffytail legal pages, the /tr/fluffytail/ redirect and sitemap.xml (${entries.length} URLs, ${game.length} from the game site, ${pet.length} from Petiverse)`);

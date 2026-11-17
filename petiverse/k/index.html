@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Petiverse</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; margin: 0; min-height: 100vh;
+         display: flex; align-items: center; justify-content: center; background: #F4F5F7; color: #17181C; }
+  @media (prefers-color-scheme: dark) { body { background: #121318; color: #F2F3F5; } }
+  .card { text-align: center; padding: 36px 28px; max-width: 420px; }
+  .emoji { font-size: 72px; }
+  h1 { font-size: 32px; margin: 10px 0 4px; overflow-wrap: anywhere; }
+  p { color: #6A6F7A; line-height: 1.5; margin: 6px 0; }
+  .note { font-size: 17px; margin-top: 10px; overflow-wrap: anywhere; }
+  a.call { display: block; margin-top: 22px; background: #2E6BE6; color: #fff; text-decoration: none;
+           padding: 16px; border-radius: 16px; font-size: 20px; font-weight: 700; }
+  .foot { margin-top: 26px; font-size: 12px; color: #9AA0AC; }
+  .foot a { color: inherit; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="emoji" id="emoji">🐾</div>
+  <h1 id="name">…</h1>
+  <p id="hello"></p>
+  <p class="note" id="note"></p>
+  <a class="call" id="call" href="#" hidden></a>
+  <div class="foot"><a href="https://moonarcworks.com/petiverse/" id="home">Petiverse</a> · <span id="foot"></span></div>
+</div>
+<script>
+  // Künye bilgisi URL'nin # kısmında taşınır (base64url JSON). # kısmı sunucuya hiç gönderilmez.
+  const T = {"en":{"title":"Found a pet? – Petiverse","hello":"Hi! If you found me, my owner will be so grateful. Please call right away:","unreadTitle":"Tag could not be read","unreadBody":"The link looks incomplete or damaged.","foot":"The details live inside this link and are not stored on a server.","call":"Call"},"tr":{"title":"Bir hayvan mı buldun? – Petiverse","hello":"Merhaba! Beni bulduysan sahibim sana çok minnettar olacak. Lütfen hemen ara:","unreadTitle":"Künye okunamadı","unreadBody":"Bağlantı eksik ya da bozuk görünüyor.","foot":"Bilgiler bu linkin içindedir, sunucuda tutulmaz.","call":"Ara"}};
+  function pickLang() {
+    for (const l of navigator.languages || [navigator.language || 'en']) {
+      const low = l.toLowerCase();
+      if (low.startsWith('zh')) { const k = /hant|tw|hk|mo/.test(low) ? 'zh-Hant' : 'zh-Hans'; if (T[k]) return k; continue; }
+      if (low.startsWith('no') || low.startsWith('nn')) { if (T.nb) return 'nb'; continue; }
+      const k = low.split('-')[0];
+      if (T[k]) return k;
+    }
+    return 'en';
+  }
+  const lang = pickLang();
+  const s = T[lang] || T.en;
+  document.documentElement.lang = lang;
+  if (lang === 'ar' || lang === 'he') document.documentElement.dir = 'rtl';
+  document.getElementById('foot').textContent = s.foot;
+  document.getElementById('home').href = 'https://moonarcworks.com/petiverse/' + (lang === 'en' ? '' : lang + '/');
+  function decode(frag) {
+    try {
+      const b64 = frag.replaceAll('-', '+').replaceAll('_', '/');
+      const bin = atob(b64.padEnd(b64.length + ((4 - (b64.length % 4)) % 4), '='));
+      return JSON.parse(new TextDecoder().decode(Uint8Array.from(bin, (c) => c.charCodeAt(0))));
+    } catch { return null; }
+  }
+  const data = decode(location.hash.slice(1));
+  if (data && data.n && data.p) {
+    document.getElementById('emoji').textContent = data.s === 'dog' ? '🐶' : data.s === 'cat' ? '🐱' : '🐾';
+    document.getElementById('name').textContent = data.n;
+    document.getElementById('hello').textContent = s.hello;
+    if (data.m) document.getElementById('note').textContent = '⚠️ ' + data.m;
+    const call = document.getElementById('call');
+    call.textContent = '📞 ' + data.p;
+    call.setAttribute('aria-label', s.call + ' ' + data.p);
+    call.href = 'tel:' + String(data.p).replace(/[^+\d]/g, '');
+    call.hidden = false;
+    document.title = data.n + ' – Petiverse';
+  } else {
+    document.title = s.title;
+    document.getElementById('name').textContent = s.unreadTitle;
+    document.getElementById('hello').textContent = s.unreadBody;
+  }
+</script>
+</body>
+</html>
