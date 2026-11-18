@@ -22,7 +22,7 @@
 <meta property="og:description" content="An independent studio making calm, useful mobile apps and games.">
 <meta property="og:image" content="https://moonarcworks.com/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","@id":"https://moonarcworks.com/#org","name":"Moon Arc Works","url":"https://moonarcworks.com/","logo":"https://moonarcworks.com/brand/out/icon-512.png","email":"support@moonarcworks.com","description":"An independent studio making calm, useful mobile apps and games."},{"@context":"https://schema.org","@type":"WebSite","name":"Moon Arc Works","url":"https://moonarcworks.com/","publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":"MobileApplication","name":"Exhale","alternateName":"Dumansız","url":"https://moonarcworks.com/exhale-site/","operatingSystem":"iOS, Android","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":["VideoGame","MobileApplication"],"@id":"https://moonarcworks.com/fluffytail/#game","name":"Fluffytail: Squirrel Adventure","alternateName":"Fluffytail: Sincap Macerası","url":"https://moonarcworks.com/fluffytail/","operatingSystem":"iOS, Android","applicationCategory":"GameApplication","audience":{"@type":"PeopleAudience","suggestedMinAge":6,"suggestedMaxAge":8},"publisher":{"@id":"https://moonarcworks.com/#org"}}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","@id":"https://moonarcworks.com/#org","name":"Moon Arc Works","url":"https://moonarcworks.com/","logo":"https://moonarcworks.com/brand/out/icon-512.png","email":"support@moonarcworks.com","description":"An independent studio making calm, useful mobile apps and games."},{"@context":"https://schema.org","@type":"WebSite","name":"Moon Arc Works","url":"https://moonarcworks.com/","publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":"MobileApplication","name":"Exhale","alternateName":"Dumansız","url":"https://moonarcworks.com/exhale-site/","operatingSystem":"iOS, Android","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":"MobileApplication","@id":"https://moonarcworks.com/petiverse/#app","name":"Petiverse","url":"https://moonarcworks.com/petiverse/","operatingSystem":"iOS, Android","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":["VideoGame","MobileApplication"],"@id":"https://moonarcworks.com/fluffytail/#game","name":"Fluffytail: Squirrel Adventure","alternateName":"Fluffytail: Sincap Macerası","url":"https://moonarcworks.com/fluffytail/","operatingSystem":"iOS, Android","applicationCategory":"GameApplication","audience":{"@type":"PeopleAudience","suggestedMinAge":6,"suggestedMaxAge":8},"publisher":{"@id":"https://moonarcworks.com/#org"}}]</script>
 <style>
   @font-face { font-family: Sora; font-weight: 400; src: url(/assets/Sora-400.ttf) format('truetype'); font-display: swap; }
   @font-face { font-family: Sora; font-weight: 600; src: url(/assets/Sora-600.ttf) format('truetype'); font-display: swap; }
@@ -184,6 +184,9 @@
 
   /* Fluffytail: the second app, a card under Exhale's showcase. */
   /* Fluffytail: mirrored showcase, a landscape tablet instead of the phone. */
+  .showcase.pv { margin-top: 160px; }
+  /* Petiverse ekranları iPhone durum çubuğu şeridiyle gelir: oran ona göre, ada şeridin içinde kalır. */
+  .showcase.pv .phone { aspect-ratio: 1290 / 2906; }
   .showcase.ft { margin-top: 160px; grid-template-columns: 1.1fr 1fr; }
   .tablet { width: min(600px, 100%); aspect-ratio: 2796 / 1290; border-radius: 34px; padding: 10px; transform: rotateY(var(--ry, 12deg)) rotateX(var(--rx, 6deg)); }
   .tablet .screen { border-radius: 25px; }
@@ -403,6 +406,59 @@
         </div>
       </div>
     </div>
+    <!-- Petiverse: the same scroll story as Exhale, with the localized app screens. -->
+    <div class="wrap showcase pv" id="petiverse">
+      <div>
+        <div class="kicker" data-reveal data-i18n="pvKicker">For pet parents</div>
+        <div class="app-head" data-reveal style="--d:1">
+          <img src="/assets/petiverse-icon.png" alt="Petiverse app icon">
+          <div><h3>Petiverse</h3><p data-i18n="pvTag">Pet health card, nearest vet, lost-pet kit</p></div>
+        </div>
+        <div class="steps">
+          <div class="step on" data-screen="0">
+            <small>01</small>
+            <h4 data-i18n="p1h">Never miss a vaccine.</h4>
+            <p data-i18n="p1p">Log a shot once: the next date and the reminder set themselves, for every cat and dog you have.</p>
+          </div>
+          <div class="step" data-screen="1">
+            <small>02</small>
+            <h4 data-i18n="p2h">The nearest vet, right away.</h4>
+            <p data-i18n="p2p">Vets, pet shops, groomers and parks around you. In an emergency, clinics open 24/7 come first, with call and directions in one tap.</p>
+          </div>
+          <div class="step" data-screen="2">
+            <small>03</small>
+            <h4 data-i18n="p3h">Is it urgent? Is it toxic?</h4>
+            <p data-i18n="p3p">Tick the symptoms or search a food or plant and see what to do next. It works offline, and it never plays vet.</p>
+          </div>
+          <div class="step" data-screen="3">
+            <small>04</small>
+            <h4 data-i18n="p4h">Ready if they ever get lost.</h4>
+            <p data-i18n="p4p">A QR collar tag, a poster and a message to share, ready in one tap. The lost-pet kit is free, always.</p>
+          </div>
+        </div>
+        <div class="launch" data-reveal>
+          <div class="label" data-i18n="pvFree">Free on iPhone and Android. No account: your pet's records stay on your phone.</div>
+          <div class="stores" style="margin-top:16px">
+            <a class="btn btn-ghost store" href="https://apps.apple.com/app/id6758307180"><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.4-.6 3.1-1.5z"/></svg>App Store</a>
+            <a class="btn btn-ghost store" href="https://play.google.com/store/apps/details?id=com.petiverse.mobile"><svg viewBox="0 0 24 24"><path d="M3.6 2.3c-.3.3-.4.7-.4 1.2v17c0 .5.1.9.4 1.2l9.4-9.7-9.4-9.7zm10.6 10.9 2.6 2.7-11.4 6.6 8.8-9.3zm3.9-4 3 1.7c.9.5.9 1.8 0 2.3l-3 1.8-2.9-2.9 2.9-2.9zM5.4 1.5l11.4 6.6-2.6 2.7-8.8-9.3z"/></svg>Google Play</a>
+            <a class="btn btn-gold" id="pv-link" href="/petiverse/" data-i18n="pvVisit">Visit the Petiverse site →</a>
+          </div>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="phone">
+          <div class="island"></div>
+          <div class="screen">
+            <img class="on" data-pv="1" src="/assets/petiverse-1-en.webp" alt="Petiverse: upcoming vaccines and reminders">
+            <img data-pv="2" src="/assets/petiverse-2-en.webp" alt="Petiverse: vets and pet shops nearby" loading="lazy">
+            <img data-pv="3" src="/assets/petiverse-3-en.webp" alt="Petiverse: symptom check and toxic food search" loading="lazy">
+            <img data-pv="4" src="/assets/petiverse-4-en.webp" alt="Petiverse: lost-pet kit with QR tag" loading="lazy">
+          </div>
+          <div class="float f1"><span data-i18n="pvCard">Vaccine card</span><b>4/4 ✓</b></div>
+          <div class="float f2"><span data-i18n="ftLangs">Languages</span><b>34</b></div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="studio">
@@ -450,7 +506,7 @@
   <div class="wrap">
     <span>© 2026 Moon Arc Works</span>
     <span class="tonight"><canvas id="tonight" width="44" height="44" aria-hidden="true"></canvas><span id="tonight-text">Tonight's moon</span></span>
-    <nav><a href="/exhale-site/" data-i18n="appName">Exhale</a><a id="ft-foot" href="/fluffytail/" data-i18n="ftShort">Fluffytail</a><a href="/exhale-site/privacy.html" data-i18n="privacy">Privacy</a><a href="mailto:support@moonarcworks.com" data-i18n="navContact">Contact</a></nav>
+    <nav><a href="/exhale-site/" data-i18n="appName">Exhale</a><a id="ft-foot" href="/fluffytail/" data-i18n="ftShort">Fluffytail</a><a href="/petiverse/">Petiverse</a><a href="/exhale-site/privacy.html" data-i18n="privacy">Privacy</a><a href="mailto:support@moonarcworks.com" data-i18n="navContact">Contact</a></nav>
   </div>
 </footer>
 
@@ -719,6 +775,12 @@
       f3h: 'Bosses who become friends.', f3p: 'The Snow Owl, a giant hermit crab, Baron Magpie in his junk robot: beaten foes just get dizzy. Nobody gets hurt, and many become friends.',
       f4h: 'Made for kids, kind to parents.', f4p: 'No ads, no tracking, works offline. The first two chapters are free, and one single purchase unlocks the whole adventure.',
       ftSoon: 'Coming soon to the App Store and Google Play, on iPhone, iPad and Android.', ftVisit: 'Visit the Fluffytail site →', ftTrailer: 'Watch the trailer', ftVideo: '0Ahu6HM9Otw',
+      pvKicker: 'For pet parents', pvTag: 'Pet health card, nearest vet, lost-pet kit',
+      p1h: 'Never miss a vaccine.', p1p: 'Log a shot once: the next date and the reminder set themselves, for every cat and dog you have.',
+      p2h: 'The nearest vet, right away.', p2p: 'Vets, pet shops, groomers and parks around you. In an emergency, clinics open 24/7 come first, with call and directions in one tap.',
+      p3h: 'Is it urgent? Is it toxic?', p3p: 'Tick the symptoms or search a food or plant and see what to do next. It works offline, and it never plays vet.',
+      p4h: 'Ready if they ever get lost.', p4p: 'A QR collar tag, a poster and a message to share, ready in one tap. The lost-pet kit is free, always.',
+      pvFree: "Free on iPhone and Android. No account: your pet's records stay on your phone.", pvVisit: 'Visit the Petiverse site →', pvSite: '/petiverse/', pvCard: 'Vaccine card',
       ftName: 'Fluffytail: Squirrel Adventure', ftShort: 'Fluffytail', ftMore: 'See the game →', ftSite: '/fluffytail/',
       ftTag: 'A 3D adventure for kids aged 6–8. No ads, works offline. Coming soon to the App Store and Google Play.',
       tonight: (name, pct) => `Tonight's moon: ${name}, ${pct}% lit`,
@@ -753,6 +815,12 @@
       f3h: 'Dost olan bosslar.', f3p: 'Kar Baykuşu, dev keşiş yengeci, hurda robotuyla Saksağan Baron: yenilenler sadece sersemler. Kimse incinmez, çoğu dost olur.',
       f4h: 'Çocuklar için, ebeveynlere saygılı.', f4p: 'Reklam yok, takip yok, internetsiz oynanır. İlk iki bölüm ücretsiz; tek bir satın alma bütün macerayı açar.',
       ftSoon: "Yakında App Store ve Google Play'de; iPhone, iPad ve Android için.", ftVisit: 'Fluffytail sitesine git →', ftTrailer: 'Fragmanı izle', ftVideo: 'qovEDOjrpmY',
+      pvKicker: 'Evcil hayvan sahipleri için', pvTag: 'Sağlık karnesi, en yakın veteriner, kayıp kiti',
+      p1h: 'Hiçbir aşıyı kaçırma.', p1p: 'Aşıyı bir kez kaydet; sıradaki tarih ve hatırlatma kendiliğinden kurulur. Her kedin ve köpeğin için.',
+      p2h: 'En yakın veteriner, hemen.', p2p: "Çevrendeki veterinerler, pet shop'lar, kuaförler ve parklar. Acil durumda 7/24 açık klinikler önce gelir; arama ve yol tarifi tek dokunuşta.",
+      p3h: 'Acil mi? Zehirli mi?', p3p: 'Belirtileri işaretle ya da bir yiyeceği, bitkiyi ara; ne yapman gerektiğini gör. İnternetsiz çalışır ve asla veteriner yerine geçmez.',
+      p4h: 'Kaybolursa hazırsın.', p4p: 'QR künye, afiş ve paylaşım mesajı tek dokunuşta hazır. Kayıp kiti her zaman ücretsiz.',
+      pvFree: 'iPhone ve Android için ücretsiz. Hesap yok: hayvanının kayıtları telefonunda kalır.', pvVisit: 'Petiverse sitesine git →', pvSite: '/petiverse/tr/', pvCard: 'Aşı karnesi',
       ftName: 'Fluffytail: Sincap Macerası', ftShort: 'Fluffytail', ftMore: 'Oyuna göz at →', ftSite: '/fluffytail/tr/',
       ftTag: "6–8 yaş çocuklar için 3D bir macera. Reklam yok, internetsiz oynanır. Yakında App Store ve Google Play'de.",
       tonight: (name, pct) => `Bu gece ay: ${name}, %${pct} aydınlık`,
@@ -779,6 +847,8 @@
     document.getElementById('site-link').href = t.site;
     document.getElementById('ft-link').href = t.ftSite; document.getElementById('ft-foot').href = t.ftSite;
     document.querySelectorAll('[data-shot]').forEach((img) => { img.src = `/assets/exhale-${img.dataset.shot}-${lang}.webp`; });
+    document.querySelectorAll('[data-pv]').forEach((img) => { img.src = `/assets/petiverse-${img.dataset.pv}-${lang}.webp`; });
+    document.getElementById('pv-link').href = t.pvSite;
     document.querySelectorAll('[data-ft]').forEach((img) => { img.src = `/fluffytail/gen/shots/${lang}/${img.dataset.ft}-1600.webp`; });
     document.getElementById('ft-trailer').href = `https://www.youtube.com/watch?v=${t.ftVideo}`;
     const sw = document.getElementById('lang'); sw.textContent = t.switchTo; sw.setAttribute('aria-label', t.switchLabel);

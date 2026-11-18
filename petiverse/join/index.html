@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>Petiverse</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; margin: 0; min-height: 100vh;
+         display: flex; align-items: center; justify-content: center; background: #F7F3EC; color: #17181C; }
+  @media (prefers-color-scheme: dark) { body { background: #121318; color: #F2F3F5; } }
+  .card { text-align: center; padding: 36px 28px; max-width: 420px; }
+  img.icon { width: 88px; height: 88px; border-radius: 22px; }
+  h1 { font-size: 28px; margin: 18px 0 8px; }
+  p { color: #6A6F7A; line-height: 1.5; margin: 6px 0; }
+  a.open { display: block; margin-top: 22px; background: #0B7C68; color: #fff; text-decoration: none;
+           padding: 16px; border-radius: 16px; font-size: 19px; font-weight: 700; }
+  .stores { display: flex; gap: 10px; justify-content: center; margin-top: 18px; }
+  .stores a { color: #0B7C68; font-weight: 700; }
+</style>
+</head>
+<body>
+<!-- Aile paylaşımı daveti. Anahtar adresin # sonrasındadır; tarayıcı onu sunucuya hiç göndermez, bu sayfa da
+     hiçbir yere iletmez: yalnızca uygulamayı aynı bilgiyle açar. -->
+<div class="card">
+  <img class="icon" src="/petiverse/assets/icon-192.png" alt="">
+  <h1 id="title">Join family sharing</h1>
+  <p id="body">Open this link on a phone with Petiverse installed.</p>
+  <a class="open" id="open" href="#">Open Petiverse</a>
+  <div class="stores">
+    <a href="https://apps.apple.com/app/id6758307180">App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=com.petiverse.mobile">Google Play</a>
+  </div>
+</div>
+<script>
+  const S = {"en":{"title":"Join family sharing","body":"Open this link on a phone with Petiverse installed. If the app doesn't open, install it first.","open":"Open Petiverse"},"tr":{"title":"Aile paylaşımına katıl","body":"Bu bağlantıyı Petiverse yüklü bir telefonda aç. Uygulama açılmazsa önce yükle.","open":"Petiverse'ü aç"},"de":{"title":"Familienfreigabe beitreten","body":"Öffne diesen Link auf einem Handy, auf dem Petiverse installiert ist. Wenn sich die App nicht öffnet, installiere sie zuerst.","open":"Petiverse öffnen"},"fr":{"title":"Rejoindre le partage familial","body":"Ouvre ce lien sur un téléphone où Petiverse est installé. Si l’app ne s’ouvre pas, installe-la d’abord.","open":"Ouvrir Petiverse"},"es":{"title":"Unirse a la familia en Petiverse","body":"Abre este enlace en un móvil con Petiverse instalado. Si la app no se abre, instálala primero.","open":"Abrir Petiverse"},"it":{"title":"Unisciti alla condivisione in famiglia","body":"Apri questo link su un telefono con Petiverse installato. Se l’app non si apre, installala prima.","open":"Apri Petiverse"},"pt":{"title":"Entrar no compartilhamento familiar","body":"Abra este link em um celular com o Petiverse instalado. Se o app não abrir, instale primeiro.","open":"Abrir o Petiverse"},"nl":{"title":"Meedoen met gezinsdeling","body":"Open deze link op een telefoon waarop Petiverse staat. Opent de app niet, installeer hem dan eerst.","open":"Petiverse openen"},"pl":{"title":"Dołącz do udostępniania rodzinnego","body":"Otwórz ten link na telefonie z zainstalowanym Petiverse. Jeśli aplikacja się nie otworzy, najpierw ją zainstaluj.","open":"Otwórz Petiverse"},"cs":{"title":"Připojit se k rodinnému sdílení","body":"Otevři tento odkaz v telefonu s nainstalovaným Petiverse. Pokud se aplikace neotevře, nejdřív ji nainstaluj.","open":"Otevřít Petiverse"},"sk":{"title":"Pripojiť sa k rodinnému zdieľaniu","body":"Otvor tento odkaz v telefóne s nainštalovaným Petiverse. Ak sa aplikácia neotvorí, najprv ju nainštaluj.","open":"Otvoriť Petiverse"},"hu":{"title":"Csatlakozás a családi megosztáshoz","body":"Nyisd meg ezt a linket egy olyan telefonon, amelyen telepítve van a Petiverse. Ha az app nem nyílik meg, előbb telepítsd.","open":"Petiverse megnyitása"},"ro":{"title":"Alătură-te partajării în familie","body":"Deschide acest link pe un telefon cu Petiverse instalat. Dacă aplicația nu se deschide, instaleaz-o mai întâi.","open":"Deschide Petiverse"},"hr":{"title":"Pridruži se obiteljskom dijeljenju","body":"Otvori ovu poveznicu na mobitelu na kojem je instaliran Petiverse. Ako se aplikacija ne otvori, najprije je instaliraj.","open":"Otvori Petiverse"},"sr":{"title":"Придружи се породичном дељењу","body":"Отвори овај линк на телефону на ком је инсталиран Petiverse. Ако се апликација не отвори, прво је инсталирај.","open":"Отвори Petiverse"},"bg":{"title":"Присъедини се към семейното споделяне","body":"Отвори този линк на телефон с инсталиран Petiverse. Ако приложението не се отвори, първо го инсталирай.","open":"Отвори Petiverse"},"el":{"title":"Συμμετοχή στην οικογενειακή κοινή χρήση","body":"Άνοιξε αυτόν τον σύνδεσμο σε κινητό με εγκατεστημένο το Petiverse. Αν η εφαρμογή δεν ανοίξει, εγκατάστησέ την πρώτα.","open":"Άνοιγμα του Petiverse"},"ru":{"title":"Присоединиться к семейному доступу","body":"Открой эту ссылку на телефоне, где установлен Petiverse. Если приложение не открылось, сначала установи его.","open":"Открыть Petiverse"},"uk":{"title":"Приєднатися до сімейного доступу","body":"Відкрий це посилання на телефоні, де встановлено Petiverse. Якщо застосунок не відкривається, спершу встанови його.","open":"Відкрити Petiverse"},"sv":{"title":"Gå med i familjedelning","body":"Öppna länken på en telefon där Petiverse är installerat. Om appen inte öppnas, installera den först.","open":"Öppna Petiverse"},"nb":{"title":"Bli med i familiedeling","body":"Åpne lenken på en telefon som har Petiverse installert. Hvis appen ikke åpnes, installer den først.","open":"Åpne Petiverse"},"da":{"title":"Deltag i familiedeling","body":"Åbn dette link på en telefon, hvor Petiverse er installeret. Hvis appen ikke åbner, så installer den først.","open":"Åbn Petiverse"},"fi":{"title":"Liity perhejakoon","body":"Avaa tämä linkki puhelimessa, jossa on Petiverse. Jos sovellus ei avaudu, asenna se ensin.","open":"Avaa Petiverse"},"ar":{"title":"الانضمام إلى المشاركة العائلية","body":"افتح هذا الرابط على هاتف مثبّت عليه Petiverse. إن لم يُفتح التطبيق، فثبّته أولًا.","open":"فتح Petiverse"},"he":{"title":"הצטרפות לשיתוף המשפחתי","body":"פתחו את הקישור הזה בטלפון שמותקנת בו Petiverse. אם האפליקציה לא נפתחת, התקינו אותה קודם.","open":"פתיחת Petiverse"},"hi":{"title":"फ़ैमिली शेयरिंग से जुड़ें","body":"यह लिंक ऐसे फ़ोन पर खोलें जिसमें Petiverse इंस्टॉल हो। अगर ऐप नहीं खुलता, तो पहले उसे इंस्टॉल करें।","open":"Petiverse खोलें"},"th":{"title":"เข้าร่วมการแชร์กับครอบครัว","body":"เปิดลิงก์นี้บนโทรศัพท์ที่ติดตั้ง Petiverse ไว้ ถ้าแอปไม่เปิดขึ้นมา ให้ติดตั้งก่อน","open":"เปิด Petiverse"},"vi":{"title":"Tham gia chia sẻ gia đình","body":"Mở đường liên kết này trên điện thoại đã cài Petiverse. Nếu ứng dụng không mở, hãy cài đặt trước.","open":"Mở Petiverse"},"id":{"title":"Gabung ke berbagi keluarga","body":"Buka tautan ini di ponsel yang sudah terpasang Petiverse. Kalau aplikasinya tidak terbuka, pasang dulu.","open":"Buka Petiverse"},"ms":{"title":"Sertai perkongsian keluarga","body":"Buka pautan ini pada telefon yang sudah dipasang Petiverse. Jika aplikasi tidak terbuka, pasang dahulu.","open":"Buka Petiverse"},"ja":{"title":"ファミリー共有に参加","body":"Petiverse が入っているスマホでこのリンクを開いてください。アプリが開かない場合は、先にインストールしてください。","open":"Petiverse を開く"},"ko":{"title":"가족 공유 참여하기","body":"Petiverse가 설치된 폰에서 이 링크를 여세요. 앱이 열리지 않으면 먼저 설치하세요.","open":"Petiverse 열기"},"zh-Hans":{"title":"加入家庭共享","body":"请在装有 Petiverse 的手机上打开此链接。如果 App 没有打开，请先安装。","open":"打开 Petiverse"},"zh-Hant":{"title":"加入家人共享","body":"請在已安裝 Petiverse 的手機上開啟這個連結。如果 App 沒有開啟，請先安裝。","open":"開啟 Petiverse"}};
+  const lang = (navigator.language || 'en').toLowerCase();
+  const s = S[lang] || S[lang.split('-')[0]] || S[lang.startsWith('zh') ? (/tw|hk|hant/.test(lang) ? 'zh-Hant' : 'zh-Hans') : ''] || S.en;
+  document.documentElement.lang = lang;
+  for (const id of ['title', 'body', 'open']) document.getElementById(id).textContent = s[id];
+  const h = new URLSearchParams(location.hash.slice(1));
+  const c = h.get('c') || '', k = h.get('k') || '';
+  const app = /^[a-f0-9]{32}$/.test(c) && /^[A-Za-z0-9_-]{43}$/.test(k) ? `petiverse://join?c=${c}&k=${k}` : null;
+  if (app) {
+    document.getElementById('open').href = app;
+    location.href = app;
+  } else {
+    document.getElementById('open').hidden = true;
+  }
+</script>
+</body>
+</html>
