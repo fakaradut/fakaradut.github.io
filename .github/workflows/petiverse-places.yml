@@ -6,6 +6,10 @@ on:
   schedule:
     - cron: '17 3 2 * *' # her ayın 2'si, 03:17 UTC (Overpass'ın sakin saati)
   workflow_dispatch:
+    inputs:
+      minutes:
+        description: 'Bu çalışmada en çok kaç dakika sorgu açılsın'
+        default: '300'
 
 permissions:
   contents: write
@@ -27,7 +31,7 @@ jobs:
       - id: gen
         run: node tools/petiverse-places.mjs
         env:
-          DEADLINE_MIN: 300
+          DEADLINE_MIN: ${{ inputs.minutes || '300' }}
       - name: Commit if changed
         run: |
           git add -A petiverse-places
