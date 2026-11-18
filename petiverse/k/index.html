@@ -63,7 +63,8 @@
     document.getElementById('hello').textContent = s.hello;
     if (data.m) document.getElementById('note').textContent = '⚠️ ' + data.m;
     const call = document.getElementById('call');
-    call.textContent = '📞 ' + data.p;
+    // Numara sağdan sola sayfada ters dönmesin: soldan sağa yalıtılır (LRI … PDI).
+    call.textContent = '📞 \u2066' + data.p + '\u2069';
     call.setAttribute('aria-label', s.call + ' ' + data.p);
     call.href = 'tel:' + String(data.p).replace(/[^+\d]/g, '');
     call.hidden = false;
