@@ -100,7 +100,7 @@ header nav > a:hover, header nav > a[aria-current] { color: var(--text); backgro
 .row h2 { margin: 12px 0 10px; }
 .row h2 em { font-style: normal; color: var(--tint); }
 .row p { color: var(--muted); max-width: 520px; margin: 0 0 10px; }
-.shot { display: grid; place-items: center; padding: clamp(18px, 3vw, 34px); border-radius: 36px; }
+.shot { display: grid; place-items: center; }
 .shot .phone { position: static; transform: none; width: min(300px, 70%); }
 .t-mint { background: var(--mint); color: var(--mint-ink); } .t-apricot { background: var(--apricot); color: var(--apricot-ink); }
 .t-sky { background: var(--sky); color: var(--sky-ink); } .t-lilac { background: var(--lilac); color: var(--lilac-ink); }
