@@ -194,6 +194,8 @@ footer a { color: var(--muted); }
 .doc table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
 .doc th, .doc td { text-align: start; padding: 9px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
 .doc th { font-size: 14px; color: var(--muted); }
+.doc .sched td { white-space: normal; vertical-align: top; }
+.doc .sched td:first-child { font-weight: 800; min-width: 7.5em; }
 .tools { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; }
 .tools a { display: inline-block; background: var(--soft); border-radius: 999px; padding: 8px 16px; text-decoration: none; font-weight: 800; }
 footer nav + nav { margin-top: 0; }
