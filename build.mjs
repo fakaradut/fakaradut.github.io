@@ -13,7 +13,7 @@ const swaps = [
   ['<html lang="en">', '<html lang="tr">'],
   ['<title>Moon Arc Works – calm, useful mobile apps and games</title>', '<title>Moon Arc Works – sakin ve işe yarar mobil uygulamalar ve oyunlar</title>'],
   ['<meta name="description" content="Moon Arc Works is an independent studio making calm, useful mobile apps and games.">',
-    '<meta name="description" content="Moon Arc Works sakin ve işe yarar mobil uygulamalar ve oyunlar yapan bağımsız bir stüdyo. İlk uygulamamız Dumansız, sigarayı ve vape\'i bırakmana yardım eder.">'],
+    '<meta name="description" content="Moon Arc Works sakin ve işe yarar mobil uygulamalar ve oyunlar yapan bağımsız bir stüdyo. İlk uygulamamız AirAgain, sigarayı ve vape\'i bırakmana yardım eder.">'],
   ['<link rel="canonical" href="https://moonarcworks.com/">', '<link rel="canonical" href="https://moonarcworks.com/tr/">'],
   ['<meta property="og:url" content="https://moonarcworks.com/">', '<meta property="og:url" content="https://moonarcworks.com/tr/">'],
   ['<meta property="og:locale" content="en_US">', '<meta property="og:locale" content="tr_TR">'],

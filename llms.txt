@@ -1,29 +1,29 @@
 # Moon Arc Works
 
-> Moon Arc Works is an independent studio that makes mobile apps and games for iPhone and Android, each written for 34 languages. Its apps are Exhale (Dumansız in Turkish), a quit smoking and vaping app launching on the App Store and Google Play on 7 December 2026, and Petiverse, a pet health and safety app for cat and dog owners. Its first game, Fluffytail: Squirrel Adventure, a 3D platformer for kids aged 6 to 8, is coming soon.
+> Moon Arc Works is an independent studio that makes mobile apps and games for iPhone and Android, each written for 34 languages. Its apps are AirAgain (formerly Exhale; Dumansız in Turkish), a quit smoking and vaping app launching on the App Store and Google Play on 7 December 2026, and Petiverse, a pet health and safety app for cat and dog owners. Its first game, Fluffytail: Squirrel Adventure, a 3D platformer for kids aged 6 to 8, is coming soon.
 
-## Exhale: quit smoking and vaping
+## AirAgain: quit smoking and vaping
 
-Exhale helps people quit cigarettes and vapes: a smoke-free counter, money saved at real pack prices for 101 countries, a 30-day quit plan, a 3-minute craving rescue, a health recovery timeline and badges. It needs no account (data stays on the phone) and is free with ads; Exhale Plus removes ads and opens the full 30-day program.
+AirAgain helps people quit cigarettes and vapes: a smoke-free counter, money saved at real pack prices for 101 countries, a 30-day quit plan, a 3-minute craving rescue, a health recovery timeline and badges. It needs no account (data stays on the phone) and is free with ads; AirAgain Plus removes ads and opens the full 30-day program.
 
-- [Exhale (English)](https://moonarcworks.com/exhale-site/en/): the app, the savings calculator and FAQ
-- [Exhale in all 34 languages](https://moonarcworks.com/exhale-site/): pick a language
-- [Dumansız (Türkçe)](https://moonarcworks.com/exhale-site/tr/)
+- [AirAgain (English)](https://moonarcworks.com/airagain/en/): the app, the savings calculator and FAQ
+- [AirAgain in all 34 languages](https://moonarcworks.com/airagain/): pick a language
+- [AirAgain (Türkçe)](https://moonarcworks.com/airagain/tr/)
 
 ## Guides
 
-- [Nicotine withdrawal: symptoms and how long they last](https://moonarcworks.com/exhale-site/en/guides/nicotine-withdrawal/)
-- [How to beat a craving](https://moonarcworks.com/exhale-site/en/guides/beat-a-craving/)
-- [How to quit: a plan](https://moonarcworks.com/exhale-site/en/guides/how-to-quit/)
-- [What happens when you quit: the timeline](https://moonarcworks.com/exhale-site/en/guides/what-happens-when-you-quit/)
+- [Nicotine withdrawal: symptoms and how long they last](https://moonarcworks.com/airagain/en/guides/nicotine-withdrawal/)
+- [How to beat a craving](https://moonarcworks.com/airagain/en/guides/beat-a-craving/)
+- [How to quit: a plan](https://moonarcworks.com/airagain/en/guides/how-to-quit/)
+- [What happens when you quit: the timeline](https://moonarcworks.com/airagain/en/guides/what-happens-when-you-quit/)
 
 ## Cost of smoking by country
 
 The typical price of a pack of 20 cigarettes in 101 countries, and what a pack or half a pack a day costs per month, year and decade. Prices are the app's own feed, updated when taxes change.
 
-- [Cigarette prices by country](https://moonarcworks.com/exhale-site/en/cost-of-smoking/)
-- Country pages follow the pattern https://moonarcworks.com/exhale-site/en/cost-of-smoking/<country>/ (for example [Germany](https://moonarcworks.com/exhale-site/en/cost-of-smoking/germany/), [Japan](https://moonarcworks.com/exhale-site/en/cost-of-smoking/japan/), [Türkiye](https://moonarcworks.com/exhale-site/en/cost-of-smoking/turkiye/))
-- Price data, free to reuse under CC BY 4.0 (credit Exhale by Moon Arc Works): [CSV](https://moonarcworks.com/exhale-site/data/cigarette-prices.csv), [JSON](https://moonarcworks.com/exhale-site/prices.json)
+- [Cigarette prices by country](https://moonarcworks.com/airagain/en/cost-of-smoking/)
+- Country pages follow the pattern https://moonarcworks.com/airagain/en/cost-of-smoking/<country>/ (for example [Germany](https://moonarcworks.com/airagain/en/cost-of-smoking/germany/), [Japan](https://moonarcworks.com/airagain/en/cost-of-smoking/japan/), [Türkiye](https://moonarcworks.com/airagain/en/cost-of-smoking/turkiye/))
+- Price data, free to reuse under CC BY 4.0 (credit AirAgain by Moon Arc Works): [CSV](https://moonarcworks.com/airagain/data/cigarette-prices.csv), [JSON](https://moonarcworks.com/airagain/prices.json)
 
 ## Petiverse: pet health card, nearest vet and lost-pet kit
 
@@ -61,6 +61,6 @@ A 3D platformer for kids aged 6 to 8 (Fluffytail: Sincap Macerası in Turkish): 
 ## Contact
 
 - Support: support@moonarcworks.com
-- [Exhale privacy policy](https://moonarcworks.com/exhale-site/privacy.html)
+- [AirAgain privacy policy](https://moonarcworks.com/airagain/privacy.html)
 - [Petiverse privacy policy](https://moonarcworks.com/petiverse/privacy/)
 - [Fluffytail privacy policy](https://moonarcworks.com/fluffytail/privacy/)

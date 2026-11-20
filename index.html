@@ -22,7 +22,7 @@
 <meta property="og:description" content="An independent studio making calm, useful mobile apps and games.">
 <meta property="og:image" content="https://moonarcworks.com/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","@id":"https://moonarcworks.com/#org","name":"Moon Arc Works","url":"https://moonarcworks.com/","logo":"https://moonarcworks.com/brand/out/icon-512.png","email":"support@moonarcworks.com","description":"An independent studio making calm, useful mobile apps and games."},{"@context":"https://schema.org","@type":"WebSite","name":"Moon Arc Works","url":"https://moonarcworks.com/","publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":"MobileApplication","name":"Exhale","alternateName":"Dumansız","url":"https://moonarcworks.com/exhale-site/","operatingSystem":"iOS, Android","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":"MobileApplication","@id":"https://moonarcworks.com/petiverse/#app","name":"Petiverse","url":"https://moonarcworks.com/petiverse/","operatingSystem":"iOS, Android","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":["VideoGame","MobileApplication"],"@id":"https://moonarcworks.com/fluffytail/#game","name":"Fluffytail: Squirrel Adventure","alternateName":"Fluffytail: Sincap Macerası","url":"https://moonarcworks.com/fluffytail/","operatingSystem":"iOS, Android","applicationCategory":"GameApplication","audience":{"@type":"PeopleAudience","suggestedMinAge":6,"suggestedMaxAge":8},"publisher":{"@id":"https://moonarcworks.com/#org"}}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","@id":"https://moonarcworks.com/#org","name":"Moon Arc Works","url":"https://moonarcworks.com/","logo":"https://moonarcworks.com/brand/out/icon-512.png","email":"support@moonarcworks.com","description":"An independent studio making calm, useful mobile apps and games."},{"@context":"https://schema.org","@type":"WebSite","name":"Moon Arc Works","url":"https://moonarcworks.com/","publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":"MobileApplication","name":"AirAgain","alternateName":"Exhale","url":"https://moonarcworks.com/airagain/","operatingSystem":"iOS, Android","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":"MobileApplication","@id":"https://moonarcworks.com/petiverse/#app","name":"Petiverse","url":"https://moonarcworks.com/petiverse/","operatingSystem":"iOS, Android","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":["VideoGame","MobileApplication"],"@id":"https://moonarcworks.com/fluffytail/#game","name":"Fluffytail: Squirrel Adventure","alternateName":"Fluffytail: Sincap Macerası","url":"https://moonarcworks.com/fluffytail/","operatingSystem":"iOS, Android","applicationCategory":"GameApplication","audience":{"@type":"PeopleAudience","suggestedMinAge":6,"suggestedMaxAge":8},"publisher":{"@id":"https://moonarcworks.com/#org"}}]</script>
 <style>
   @font-face { font-family: Sora; font-weight: 400; src: url(/assets/Sora-400.ttf) format('truetype'); font-display: swap; }
   @font-face { font-family: Sora; font-weight: 600; src: url(/assets/Sora-600.ttf) format('truetype'); font-display: swap; }
@@ -129,7 +129,7 @@
   h2 { font-weight: 600; font-size: clamp(36px, 5vw, 68px); line-height: 1.02; letter-spacing: -2px; }
   h2 .serif { font-size: 1.1em; color: var(--gold-light); }
 
-  /* Languages: two ribbons of greetings drifting in opposite directions, each a link to Exhale in that language. */
+  /* Languages: two ribbons of greetings drifting in opposite directions, each a link to AirAgain in that language. */
   .langs { padding-block: 70px; }
   .langs .note { text-align: center; color: var(--muted); font-size: 15px; margin-bottom: 30px; }
   .langs .note b { color: var(--ink); font-weight: 600; }
@@ -142,7 +142,7 @@
   .track a:hover, .track a:focus-visible { color: var(--night); background: var(--gold-light); border-color: var(--gold-light); }
   @keyframes slide { to { transform: translateX(-50%); } }
 
-  /* Exhale: the text steps scroll past while the phone stays put and changes screen. */
+  /* AirAgain: the text steps scroll past while the phone stays put and changes screen. */
   .showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
   .app-head { display: flex; align-items: center; gap: 18px; margin-bottom: 26px; }
   .app-head img { width: 72px; height: 72px; border-radius: 18px; box-shadow: 0 14px 40px -12px rgba(0, 0, 0, .7), 0 0 0 1px var(--line); }
@@ -182,7 +182,7 @@
   .float.f2 b { color: #7EE0B5; }
   @keyframes bob { 50% { translate: 0 -12px; } }
 
-  /* Fluffytail: the second app, a card under Exhale's showcase. */
+  /* Fluffytail: the second app, a card under AirAgain's showcase. */
   /* Fluffytail: mirrored showcase, a landscape tablet instead of the phone. */
   .showcase.pv { margin-top: 160px; }
   /* Petiverse ekranları iPhone durum çubuğu şeridiyle gelir: oran ona göre, ada şeridin içinde kalır. */
@@ -298,8 +298,8 @@
 
   <div class="langs">
     <p class="note" data-reveal data-i18n="langNote">Every app speaks <b>34 languages</b> from day one.</p>
-    <div class="ribbon"><div class="track" id="t1"><a href="/exhale-site/en/" hreflang="en" lang="en">Hello</a><a href="/exhale-site/tr/" hreflang="tr" lang="tr">Merhaba</a><a href="/exhale-site/de/" hreflang="de" lang="de">Hallo</a><a href="/exhale-site/es/" hreflang="es" lang="es">Hola</a><a href="/exhale-site/fr/" hreflang="fr" lang="fr">Bonjour</a><a href="/exhale-site/it/" hreflang="it" lang="it">Ciao</a><a href="/exhale-site/pt/" hreflang="pt" lang="pt">Olá</a><a href="/exhale-site/ja/" hreflang="ja" lang="ja">こんにちは</a><a href="/exhale-site/ko/" hreflang="ko" lang="ko">안녕하세요</a><a href="/exhale-site/zh-hans/" hreflang="zh-hans" lang="zh-hans">你好</a><a href="/exhale-site/zh-hant/" hreflang="zh-hant" lang="zh-hant">您好</a><a href="/exhale-site/ar/" hreflang="ar" lang="ar">مرحبا</a><a href="/exhale-site/he/" hreflang="he" lang="he">שלום</a><a href="/exhale-site/hi/" hreflang="hi" lang="hi">नमस्ते</a><a href="/exhale-site/th/" hreflang="th" lang="th">สวัสดี</a><a href="/exhale-site/vi/" hreflang="vi" lang="vi">Xin chào</a><a href="/exhale-site/id/" hreflang="id" lang="id">Halo</a></div></div>
-    <div class="ribbon rev"><div class="track" id="t2"><a href="/exhale-site/ms/" hreflang="ms" lang="ms">Selamat</a><a href="/exhale-site/ru/" hreflang="ru" lang="ru">Привет</a><a href="/exhale-site/uk/" hreflang="uk" lang="uk">Привіт</a><a href="/exhale-site/bg/" hreflang="bg" lang="bg">Здравей</a><a href="/exhale-site/sr/" hreflang="sr" lang="sr">Здраво</a><a href="/exhale-site/el/" hreflang="el" lang="el">Γειά σου</a><a href="/exhale-site/pl/" hreflang="pl" lang="pl">Cześć</a><a href="/exhale-site/cs/" hreflang="cs" lang="cs">Ahoj</a><a href="/exhale-site/sk/" hreflang="sk" lang="sk">Dobrý deň</a><a href="/exhale-site/hu/" hreflang="hu" lang="hu">Szia</a><a href="/exhale-site/ro/" hreflang="ro" lang="ro">Salut</a><a href="/exhale-site/hr/" hreflang="hr" lang="hr">Bok</a><a href="/exhale-site/nl/" hreflang="nl" lang="nl">Hoi</a><a href="/exhale-site/da/" hreflang="da" lang="da">Hej</a><a href="/exhale-site/sv/" hreflang="sv" lang="sv">Hejsan</a><a href="/exhale-site/fi/" hreflang="fi" lang="fi">Hei</a><a href="/exhale-site/nb/" hreflang="nb" lang="nb">God dag</a></div></div>
+    <div class="ribbon"><div class="track" id="t1"><a href="/airagain/en/" hreflang="en" lang="en">Hello</a><a href="/airagain/tr/" hreflang="tr" lang="tr">Merhaba</a><a href="/airagain/de/" hreflang="de" lang="de">Hallo</a><a href="/airagain/es/" hreflang="es" lang="es">Hola</a><a href="/airagain/fr/" hreflang="fr" lang="fr">Bonjour</a><a href="/airagain/it/" hreflang="it" lang="it">Ciao</a><a href="/airagain/pt/" hreflang="pt" lang="pt">Olá</a><a href="/airagain/ja/" hreflang="ja" lang="ja">こんにちは</a><a href="/airagain/ko/" hreflang="ko" lang="ko">안녕하세요</a><a href="/airagain/zh-hans/" hreflang="zh-hans" lang="zh-hans">你好</a><a href="/airagain/zh-hant/" hreflang="zh-hant" lang="zh-hant">您好</a><a href="/airagain/ar/" hreflang="ar" lang="ar">مرحبا</a><a href="/airagain/he/" hreflang="he" lang="he">שלום</a><a href="/airagain/hi/" hreflang="hi" lang="hi">नमस्ते</a><a href="/airagain/th/" hreflang="th" lang="th">สวัสดี</a><a href="/airagain/vi/" hreflang="vi" lang="vi">Xin chào</a><a href="/airagain/id/" hreflang="id" lang="id">Halo</a></div></div>
+    <div class="ribbon rev"><div class="track" id="t2"><a href="/airagain/ms/" hreflang="ms" lang="ms">Selamat</a><a href="/airagain/ru/" hreflang="ru" lang="ru">Привет</a><a href="/airagain/uk/" hreflang="uk" lang="uk">Привіт</a><a href="/airagain/bg/" hreflang="bg" lang="bg">Здравей</a><a href="/airagain/sr/" hreflang="sr" lang="sr">Здраво</a><a href="/airagain/el/" hreflang="el" lang="el">Γειά σου</a><a href="/airagain/pl/" hreflang="pl" lang="pl">Cześć</a><a href="/airagain/cs/" hreflang="cs" lang="cs">Ahoj</a><a href="/airagain/sk/" hreflang="sk" lang="sk">Dobrý deň</a><a href="/airagain/hu/" hreflang="hu" lang="hu">Szia</a><a href="/airagain/ro/" hreflang="ro" lang="ro">Salut</a><a href="/airagain/hr/" hreflang="hr" lang="hr">Bok</a><a href="/airagain/nl/" hreflang="nl" lang="nl">Hoi</a><a href="/airagain/da/" hreflang="da" lang="da">Hej</a><a href="/airagain/sv/" hreflang="sv" lang="sv">Hejsan</a><a href="/airagain/fi/" hreflang="fi" lang="fi">Hei</a><a href="/airagain/nb/" hreflang="nb" lang="nb">God dag</a></div></div>
   </div>
 
   <section id="apps">
@@ -307,8 +307,8 @@
       <div>
         <div class="kicker" data-reveal data-i18n="ourApps">Our apps</div>
         <div class="app-head" data-reveal style="--d:1">
-          <img src="/assets/exhale-icon.png" alt="Exhale app icon">
-          <div><h3 data-i18n="appName">Exhale</h3><p data-i18n="appTag">Quit smoking &amp; vaping</p></div>
+          <img src="/assets/exhale-icon.png" alt="AirAgain app icon">
+          <div><h3 data-i18n="appName">AirAgain</h3><p data-i18n="appTag">Quit smoking &amp; vaping</p></div>
         </div>
         <div class="steps">
           <div class="step on" data-screen="0">
@@ -338,7 +338,7 @@
           <div class="stores">
             <a class="btn btn-ghost store" id="appstore" href="https://apps.apple.com/app/id6828166971"><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.4-.6 3.1-1.5z"/></svg><span id="appstore-label" data-i18n="preorder">Pre-order on the App Store</span></a>
             <a class="btn btn-ghost store" hidden href="https://play.google.com/store/apps/details?id=com.dumansiz.app"><svg viewBox="0 0 24 24"><path d="M3.6 2.3c-.3.3-.4.7-.4 1.2v17c0 .5.1.9.4 1.2l9.4-9.7-9.4-9.7zm10.6 10.9 2.6 2.7-11.4 6.6 8.8-9.3zm3.9-4 3 1.7c.9.5.9 1.8 0 2.3l-3 1.8-2.9-2.9 2.9-2.9zM5.4 1.5l11.4 6.6-2.6 2.7-8.8-9.3z"/></svg>Google Play</a>
-            <a class="btn btn-gold" id="site-link" href="/exhale-site/en/" data-i18n="visit">Visit the Exhale site →</a>
+            <a class="btn btn-gold" id="site-link" href="/airagain/en/" data-i18n="visit">Visit the AirAgain site →</a>
           </div>
         </div>
       </div>
@@ -346,9 +346,9 @@
         <div class="phone" id="phone">
           <div class="island"></div>
           <div class="screen">
-            <img class="on" data-shot="home" src="/assets/exhale-home-en.webp" alt="Exhale home screen: smoke-free days and money saved">
-            <img data-shot="health" src="/assets/exhale-health-en.webp" alt="Exhale health screen: how the body recovers" loading="lazy">
-            <img data-shot="goals" src="/assets/exhale-goals-en.webp" alt="Exhale goals screen: saving for a reward" loading="lazy">
+            <img class="on" data-shot="home" src="/assets/exhale-home-en.webp" alt="AirAgain home screen: smoke-free days and money saved">
+            <img data-shot="health" src="/assets/exhale-health-en.webp" alt="AirAgain health screen: how the body recovers" loading="lazy">
+            <img data-shot="goals" src="/assets/exhale-goals-en.webp" alt="AirAgain goals screen: saving for a reward" loading="lazy">
           </div>
           <div class="float f1"><span data-i18n="smokeFree">Smoke-free for</span><b id="clock">47d 05:23:02</b></div>
           <div class="float f2"><span data-i18n="cravings">Cravings beaten</span><b>14 ✓</b></div>
@@ -406,7 +406,7 @@
         </div>
       </div>
     </div>
-    <!-- Petiverse: the same scroll story as Exhale, with the localized app screens. -->
+    <!-- Petiverse: the same scroll story as AirAgain, with the localized app screens. -->
     <div class="wrap showcase pv" id="petiverse">
       <div>
         <div class="kicker" data-reveal data-i18n="pvKicker">For pet parents</div>
@@ -506,7 +506,7 @@
   <div class="wrap">
     <span>© 2026 Moon Arc Works</span>
     <span class="tonight"><canvas id="tonight" width="44" height="44" aria-hidden="true"></canvas><span id="tonight-text">Tonight's moon</span></span>
-    <nav><a href="/exhale-site/" data-i18n="appName">Exhale</a><a id="ft-foot" href="/fluffytail/" data-i18n="ftShort">Fluffytail</a><a href="/petiverse/">Petiverse</a><a href="/exhale-site/privacy.html" data-i18n="privacy">Privacy</a><a href="mailto:support@moonarcworks.com" data-i18n="navContact">Contact</a></nav>
+    <nav><a href="/airagain/" data-i18n="appName">AirAgain</a><a id="ft-foot" href="/fluffytail/" data-i18n="ftShort">Fluffytail</a><a href="/petiverse/">Petiverse</a><a href="/airagain/privacy.html" data-i18n="privacy">Privacy</a><a href="mailto:support@moonarcworks.com" data-i18n="navContact">Contact</a></nav>
   </div>
 </footer>
 
@@ -719,14 +719,14 @@
   document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
 
   /* ---------- Greetings ---------- */
-  // Each greeting opens Exhale's site in that language; a second copy, hidden from readers, closes the loop.
+  // Each greeting opens AirAgain's site in that language; a second copy, hidden from readers, closes the loop.
   for (const track of document.querySelectorAll('.track')) {
     const copy = track.cloneNode(true);
     for (const a of copy.children) { a.setAttribute('aria-hidden', 'true'); a.tabIndex = -1; }
     track.append(...copy.children);
   }
 
-  /* ---------- Exhale: steps switch the phone screen, the phone follows the pointer ---------- */
+  /* ---------- AirAgain: steps switch the phone screen, the phone follows the pointer ---------- */
   for (const sc of document.querySelectorAll('.showcase')) {
     const shots = [...sc.querySelectorAll('.screen img')], steps = [...sc.querySelectorAll('.step')];
     const show = (i) => { shots.forEach((s, j) => s.classList.toggle('on', i === j)); steps.forEach((s, j) => s.classList.toggle('on', i === j)); };
@@ -753,14 +753,14 @@
       lead: 'Moon Arc Works makes calm, useful mobile apps and games: simple to start, kind to your privacy and fluent in your language.',
       seeApps: 'See our apps', sayHello: 'Say hello', scroll: 'Scroll',
       langNote: 'Every app speaks <b>34 languages</b> from day one.',
-      ourApps: 'Our apps', appName: 'Exhale', appTag: 'Quit smoking &amp; vaping',
+      ourApps: 'Our apps', appName: 'AirAgain', appTag: 'Quit smoking &amp; vaping',
       s1h: 'Count every smoke-free second.', s1p: 'A live counter, a 30-day quit plan and the money you save, growing from the first minute.',
       s2h: 'Watch your body heal.', s2p: 'From 20 minutes to 10 years: see what changes inside you, based on World Health Organization data.',
       s3h: 'Turn savings into something you love.', s3p: 'Pick a reward and see how close every smoke-free day brings you.',
       preorder: 'Pre-order on the App Store',
       launchSoon: 'Launching on the App Store and Google Play in', launchOut: 'Out now on the App Store and Google Play.',
       days: 'days', hours: 'hours', min: 'min', sec: 'sec', dayShort: 'd',
-      visit: 'Visit the Exhale site →', site: '/exhale-site/en/',
+      visit: 'Visit the AirAgain site →', site: '/airagain/en/',
       smokeFree: 'Smoke-free for', cravings: 'Cravings beaten',
       studioKicker: 'The studio', studioH: 'A few quiet rules,<br>kept in <span class="serif">every</span> app.',
       t1h: 'Private by default', t1p: 'No sign-up walls. Your data stays on your phone unless you choose otherwise.',
@@ -793,14 +793,14 @@
       lead: 'Moon Arc Works sakin ve işe yarar mobil uygulamalar ve oyunlar yapar: başlaması kolay, gizliliğine saygılı ve senin dilini konuşan.',
       seeApps: 'Uygulamalarımız', sayHello: 'Merhaba de', scroll: 'Kaydır',
       langNote: 'Her uygulama ilk günden <b>34 dil</b> konuşur.',
-      ourApps: 'Uygulamalarımız', appName: 'Dumansız', appTag: "Sigarayı ve vape'i bırak",
+      ourApps: 'Uygulamalarımız', appName: 'AirAgain', appTag: "Sigarayı ve vape'i bırak",
       s1h: 'Dumansız her saniyeyi say.', s1p: 'Canlı sayaç, 30 günlük bırakma planı ve ilk dakikadan büyüyen birikimin.',
       s2h: 'Vücudunun iyileşmesini izle.', s2p: '20 dakikadan 10 yıla: içinde neyin değiştiğini Dünya Sağlık Örgütü verilerine göre gör.',
       s3h: 'Birikimini sevdiğin bir şeye dönüştür.', s3p: 'Bir ödül seç, her dumansız günün seni ona ne kadar yaklaştırdığını gör.',
       preorder: "App Store'da ön sipariş ver",
       launchSoon: "App Store ve Google Play'de çıkışa kalan süre", launchOut: "Şimdi App Store ve Google Play'de.",
       days: 'gün', hours: 'saat', min: 'dk', sec: 'sn', dayShort: 'g',
-      visit: 'Dumansız sitesine git →', site: '/exhale-site/tr/',
+      visit: 'AirAgain sitesine git →', site: '/airagain/tr/',
       smokeFree: 'Dumansız süre', cravings: 'Yenilen istek',
       studioKicker: 'Stüdyo', studioH: 'Her uygulamada <span class="serif">sessizce</span><br>tuttuğumuz kurallar.',
       t1h: 'Gizlilik önce gelir', t1p: 'Üyelik zorunluluğu yok. Sen başka türlüsünü seçmedikçe verilerin telefonunda kalır.',
