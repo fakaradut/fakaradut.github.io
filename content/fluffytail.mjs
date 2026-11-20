@@ -11,7 +11,7 @@ import path from 'node:path';
 
 const SITE = 'https://moonarcworks.com';
 const MAIL = 'support@moonarcworks.com';
-const UPDATED = { en: '12 November 2026', tr: '12 Kasım 2026', iso: '2026-11-12' };
+const UPDATED = { en: '20 November 2026', tr: '20 Kasım 2026', iso: '2026-11-20' };
 
 // The 34 languages of the game, each in its own words (the same list as the game's language picker).
 const LANGS = [
@@ -173,7 +173,7 @@ const privacyBody = {
     <ul>
       <li>The game collects <strong>no personal data</strong> from anyone, children included.</li>
       <li>No ads, no analytics, no tracking, no accounts and no chat. The game does not connect to the internet.</li>
-      <li>Progress and settings are saved only on your device, and you can delete them at any time.</li>
+      <li>Progress and settings are saved only on your device (and in your own iCloud or Google backup, if you use one), and you can delete them at any time.</li>
       <li>The one optional purchase is handled by Apple or Google. We never see any payment details.</li>
     </ul>
   </div>
@@ -199,7 +199,7 @@ const privacyBody = {
     <li>whether the Full Adventure is unlocked;</li>
     <li>pictures taken with the game's photo mode. They stay inside the game; they are not added to your photo library.</li>
   </ul>
-  <p>None of this is sent to us or to anyone else, and none of it identifies your child. On iPhone and iPad, if you use iCloud Backup or back up to a computer, Apple's backup may include the game's save under your own account; we have no access to it. The Android version is excluded from Google's app backup.</p>
+  <p>None of this is sent to us or to anyone else, and none of it identifies your child. On iPhone and iPad, if you use iCloud Backup or back up to a computer, Apple's backup may include the game's save under your own account; we have no access to it. On Android, if backup is turned on, Google's backup may include the save, the settings and whether the Full Adventure is unlocked (never the photos) under your own Google account; we have no access to it either.</p>
 
   <h2>How long data is kept and how to delete it</h2>
   <p>Saves stay on the device until you delete them. We keep nothing about you or your child, because nothing reaches us.</p>
@@ -247,7 +247,7 @@ const privacyBody = {
     <ul>
       <li>Oyun, çocuklar dahil hiç kimseden <strong>hiçbir kişisel veri toplamaz</strong>.</li>
       <li>Reklam, analiz, takip, hesap ve sohbet yok. Oyun internete bağlanmaz.</li>
-      <li>İlerleme ve ayarlar yalnızca cihazında saklanır; istediğin zaman silebilirsin.</li>
+      <li>İlerleme ve ayarlar yalnızca cihazında (ve kullanıyorsan kendi iCloud ya da Google yedeğinde) saklanır; istediğin zaman silebilirsin.</li>
       <li>İsteğe bağlı tek satın almayı Apple ya da Google yapar. Ödeme bilgilerini hiçbir zaman görmeyiz.</li>
     </ul>
   </div>
@@ -273,7 +273,7 @@ const privacyBody = {
     <li>Tam Macera'nın açık olup olmadığı;</li>
     <li>oyunun fotoğraf modunda çekilen resimler. Bunlar oyunun içinde kalır, fotoğraf arşivine eklenmez.</li>
   </ul>
-  <p>Bunların hiçbiri bize ya da başka birine gönderilmez ve hiçbiri çocuğunun kim olduğunu göstermez. iPhone ve iPad'de iCloud Yedekleme kullanıyorsan ya da bilgisayara yedek alıyorsan, Apple'ın yedeği oyun kaydını senin hesabın altında içerebilir; biz buna erişemeyiz. Android sürümü Google'ın uygulama yedeklemesinin dışında tutulur.</p>
+  <p>Bunların hiçbiri bize ya da başka birine gönderilmez ve hiçbiri çocuğunun kim olduğunu göstermez. iPhone ve iPad'de iCloud Yedekleme kullanıyorsan ya da bilgisayara yedek alıyorsan, Apple'ın yedeği oyun kaydını senin hesabın altında içerebilir; biz buna erişemeyiz. Android'de yedekleme açıksa, Google'ın yedeği kaydı, ayarları ve Tam Macera'nın açık olup olmadığını (fotoğrafları asla) senin Google hesabının altında içerebilir; buna da erişemeyiz.</p>
 
   <h2>Veriler ne kadar kalır, nasıl silinir</h2>
   <p>Kayıtlar sen silene kadar cihazda kalır. Bizde senin ya da çocuğunun hakkında hiçbir bilgi tutulmaz, çünkü bize hiçbir şey ulaşmaz.</p>
