@@ -48,13 +48,8 @@ header { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, va
 header nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; font-size: 15px; }
 header nav > a { padding: 8px 14px; border-radius: 999px; color: var(--muted); text-decoration: none; }
 header nav > a:hover, header nav > a[aria-current] { color: var(--text); background: var(--soft); }
-.langs { position: relative; }
-.langs summary { list-style: none; cursor: pointer; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--text); background: var(--card); }
-.langs summary::-webkit-details-marker { display: none; }
-.langs > div { position: absolute; inset-inline-end: 0; top: calc(100% + 6px); background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 8px;
-  display: grid; grid-template-columns: repeat(2, minmax(130px, 1fr)); gap: 2px; max-height: 70vh; overflow: auto; box-shadow: 0 16px 40px var(--shadow); }
-.langs > div a { padding: 7px 10px; border-radius: 10px; color: var(--text); text-decoration: none; font-size: 14px; }
-.langs > div a:hover, .langs > div a[aria-current] { background: var(--tint-soft); }
+.lm { --lm-bg: var(--card); --lm-fg: var(--text); --lm-muted: var(--muted); --lm-line: var(--line); --lm-hover: var(--soft);
+  --lm-on: var(--tint-soft); --lm-on-fg: var(--tint); --lm-field: var(--bg); --lm-shadow: var(--shadow); }
 
 /* Düğmeler, rozetler */
 .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--tint); color: #fff; padding: 14px 22px; border-radius: 999px; text-decoration: none; font-weight: 800; box-shadow: 0 8px 20px color-mix(in srgb, var(--tint) 30%, transparent); }

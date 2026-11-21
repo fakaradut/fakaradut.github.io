@@ -5,9 +5,12 @@
 //   tr/fluffytail/index.html       a small page that sends the old Turkish address to /fluffytail/tr/
 // The game page itself (/fluffytail/ and /fluffytail/<lang>/ in 34 languages) is built from the game repo:
 // sincap/web (Astro), copied here by sincap/web/scripts/deploy-local.sh. Its icons live in /fluffytail/gen/.
-// Edit the words here, then run `node build.mjs`. The pages are plain HTML and CSS: no scripts, no cookies, no trackers.
+// Edit the words here, then run `node build.mjs`. The pages are plain HTML and CSS (plus the shared language menu's
+// small script, assets/lang-menu.js): no cookies, no trackers.
 import fs from 'node:fs';
 import path from 'node:path';
+
+import { langMenu } from './lang-menu.mjs';
 
 const SITE = 'https://moonarcworks.com';
 const MAIL = 'support@moonarcworks.com';
@@ -57,7 +60,8 @@ const CSS = `
   header nav a { padding: 8px 12px; border-radius: 999px; color: var(--muted); text-decoration: none; }
   header nav a:hover { color: var(--ink); background: rgba(255, 255, 255, .06); }
   header nav a[aria-current="page"] { color: var(--ink); background: rgba(255, 255, 255, .08); }
-  header nav a.lang { color: var(--ink); border: 1px solid var(--line); font-weight: 600; margin-left: 4px; }
+  .lm { --lm-bg: var(--night-2); --lm-btn: rgba(255, 255, 255, .06); --lm-fg: var(--ink); --lm-muted: var(--muted); --lm-line: var(--line);
+    --lm-hover: rgba(255, 255, 255, .08); --lm-on: rgba(244, 195, 106, .16); --lm-on-fg: var(--gold-light); --lm-field: rgba(0, 0, 0, .25); --lm-shadow: rgba(0, 0, 0, .6); margin-inline-start: 4px; }
 
   main { padding-block: 56px 80px; }
   .kicker { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
@@ -114,7 +118,7 @@ const CSS = `
 
 const T = {
   en: {
-    locale: 'en_US', base: '', other: 'tr', otherLabel: 'Türkçe', otherShort: 'TR',
+    locale: 'en_US', base: '', language: 'Language',
     game: 'Fluffytail: Squirrel Adventure', gameHtml: 'Fluffytail: <span class="serif">Squirrel Adventure</span>',
     skip: 'Skip to content', home: 'Moon Arc Works home', nav: { game: 'Game', privacy: 'Privacy', support: 'Support' },
     foot: { studio: 'Moon Arc Works', contact: 'Contact' },
@@ -134,7 +138,7 @@ const T = {
     },
   },
   tr: {
-    locale: 'tr_TR', base: '/tr', other: 'en', otherLabel: 'English', otherShort: 'EN',
+    locale: 'tr_TR', base: '/tr', language: 'Dil',
     game: 'Fluffytail: Sincap Macerası', gameHtml: 'Fluffytail: <span class="serif">Sincap Macerası</span>',
     skip: 'İçeriğe geç', home: 'Moon Arc Works ana sayfa', nav: { game: 'Oyun', privacy: 'Gizlilik', support: 'Destek' },
     foot: { studio: 'Moon Arc Works', contact: 'İletişim' },
@@ -540,7 +544,14 @@ function page(lang, key) {
   const t = T[lang], meta = t.pages[key];
   const links = Object.fromEntries(Object.keys(PAGES).map((k) => [k, urlFor(lang, k)]));
   const nav = Object.keys(PAGES).map((k) => `<a href="${links[k]}"${k === key ? ' aria-current="page"' : ''}>${t.nav[k]}</a>`).join('');
-  const otherUrl = urlFor(t.other, key);
+  // The language menu shared by the studio's sites; English shows the UK flag, as in the game.
+  const menu = langMenu({
+    current: lang,
+    label: t.language,
+    flag: (country) => `/assets/flags/${country}.svg`,
+    flags: { en: 'GB' },
+    langs: [{ code: 'en', name: 'English', href: urlFor('en', key) }, { code: 'tr', name: 'Türkçe', href: urlFor('tr', key) }],
+  });
   return `<!doctype html>
 <html lang="${lang}">
 <head>
@@ -568,6 +579,8 @@ function page(lang, key) {
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">${JSON.stringify(jsonLd(lang, key))}</script>
+<link rel="stylesheet" href="/assets/lang-menu.css">
+<script src="/assets/lang-menu.js" defer></script>
 <style>${CSS}</style>
 </head>
 <body>
@@ -575,7 +588,7 @@ function page(lang, key) {
 <header>
   <div class="wrap">
     <a class="brand" href="${t.base}/" aria-label="${t.home}">${MARK_SVG}Moon Arc Works</a>
-    <nav aria-label="${t.game}">${nav}<a class="lang" href="${otherUrl}" hreflang="${t.other}" lang="${t.other}" aria-label="${t.otherLabel}">${t.otherShort}</a></nav>
+    <nav aria-label="${t.game}">${nav}${menu}</nav>
   </div>
 </header>
 <main id="main" class="wrap doc">

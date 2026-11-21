@@ -25,6 +25,8 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Privacy Policy – Fluffytail: Squirrel Adventure | Moon Arc Works","url":"https://moonarcworks.com/fluffytail/privacy/","inLanguage":"en","dateModified":"2026-11-20","about":{"@id":"https://moonarcworks.com/fluffytail/#game"},"publisher":{"@id":"https://moonarcworks.com/#org"}}</script>
+<link rel="stylesheet" href="/assets/lang-menu.css">
+<script src="/assets/lang-menu.js" defer></script>
 <style>
   @font-face { font-family: Sora; font-weight: 400; src: url(/assets/Sora-400.ttf) format('truetype'); font-display: swap; }
   @font-face { font-family: Sora; font-weight: 600; src: url(/assets/Sora-600.ttf) format('truetype'); font-display: swap; }
@@ -56,7 +58,8 @@
   header nav a { padding: 8px 12px; border-radius: 999px; color: var(--muted); text-decoration: none; }
   header nav a:hover { color: var(--ink); background: rgba(255, 255, 255, .06); }
   header nav a[aria-current="page"] { color: var(--ink); background: rgba(255, 255, 255, .08); }
-  header nav a.lang { color: var(--ink); border: 1px solid var(--line); font-weight: 600; margin-left: 4px; }
+  .lm { --lm-bg: var(--night-2); --lm-btn: rgba(255, 255, 255, .06); --lm-fg: var(--ink); --lm-muted: var(--muted); --lm-line: var(--line);
+    --lm-hover: rgba(255, 255, 255, .08); --lm-on: rgba(244, 195, 106, .16); --lm-on-fg: var(--gold-light); --lm-field: rgba(0, 0, 0, .25); --lm-shadow: rgba(0, 0, 0, .6); margin-inline-start: 4px; }
 
   main { padding-block: 56px 80px; }
   .kicker { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
@@ -114,7 +117,7 @@
 <header>
   <div class="wrap">
     <a class="brand" href="/" aria-label="Moon Arc Works home"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE7B3"/><stop offset="1" stop-color="#E39E3C"/></linearGradient></defs><path transform="translate(3 -2.3)" d="M41.723 16.552 A36 36 0 1 0 82.071 63.625 A31 31 0 0 1 41.723 16.552 Z" fill="url(#g)"/></svg>Moon Arc Works</a>
-    <nav aria-label="Fluffytail: Squirrel Adventure"><a href="/fluffytail/">Game</a><a href="/fluffytail/privacy/" aria-current="page">Privacy</a><a href="/fluffytail/support/">Support</a><a class="lang" href="/tr/fluffytail/privacy/" hreflang="tr" lang="tr" aria-label="Türkçe">TR</a></nav>
+    <nav aria-label="Fluffytail: Squirrel Adventure"><a href="/fluffytail/">Game</a><a href="/fluffytail/privacy/" aria-current="page">Privacy</a><a href="/fluffytail/support/">Support</a><details class="lm" data-lm><summary class="lm-btn"><span class="lm-sr">Language: </span><img class="lm-flag" src="/assets/flags/GB.svg" alt="" width="21" height="14" decoding="async"><span class="lm-name" lang="en">English</span><span class="lm-code" aria-hidden="true">EN</span><svg class="lm-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="lm-panel"><ul class="lm-list" aria-label="Language"><li><a href="/fluffytail/privacy/" hreflang="en" lang="en" data-q="en English" aria-current="page"><img class="lm-flag" src="/assets/flags/GB.svg" alt="" width="21" height="14" loading="lazy" decoding="async"><span>English</span></a></li><li><a href="/tr/fluffytail/privacy/" hreflang="tr" lang="tr" data-q="tr Turkish"><img class="lm-flag" src="/assets/flags/TR.svg" alt="" width="21" height="14" loading="lazy" decoding="async"><span>Türkçe</span></a></li></ul></div></details></nav>
   </div>
 </header>
 <main id="main" class="wrap doc">

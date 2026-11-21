@@ -1,4 +1,4 @@
-// Builds the Turkish page and the sitemap from index.html (the English page, the one to edit):
+// Builds the Turkish page and the sitemap from index.html (the English page, the one to edit), and fills in its language menu:
 //   node build.mjs
 // The page's script fills in the Turkish words; this sets what search engines and link previews read first.
 // It also writes the Fluffytail privacy and support pages (English and Turkish) from content/fluffytail.mjs, and
@@ -7,8 +7,21 @@
 // Run it after sincap/web/scripts/deploy-local.sh has copied the game site in.
 import fs from 'node:fs';
 import { writeFluffytail } from './content/fluffytail.mjs';
+import { langMenu } from './content/lang-menu.mjs';
 
-const en = fs.readFileSync('index.html', 'utf8');
+// The language menu shared by the studio's sites (content/lang-menu.mjs) goes between <!--lm--> and <!--/lm-->,
+// in index.html itself too, so the English page is right as it is served.
+const menu = (lang) => `<!--lm-->${langMenu({
+  current: lang,
+  label: lang === 'tr' ? 'Dil' : 'Language',
+  flag: (country) => `/assets/flags/${country}.svg`,
+  langs: [{ code: 'en', name: 'English', href: '/' }, { code: 'tr', name: 'Türkçe', href: '/tr/' }],
+})}<!--/lm-->`;
+const MENU = /<!--lm-->[\s\S]*?<!--\/lm-->/;
+const source = fs.readFileSync('index.html', 'utf8');
+if (!MENU.test(source)) throw new Error('No <!--lm--><!--/lm--> in index.html');
+const en = source.replace(MENU, () => menu('en'));
+if (en !== source) fs.writeFileSync('index.html', en);
 const swaps = [
   ['<html lang="en">', '<html lang="tr">'],
   ['<title>Moon Arc Works – calm, useful mobile apps and games</title>', '<title>Moon Arc Works – sakin ve işe yarar mobil uygulamalar ve oyunlar</title>'],
@@ -24,7 +37,7 @@ const swaps = [
   ['https://www.youtube.com/watch?v=0Ahu6HM9Otw', 'https://www.youtube.com/watch?v=qovEDOjrpmY'],
   ['<a id="ft-foot" href="/fluffytail/" data-i18n="ftShort">', '<a id="ft-foot" href="/fluffytail/tr/" data-i18n="ftShort">'],
 ];
-let tr = en;
+let tr = en.replace(MENU, () => menu('tr'));
 for (const [from, to] of swaps) {
   if (!tr.includes(from)) throw new Error(`Not found in index.html: ${from}`);
   tr = tr.replace(from, to);

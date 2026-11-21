@@ -1,0 +1,76 @@
+/* Language menu shared by the Moon Arc Works sites (lang-menu.mjs says which files go together).
+   Each site sets the colours: --lm-bg (panel), --lm-btn (button), --lm-fg, --lm-muted, --lm-line, --lm-hover,
+   --lm-on (the current language's background), --lm-on-fg, --lm-field (search), --lm-shadow. */
+.lm { position: relative; flex: none; margin: 0; padding: 0; border: 0; background: none; font: inherit; }
+.lm-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.lm-btn { list-style: none; display: flex; align-items: center; justify-content: flex-start; gap: 8px; min-height: 40px; margin: 0; padding-block: 0; padding-inline: 12px 10px;
+  border-radius: 999px; border: 1px solid var(--lm-line); background: var(--lm-btn, var(--lm-bg)); color: var(--lm-fg);
+  font-family: inherit; font-size: 15px; font-weight: 700; line-height: 1; white-space: nowrap; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent;
+  transition: border-color .2s; }
+.lm-btn::-webkit-details-marker { display: none; }
+.lm-btn::marker { content: ''; }
+.lm .lm-btn::before, .lm .lm-btn::after { content: none; display: none; } /* sites style FAQ <summary> with these */
+.lm-btn:hover, .lm[open] > .lm-btn { border-color: var(--lm-on-fg); }
+.lm-btn:focus-visible { outline: 3px solid var(--lm-on-fg); outline-offset: 2px; }
+.lm-name { max-width: 11em; overflow: hidden; text-overflow: ellipsis; }
+.lm-code { display: none; font-weight: 800; font-size: 13px; letter-spacing: .04em; }
+.lm-chev { flex: none; width: 14px; height: 14px; color: var(--lm-muted); transition: transform .2s; }
+.lm[open] .lm-chev { transform: rotate(180deg); }
+.lm-flag { flex: none; width: 21px; height: 14px; border-radius: 3px; background: var(--lm-hover); object-fit: cover; box-shadow: 0 0 0 1px rgba(0, 0, 0, .14); }
+
+.lm-panel { position: absolute; z-index: 60; top: calc(100% + 8px); inset-inline-end: 0; width: max-content; min-width: 13rem;
+  max-width: calc(100vw - 32px); max-height: min(72vh, 620px); overflow: auto; overscroll-behavior: contain; padding: 8px;
+  border-radius: 18px; border: 1px solid var(--lm-line); background: var(--lm-bg); color: var(--lm-fg);
+  box-shadow: 0 24px 64px var(--lm-shadow, rgba(0, 0, 0, .25)); text-align: start; }
+.lm-many .lm-panel { width: min(47rem, calc(100vw - 32px)); }
+.lm[open] .lm-panel { animation: lm-in .16s ease-out; }
+@keyframes lm-in { from { opacity: 0; transform: translateY(-6px); } }
+
+.lm-top { position: sticky; top: -8px; z-index: 1; display: flex; align-items: center; margin: -8px -8px 6px; padding: 8px; background: var(--lm-bg); }
+.lm-top[hidden] { display: none; }
+.lm-glass { position: absolute; inset-inline-start: 22px; width: 18px; height: 18px; color: var(--lm-muted); pointer-events: none; }
+.lm-q { width: 100%; min-width: 0; height: 44px; padding-inline: 42px 72px; border-radius: 12px; border: 1px solid var(--lm-line);
+  background: var(--lm-field, transparent); color: inherit; font: inherit; font-size: 16px; outline: none; -webkit-appearance: none; appearance: none; }
+.lm-q::placeholder { color: var(--lm-muted); opacity: 1; }
+.lm-q:focus { border-color: var(--lm-on-fg); box-shadow: 0 0 0 3px color-mix(in srgb, var(--lm-on-fg) 25%, transparent); }
+.lm-count { position: absolute; inset-inline-end: 22px; font-size: 13px; color: var(--lm-muted); pointer-events: none; }
+
+.lm-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.lm-many .lm-list { grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); }
+.lm .lm-list li { margin: 0; }
+.lm .lm-list li[hidden] { display: none; }
+.lm .lm-list a { display: flex; align-items: center; gap: 10px; min-height: 40px; padding: 8px 12px; border-radius: 10px;
+  color: inherit; text-decoration: none; font-size: 15px; line-height: 1.25; }
+.lm .lm-list a:hover { background: var(--lm-hover); }
+.lm .lm-list a:focus-visible { outline: 2px solid var(--lm-on-fg); outline-offset: -2px; }
+.lm .lm-list a[aria-current] { background: var(--lm-on); color: var(--lm-on-fg); font-weight: 800; }
+.lm .lm-list a[aria-current]::after { content: ''; flex: none; width: 16px; height: 16px; margin-inline-start: auto; background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center / contain no-repeat; }
+
+/* Phones: the code instead of the name, and the list as a sheet from the bottom over a dimmed page. */
+@media (max-width: 600px) {
+  .lm-name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); } /* still read out */
+  .lm-code { display: inline; }
+  .lm-chev { display: none; }
+  .lm-btn { padding-inline: 10px; }
+  .lm-panel, .lm-many .lm-panel { position: fixed; top: auto; bottom: 0; inset-inline: 0 auto; width: 100vw; max-width: none;
+    max-height: 80dvh; padding: 6px 12px calc(14px + env(safe-area-inset-bottom)); border-radius: 22px 22px 0 0; border-width: 1px 0 0;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .45); }
+  .lm-panel::before { content: ''; display: block; width: 40px; height: 4px; margin: 4px auto 8px; border-radius: 2px; background: var(--lm-line); }
+  .lm[open] .lm-panel { animation: lm-fade .2s ease-out; }
+  .lm-top { top: -6px; margin: 0 -12px 6px; padding: 4px 12px 8px; }
+  .lm-glass { inset-inline-start: 26px; }
+  .lm-count { inset-inline-end: 26px; }
+  .lm-many .lm-list { grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); }
+  .lm .lm-list a { min-height: 48px; }
+  html:has(.lm[open]) { overflow: hidden; }
+  /* A blurred bar would hold the fixed sheet inside itself. */
+  :has(.lm[open]) { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+}
+@media (max-width: 380px) { .lm-code { display: none; } }
+@keyframes lm-fade { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .lm[open] .lm-panel { animation: none; }
+  .lm-chev, .lm-btn { transition: none; }
+}

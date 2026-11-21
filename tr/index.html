@@ -23,6 +23,8 @@
 <meta property="og:image" content="https://moonarcworks.com/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","@id":"https://moonarcworks.com/#org","name":"Moon Arc Works","url":"https://moonarcworks.com/","logo":"https://moonarcworks.com/brand/out/icon-512.png","email":"support@moonarcworks.com","description":"An independent studio making calm, useful mobile apps and games."},{"@context":"https://schema.org","@type":"WebSite","name":"Moon Arc Works","url":"https://moonarcworks.com/","publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":"MobileApplication","name":"AirAgain","alternateName":"Exhale","url":"https://moonarcworks.com/airagain/","operatingSystem":"iOS, Android","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":"MobileApplication","@id":"https://moonarcworks.com/petiverse/#app","name":"Petiverse","url":"https://moonarcworks.com/petiverse/","operatingSystem":"iOS, Android","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":["VideoGame","MobileApplication"],"@id":"https://moonarcworks.com/fluffytail/#game","name":"Fluffytail: Squirrel Adventure","alternateName":"Fluffytail: Sincap Macerası","url":"https://moonarcworks.com/fluffytail/","operatingSystem":"iOS, Android","applicationCategory":"GameApplication","audience":{"@type":"PeopleAudience","suggestedMinAge":6,"suggestedMaxAge":8},"publisher":{"@id":"https://moonarcworks.com/#org"}}]</script>
+<link rel="stylesheet" href="/assets/lang-menu.css">
+<script src="/assets/lang-menu.js" defer></script>
 <style>
   @font-face { font-family: Sora; font-weight: 400; src: url(/assets/Sora-400.ttf) format('truetype'); font-display: swap; }
   @font-face { font-family: Sora; font-weight: 600; src: url(/assets/Sora-600.ttf) format('truetype'); font-display: swap; }
@@ -72,18 +74,19 @@
   .wrap { max-width: 1180px; margin: 0 auto; padding-inline: 24px; }
 
   /* Header */
-  header { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 20; width: min(1132px, calc(100% - 28px));
+  header { position: fixed; top: 14px; inset-inline: 0; margin-inline: auto; z-index: 20; width: min(1132px, calc(100% - 28px));
     border: 1px solid transparent; border-radius: 999px; transition: background .4s, border-color .4s, backdrop-filter .4s; }
   header.solid { background: rgba(10, 14, 34, .55); border-color: var(--line); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); }
   header .bar { display: flex; align-items: center; justify-content: space-between; height: 58px; padding: 0 10px 0 20px; }
-  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 16px; white-space: nowrap; }
   .brand svg { width: 26px; height: 26px; transition: transform .8s var(--ease); }
   .brand:hover svg { transform: rotate(-25deg) scale(1.1); }
   header nav { display: flex; align-items: center; gap: 6px; font-size: 14px; }
   header nav a { padding: 9px 16px; border-radius: 999px; color: var(--muted); transition: color .25s, background .25s; }
   header nav a:hover { color: var(--ink); background: rgba(255, 255, 255, .06); }
-  .lang { font: 600 13px Sora, sans-serif; color: var(--ink); background: rgba(255, 255, 255, .06); border: 1px solid var(--line); border-radius: 999px; height: 38px; min-width: 46px; padding: 0 12px; cursor: pointer; transition: background .25s, border-color .25s, transform .4s var(--ease); }
-  .lang:hover { background: rgba(255, 255, 255, .12); border-color: rgba(238, 241, 250, .3); }
+  /* The language menu shared by the studio's sites (assets/lang-menu.css), in this page's colours. */
+  .lm { --lm-bg: var(--night-2); --lm-btn: rgba(255, 255, 255, .06); --lm-fg: var(--ink); --lm-muted: var(--muted); --lm-line: var(--line);
+    --lm-hover: rgba(255, 255, 255, .08); --lm-on: rgba(244, 195, 106, .16); --lm-on-fg: var(--gold-light); --lm-field: rgba(0, 0, 0, .25); --lm-shadow: rgba(0, 0, 0, .6); }
   .swap main, .swap footer { animation: fadeSwap .6s var(--ease); }
   @keyframes fadeSwap { from { opacity: .15; filter: blur(6px); } }
   header nav a.cta-mini { color: var(--night); background: var(--ink); font-weight: 600; }
@@ -278,7 +281,7 @@
       <svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE7B3"/><stop offset="1" stop-color="#E39E3C"/></linearGradient></defs><path transform="translate(3 -2.3)" d="M41.723 16.552 A36 36 0 1 0 82.071 63.625 A31 31 0 0 1 41.723 16.552 Z" fill="url(#g)"/></svg>
       Moon Arc Works
     </a>
-    <nav><a href="#apps" data-i18n="navApps">Apps</a><a href="#studio" data-i18n="navStudio">Studio</a><button class="lang" id="lang" type="button" aria-label="Türkçe">TR</button><a class="cta-mini" href="#contact" data-i18n="navContact">Contact</a></nav>
+    <nav><a href="#apps" data-i18n="navApps">Apps</a><a href="#studio" data-i18n="navStudio">Studio</a><!--lm--><details class="lm" data-lm><summary class="lm-btn"><span class="lm-sr">Dil: </span><img class="lm-flag" src="/assets/flags/TR.svg" alt="" width="21" height="14" decoding="async"><span class="lm-name" lang="tr">Türkçe</span><span class="lm-code" aria-hidden="true">TR</span><svg class="lm-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="lm-panel"><ul class="lm-list" aria-label="Dil"><li><a href="/" hreflang="en" lang="en" data-q="en English"><img class="lm-flag" src="/assets/flags/US.svg" alt="" width="21" height="14" loading="lazy" decoding="async"><span>English</span></a></li><li><a href="/tr/" hreflang="tr" lang="tr" data-q="tr Turkish" aria-current="page"><img class="lm-flag" src="/assets/flags/TR.svg" alt="" width="21" height="14" loading="lazy" decoding="async"><span>Türkçe</span></a></li></ul></div></details><!--/lm--><a class="cta-mini" href="#contact" data-i18n="navContact">Contact</a></nav>
   </div>
 </header>
 
@@ -747,7 +750,7 @@
   /* ---------- Words in English and Turkish ---------- */
   const T = {
     en: {
-      title: 'Moon Arc Works', switchTo: 'TR', switchLabel: 'Türkçe',
+      title: 'Moon Arc Works',
       h1: [['Small', 'apps,'], ['made', 'by'], ['*moonlight.']],
       navApps: 'Apps', navStudio: 'Studio', navContact: 'Contact', eyebrow: 'Independent app studio',
       lead: 'Moon Arc Works makes calm, useful mobile apps and games: simple to start, kind to your privacy and fluent in your language.',
@@ -787,7 +790,7 @@
       phases: ['new moon', 'waxing crescent', 'first quarter', 'waxing gibbous', 'full moon', 'waning gibbous', 'last quarter', 'waning crescent'],
     },
     tr: {
-      title: 'Moon Arc Works', switchTo: 'EN', switchLabel: 'English',
+      title: 'Moon Arc Works',
       h1: [['Küçük', 'uygulamalar,'], ['*ay ışığında'], ['yapıldı.']],
       navApps: 'Uygulamalar', navStudio: 'Stüdyo', navContact: 'İletişim', eyebrow: 'Bağımsız uygulama stüdyosu',
       lead: 'Moon Arc Works sakin ve işe yarar mobil uygulamalar ve oyunlar yapar: başlaması kolay, gizliliğine saygılı ve senin dilini konuşan.',
@@ -851,16 +854,15 @@
     document.getElementById('pv-link').href = t.pvSite;
     document.querySelectorAll('[data-ft]').forEach((img) => { img.src = `/fluffytail/gen/shots/${lang}/${img.dataset.ft}-1600.webp`; });
     document.getElementById('ft-trailer').href = `https://www.youtube.com/watch?v=${t.ftVideo}`;
-    const sw = document.getElementById('lang'); sw.textContent = t.switchTo; sw.setAttribute('aria-label', t.switchLabel);
     document.getElementById('launch-label').textContent = launched ? t.launchOut : t.launchSoon;
     tonightText();
     if (animate) { document.body.classList.remove('swap'); void document.body.offsetWidth; document.body.classList.add('swap'); }
   }
-  document.getElementById('lang').addEventListener('click', () => {
-    const next = lang === 'en' ? 'tr' : 'en';
-    try { localStorage.setItem('lang', next); } catch {}
-    location.href = (next === 'tr' ? '/tr/' : '/') + location.hash;
-  });
+  // The language menu links to / and /tr/; the choice is remembered so the bare address keeps it.
+  document.querySelectorAll('.lm-list a').forEach((a) => a.addEventListener('click', (e) => {
+    try { localStorage.setItem('lang', a.hreflang); } catch {}
+    if (location.hash) { e.preventDefault(); location.href = a.getAttribute('href') + location.hash; }
+  }));
 
   // The smoke-free clock in the floating card ticks like the app's.
   let secs = 47 * 86400 + 5 * 3600 + 23 * 60 + 2;
