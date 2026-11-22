@@ -95,13 +95,19 @@
 <link rel="apple-touch-icon" href="/petiverse/assets/icon-180.png">
 <link rel="preload" href="/petiverse/assets/fonts/Fraunces_700Bold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/petiverse/assets/fonts/Nunito_600SemiBold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/petiverse/assets/site.css?v=9890f826">
+<link rel="stylesheet" href="/petiverse/assets/site.css?v=dbf3cdd1">
 <link rel="stylesheet" href="/petiverse/assets/lang-menu.css?v=8738cf0e">
 <script src="/petiverse/assets/lang-menu.js?v=8738cf0e" defer></script>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"ar","lastReviewed":"2026-11-19","citation":{"@type":"CreativeWork","name":"2024 guidelines for the vaccination of dogs and cats","url":"https://wsava.org/wp-content/uploads/2024/04/WSAVA-Vaccination-guidelines-2024.pdf","author":{"@type":"Organization","name":"World Small Animal Veterinary Association (WSAVA)","url":"https://wsava.org/"}},"mainEntity":[{"@type":"Question","name":"متى يأخذ الجرو أول تطعيم؟","acceptedAnswer":{"@type":"Answer","text":"في عمر 6–8 أسابيع. يُكرَّر اللقاح الأساسي كل 2–4 أسابيع حتى عمر 16 أسبوعًا على الأقل، ثم مرة أخرى في عمر 6 أشهر تقريبًا."}},{"@type":"Question","name":"متى تأخذ القطة الصغيرة أول تطعيم؟","acceptedAnswer":{"@type":"Answer","text":"في عمر 6–8 أسابيع. يُكرَّر اللقاح الأساسي كل 2–4 أسابيع حتى عمر 16 أسبوعًا على الأقل، ثم مرة أخرى في عمر 6 أشهر تقريبًا."}},{"@type":"Question","name":"كم مرة تحتاج الكلاب والقطط البالغة إلى التطعيم؟","acceptedAnswer":{"@type":"Answer","text":"اللقاحات الأساسية عادةً ليس أكثر من مرة كل 3 سنوات. بعضها سنوي: داء البريميات وسعال الكلاب لدى الكلاب، والحماية من إنفلونزا القطط للقطط الأكثر عرضة للخطر. لقاح داء الكلب يتبع القانون المحلي."}},{"@type":"Question","name":"هل لقاح داء الكلب إلزامي؟","acceptedAnswer":{"@type":"Answer","text":"في كثير من الدول هو إلزامي بحكم القانون، وهو أساسي في كل مكان يوجد فيه داء الكلب. يحدد القانون العمر وعدد المرات. اسأل طبيبك البيطري."}}]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Petiverse","item":"https://moonarcworks.com/petiverse/ar/"},{"@type":"ListItem","position":2,"name":"جدول التطعيمات","item":"https://moonarcworks.com/petiverse/ar/vaccine-schedule/"}]}]</script>
 </head>
 <body>
 <a class="skip" href="#main">انتقل إلى المحتوى</a>
+<div class="launch" id="launch" data-launch="2027-01-14" data-href="https://apps.apple.com/app/id6758307180" hidden><div class="wrap">
+  <svg class="launch-moon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" class="disc"></circle><path class="lit" d=""></path></svg>
+  <span class="launch-text">على App Store في 14 يناير</span><span class="launch-count" aria-hidden="true"></span>
+  
+  <button class="launch-close" type="button" aria-label="×">×</button>
+</div></div>
 <header><div class="wrap bar">
   <a class="brand" href="/petiverse/ar/"><img src="/petiverse/assets/icon-192.png" alt="" width="36" height="36">Petiverse</a>
   <nav><a href="/petiverse/ar/toxic/">هل هو سام؟</a><a href="/petiverse/ar/first-aid/">الإسعافات الأولية</a><a href="/petiverse/ar/food-calculator/">حاسبة الطعام</a><a href="/petiverse/ar/support/">الدعم</a>
@@ -141,5 +147,32 @@
   <nav><a href="/petiverse/ar/privacy/">الخصوصية</a><a href="/petiverse/ar/terms/">الشروط</a><a href="/petiverse/ar/support/">الدعم</a><a href="mailto:support@moonarcworks.com">تواصل</a></nav>
   <p><a href="https://moonarcworks.com/">من صنع Moon Arc Works</a> · بيانات الأماكن © مساهمو OpenStreetMap (ODbL)</p>
 </div></footer>
+<script>(() => {
+  const band = document.getElementById('launch'); if (!band) return;
+  const at = new Date(band.dataset.launch + 'T00:00:00').getTime(), lang = document.documentElement.lang;
+  const [d, h, m] = ['day', 'hour', 'minute'].map((u) => new Intl.NumberFormat(lang, { style: 'unit', unit: u, unitDisplay: 'narrow' }));
+  const count = band.querySelector('.launch-count'), lit = band.querySelector('.lit');
+  const get = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
+  const set = (k, v) => { try { localStorage.setItem(k, v); } catch {} };
+  const moon = (f) => { const r = 10, k = Math.cos(Math.PI * f) * r; return 'M12 2 A' + r + ' ' + r + ' 0 0 1 12 22 A' + Math.abs(k) + ' ' + r + ' 0 0 ' + (k > 0 ? 0 : 1) + ' 12 2Z'; };
+  const release = () => {
+    band.remove();
+    document.querySelectorAll('[data-until-launch]').forEach((el) => el.remove());
+    document.querySelectorAll('a.store[data-appstore]').forEach((a) => {
+      a.href = band.dataset.href; a.rel = 'noopener'; a.classList.remove('pending'); a.removeAttribute('aria-disabled'); a.removeAttribute('data-tag');
+    });
+  };
+  const tick = () => {
+    const left = at - Date.now(); if (left <= 0) return release();
+    const days = Math.floor(left / 864e5), hours = Math.floor(left / 36e5) % 24, mins = Math.floor(left / 6e4) % 60;
+    count.textContent = [days && d.format(days), h.format(hours), m.format(mins)].filter(Boolean).join(' ');
+    lit.setAttribute('d', moon(Math.max(0.06, 1 - left / (45 * 864e5))));
+    setTimeout(tick, 1000 * (60 - new Date().getSeconds()));
+  };
+  if (Date.now() >= at) return release();
+  if (get('launch-closed') !== band.dataset.launch) band.hidden = false;
+  tick();
+  band.querySelector('.launch-close').addEventListener('click', () => { set('launch-closed', band.dataset.launch); band.hidden = true; });
+})();</script>
 </body>
 </html>

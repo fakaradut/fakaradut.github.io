@@ -95,13 +95,19 @@
 <link rel="apple-touch-icon" href="/petiverse/assets/icon-180.png">
 <link rel="preload" href="/petiverse/assets/fonts/Fraunces_700Bold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/petiverse/assets/fonts/Nunito_600SemiBold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/petiverse/assets/site.css?v=9890f826">
+<link rel="stylesheet" href="/petiverse/assets/site.css?v=dbf3cdd1">
 <link rel="stylesheet" href="/petiverse/assets/lang-menu.css?v=8738cf0e">
 <script src="/petiverse/assets/lang-menu.js?v=8738cf0e" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"cs","mainEntity":[{"@type":"Question","name":"Přechod na nový telefon","acceptedAnswer":{"@type":"Answer","text":"Ve starém telefonu: Nastavení › Exportovat zálohu a soubor ulož na Drive, iCloud nebo do e-mailu. V novém telefonu otevři Petiverse a klepni na „Mám zálohu, obnovit ji“. Soubor obsahuje i fotky."}},{"@type":"Question","name":"Obnovení Plus","acceptedAnswer":{"@type":"Answer","text":"Otevři Nastavení › Petiverse Plus a klepni na „Obnovit nákupy“; musíš být přihlášen(a) stejným Apple ID nebo účtem Google, se kterým jsi nakupoval(a)."}},{"@type":"Question","name":"Zrušení předplatného","acceptedAnswer":{"@type":"Answer","text":"Předplatné spravuje obchod: na iPhonu v Nastavení › tvoje jméno › Předplatná; na Androidu v Google Play › Platby a předplatná. Smazáním aplikace se předplatné nezruší."}},{"@type":"Question","name":"Nechodí připomínky","acceptedAnswer":{"@type":"Answer","text":"Povol oznámení pro Petiverse v nastavení telefonu (v aplikaci tě tam dovede Nastavení › Nastavení oznámení). Na některých telefonech s Androidem vypni pro Petiverse také optimalizaci baterie."}},{"@type":"Question","name":"QR známka","acceptedAnswer":{"@type":"Answer","text":"Známka otevře stránku, která ukáže jen to, co na ni dáš: jméno, druh, telefon a krátkou poznámku. Údaje jsou uložené v odkazu; my je neukládáme. Chceš-li je změnit, vytvoř novou známku."}},{"@type":"Question","name":"Nějaké místo chybí nebo je špatně","acceptedAnswer":{"@type":"Answer","text":"Místa pocházejí z OpenStreetMap, které může kdokoli vylepšit na openstreetmap.org. Změny se do aplikace dostanou asi do týdne."}},{"@type":"Question","name":"Smazání dat","acceptedAnswer":{"@type":"Answer","text":"Nastavení › Smazat všechna data odstraní z telefonu všechno. Pokud je zapnuté rodinné sdílení, Nastavení › Rodinné sdílení › Vypnout sdílení pro všechny smaže i šifrovanou kopii na serveru; jinak u nás žádná kopie není."}}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Přejít na obsah</a>
+<div class="launch" id="launch" data-launch="2027-01-14" data-href="https://apps.apple.com/app/id6758307180" hidden><div class="wrap">
+  <svg class="launch-moon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" class="disc"></circle><path class="lit" d=""></path></svg>
+  <span class="launch-text">V App Storu od 14. ledna</span><span class="launch-count" aria-hidden="true"></span>
+  
+  <button class="launch-close" type="button" aria-label="×">×</button>
+</div></div>
 <header><div class="wrap bar">
   <a class="brand" href="/petiverse/cs/"><img src="/petiverse/assets/icon-192.png" alt="" width="36" height="36">Petiverse</a>
   <nav><a href="/petiverse/cs/toxic/">Je to jedovaté?</a><a href="/petiverse/cs/first-aid/">První pomoc</a><a href="/petiverse/cs/food-calculator/">Kalkulačka krmení</a><a href="/petiverse/cs/support/" aria-current="page">Podpora</a>
@@ -117,5 +123,32 @@
   <nav><a href="/petiverse/cs/privacy/">Soukromí</a><a href="/petiverse/cs/terms/">Podmínky</a><a href="/petiverse/cs/support/">Podpora</a><a href="mailto:support@moonarcworks.com">Kontakt</a></nav>
   <p><a href="https://moonarcworks.com/">Vytvořilo Moon Arc Works</a> · Data míst © přispěvatelé OpenStreetMap (ODbL)</p>
 </div></footer>
+<script>(() => {
+  const band = document.getElementById('launch'); if (!band) return;
+  const at = new Date(band.dataset.launch + 'T00:00:00').getTime(), lang = document.documentElement.lang;
+  const [d, h, m] = ['day', 'hour', 'minute'].map((u) => new Intl.NumberFormat(lang, { style: 'unit', unit: u, unitDisplay: 'narrow' }));
+  const count = band.querySelector('.launch-count'), lit = band.querySelector('.lit');
+  const get = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
+  const set = (k, v) => { try { localStorage.setItem(k, v); } catch {} };
+  const moon = (f) => { const r = 10, k = Math.cos(Math.PI * f) * r; return 'M12 2 A' + r + ' ' + r + ' 0 0 1 12 22 A' + Math.abs(k) + ' ' + r + ' 0 0 ' + (k > 0 ? 0 : 1) + ' 12 2Z'; };
+  const release = () => {
+    band.remove();
+    document.querySelectorAll('[data-until-launch]').forEach((el) => el.remove());
+    document.querySelectorAll('a.store[data-appstore]').forEach((a) => {
+      a.href = band.dataset.href; a.rel = 'noopener'; a.classList.remove('pending'); a.removeAttribute('aria-disabled'); a.removeAttribute('data-tag');
+    });
+  };
+  const tick = () => {
+    const left = at - Date.now(); if (left <= 0) return release();
+    const days = Math.floor(left / 864e5), hours = Math.floor(left / 36e5) % 24, mins = Math.floor(left / 6e4) % 60;
+    count.textContent = [days && d.format(days), h.format(hours), m.format(mins)].filter(Boolean).join(' ');
+    lit.setAttribute('d', moon(Math.max(0.06, 1 - left / (45 * 864e5))));
+    setTimeout(tick, 1000 * (60 - new Date().getSeconds()));
+  };
+  if (Date.now() >= at) return release();
+  if (get('launch-closed') !== band.dataset.launch) band.hidden = false;
+  tick();
+  band.querySelector('.launch-close').addEventListener('click', () => { set('launch-closed', band.dataset.launch); band.hidden = true; });
+})();</script>
 </body>
 </html>

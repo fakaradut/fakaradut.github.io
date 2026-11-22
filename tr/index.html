@@ -401,8 +401,9 @@
           </div>
         </div>
         <div class="launch" data-reveal>
-          <div class="label" data-i18n="ftSoon">Coming soon to the App Store and Google Play, on iPhone, iPad and Android.</div>
+          <div class="label" id="ft-when">Arrives on the App Store on <b>December 17</b>. Coming soon to Google Play.</div>
           <div class="stores" style="margin-top:16px">
+            <a class="btn btn-ghost store" id="ft-appstore" hidden href="https://apps.apple.com/app/id6833829251" rel="noopener"><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.4-.6 3.1-1.5z"/></svg><span>App Store</span></a>
             <a class="btn btn-gold" id="ft-link" href="/fluffytail/tr/" data-i18n="ftVisit">Visit the Fluffytail site →</a>
             <a class="btn btn-ghost store" id="ft-trailer" href="https://www.youtube.com/watch?v=qovEDOjrpmY" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg><span data-i18n="ftTrailer">Watch the trailer</span></a>
           </div>
@@ -440,10 +441,10 @@
           </div>
         </div>
         <div class="launch" data-reveal>
-          <div class="label" data-i18n="pvFree">Free on iPhone and Android. No account: your pet's records stay on your phone.</div>
+          <div class="label" id="pv-when">Arrives on the App Store on <b>January 14</b>. Coming soon to Google Play.</div>
+          <div class="label" data-i18n="pvFree" style="margin-top:6px">Free on iPhone and Android. No account: your pet's records stay on your phone.</div>
           <div class="stores" style="margin-top:16px">
-            <a class="btn btn-ghost store" href="https://apps.apple.com/app/id6758307180"><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.4-.6 3.1-1.5z"/></svg>App Store</a>
-            <a class="btn btn-ghost store" href="https://play.google.com/store/apps/details?id=com.petiverse.mobile"><svg viewBox="0 0 24 24"><path d="M3.6 2.3c-.3.3-.4.7-.4 1.2v17c0 .5.1.9.4 1.2l9.4-9.7-9.4-9.7zm10.6 10.9 2.6 2.7-11.4 6.6 8.8-9.3zm3.9-4 3 1.7c.9.5.9 1.8 0 2.3l-3 1.8-2.9-2.9 2.9-2.9zM5.4 1.5l11.4 6.6-2.6 2.7-8.8-9.3z"/></svg>Google Play</a>
+            <a class="btn btn-ghost store" id="pv-appstore" hidden href="https://apps.apple.com/app/id6758307180" rel="noopener"><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.4-.6 3.1-1.5z"/></svg><span>App Store</span></a>
             <a class="btn btn-gold" id="pv-link" href="/petiverse/" data-i18n="pvVisit">Visit the Petiverse site →</a>
           </div>
         </div>
@@ -777,7 +778,8 @@
       f2h: 'Sled, sail and fly.', f2p: 'Ride a dragonfly through the rings, race a sled down the snow, row a boat between little islands and take a rocket to the Moon.',
       f3h: 'Bosses who become friends.', f3p: 'The Snow Owl, a giant hermit crab, Baron Magpie in his junk robot: beaten foes just get dizzy. Nobody gets hurt, and many become friends.',
       f4h: 'Made for kids, kind to parents.', f4p: 'No ads, no tracking, works offline. The first two chapters are free, and one single purchase unlocks the whole adventure.',
-      ftSoon: 'Coming soon to the App Store and Google Play, on iPhone, iPad and Android.', ftVisit: 'Visit the Fluffytail site →', ftTrailer: 'Watch the trailer', ftVideo: '0Ahu6HM9Otw',
+      appleSoon: (date) => `Arrives on the App Store on <b>${date}</b>. Coming soon to Google Play.`, appleOut: 'Out now on the App Store. Coming soon to Google Play.',
+      ftVisit: 'Visit the Fluffytail site →', ftTrailer: 'Watch the trailer', ftVideo: '0Ahu6HM9Otw',
       pvKicker: 'For pet parents', pvTag: 'Pet health card, nearest vet, lost-pet kit',
       p1h: 'Never miss a vaccine.', p1p: 'Log a shot once: the next date and the reminder set themselves, for every cat and dog you have.',
       p2h: 'The nearest vet, right away.', p2p: 'Vets, pet shops, groomers and parks around you. In an emergency, clinics open 24/7 come first, with call and directions in one tap.',
@@ -817,7 +819,8 @@
       f2h: 'Kay, kürek çek, uç.', f2p: "Yusufçukla halkaların içinden geç, karda kızakla yarış, adacıklar arasında kayıkla dolaş ve roketle Ay'a uç.",
       f3h: 'Dost olan bosslar.', f3p: 'Kar Baykuşu, dev keşiş yengeci, hurda robotuyla Saksağan Baron: yenilenler sadece sersemler. Kimse incinmez, çoğu dost olur.',
       f4h: 'Çocuklar için, ebeveynlere saygılı.', f4p: 'Reklam yok, takip yok, internetsiz oynanır. İlk iki bölüm ücretsiz; tek bir satın alma bütün macerayı açar.',
-      ftSoon: "Yakında App Store ve Google Play'de; iPhone, iPad ve Android için.", ftVisit: 'Fluffytail sitesine git →', ftTrailer: 'Fragmanı izle', ftVideo: 'qovEDOjrpmY',
+      appleSoon: (date) => `<b>${date}</b> tarihinde App Store'da. Google Play'e yakında geliyor.`, appleOut: "Şimdi App Store'da. Google Play'e yakında geliyor.",
+      ftVisit: 'Fluffytail sitesine git →', ftTrailer: 'Fragmanı izle', ftVideo: 'qovEDOjrpmY',
       pvKicker: 'Evcil hayvan sahipleri için', pvTag: 'Sağlık karnesi, en yakın veteriner, kayıp kiti',
       p1h: 'Hiçbir aşıyı kaçırma.', p1p: 'Aşıyı bir kez kaydet; sıradaki tarih ve hatırlatma kendiliğinden kurulur. Her kedin ve köpeğin için.',
       p2h: 'En yakın veteriner, hemen.', p2p: "Çevrendeki veterinerler, pet shop'lar, kuaförler ve parklar. Acil durumda 7/24 açık klinikler önce gelir; arama ve yol tarifi tek dokunuşta.",
@@ -855,6 +858,7 @@
     document.querySelectorAll('[data-ft]').forEach((img) => { img.src = `/fluffytail/gen/shots/${lang}/${img.dataset.ft}-1600.webp`; });
     document.getElementById('ft-trailer').href = `https://www.youtube.com/watch?v=${t.ftVideo}`;
     document.getElementById('launch-label').textContent = launched ? t.launchOut : t.launchSoon;
+    releases();
     tonightText();
     if (animate) { document.body.classList.remove('swap'); void document.body.offsetWidth; document.body.classList.add('swap'); }
   }
@@ -879,7 +883,7 @@
       launched = true;
       document.getElementById('countdown').hidden = true;
       document.getElementById('launch-label').textContent = T[lang].launchOut;
-      document.querySelectorAll('.store').forEach((s) => (s.hidden = false));
+      document.querySelectorAll('.showcase:not(.ft):not(.pv) .store').forEach((s) => (s.hidden = false));
       const label = document.getElementById('appstore-label');
       label.removeAttribute('data-i18n'); label.textContent = 'App Store';
       return false;
@@ -889,6 +893,24 @@
     units.m.textContent = pad(Math.floor(s % 3600 / 60)); units.s.textContent = pad(s % 60);
     return true;
   };
+
+  /* ---------- Fluffytail and Petiverse: the App Store date, then the App Store button ---------- */
+  // Midnight of release day where the visitor is. `preorder`: Apple shows the pre-order page (an approved version put
+  // up for pre-order), so the button shows before the day too. Neither is on Google Play yet: no Play button.
+  const RELEASES = { ft: { at: new Date(2026, 11, 17), preorder: false }, pv: { at: new Date(2027, 0, 14), preorder: false } };
+  function releases() {
+    const t = T[lang];
+    for (const [id, r] of Object.entries(RELEASES)) {
+      const out = Date.now() >= r.at.getTime();
+      const date = new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'long' }).format(r.at);
+      document.getElementById(`${id}-when`).innerHTML = out ? t.appleOut : t.appleSoon(date);
+      const button = document.getElementById(`${id}-appstore`);
+      button.hidden = !out && !r.preorder;
+      button.querySelector('span').textContent = out ? 'App Store' : t.preorder;
+    }
+  }
+  // Pages left open over midnight catch up within the hour.
+  setInterval(releases, 36e5);
 
   /* ---------- Tonight's moon, from the real lunar cycle ---------- */
   const SYNODIC = 29.530588853, NEW_MOON = Date.UTC(2000, 0, 6, 18, 14);

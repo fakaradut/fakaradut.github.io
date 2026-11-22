@@ -56,7 +56,40 @@ header nav > a:hover, header nav > a[aria-current] { color: var(--text); backgro
 .btn.ghost { background: var(--card); color: var(--tint); border: 1px solid var(--line); box-shadow: none; }
 .stores { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 22px 0 6px; }
 .stores img { height: 48px; width: auto; display: block; }
-.stores .soon { opacity: .55; filter: grayscale(.2); }
+/* Henüz mağaza sayfası açamayan rozet: soluk, üstünde tarih ya da "yakında" etiketi. */
+.store.pending { position: relative; cursor: default; }
+.store.pending img { opacity: .55; filter: grayscale(.2); }
+.store.pending::after { content: attr(data-tag); position: absolute; top: -9px; inset-inline-end: -6px; padding: 2px 8px; border-radius: 999px;
+  background: var(--tint); color: #fff; font-size: 11px; font-weight: 800; line-height: 1.5; white-space: nowrap; box-shadow: 0 2px 8px var(--shadow); }
+@media (prefers-color-scheme: dark) { .store.pending::after { color: var(--bg); } }
+
+/* Çıkış şeridi: tarih, geri sayım, (ön sipariş açılınca) düğme; çıkış günü kalkar. */
+.launch { position: relative; overflow: hidden; background: var(--tint); color: #fff; font-size: 14px; }
+.launch[hidden] { display: none; }
+.launch::before { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, .16) 50%, transparent 80%);
+  background-size: 250% 100%; animation: launch-sheen 7s ease-in-out infinite; pointer-events: none; }
+@keyframes launch-sheen { from { background-position: 120% 0; } to { background-position: -120% 0; } }
+@media (prefers-reduced-motion: reduce) { .launch::before { animation: none; } }
+.launch .wrap { position: relative; display: flex; align-items: center; gap: 12px; min-height: 44px; padding-block: 6px; }
+.launch-moon { flex: none; width: 20px; height: 20px; }
+.launch-moon .disc { fill: rgba(255, 255, 255, .22); }
+.launch-moon .lit { fill: #FFF8EC; }
+.launch-text { font-weight: 800; }
+.launch-count { font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; opacity: .9; }
+.launch-cta { margin-inline-start: auto; display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 999px; background: #fff;
+  color: var(--tint); font-weight: 800; text-decoration: none; white-space: nowrap; }
+.launch-cta i { font-style: normal; }
+[dir="rtl"] .launch-cta i { transform: scaleX(-1); }
+.launch-close { flex: none; margin-inline-start: auto; background: none; border: 0; color: inherit; opacity: .75; font-size: 20px; line-height: 1; cursor: pointer; padding: 4px; }
+.launch-cta + .launch-close { margin-inline-start: 0; }
+.launch-close:hover { opacity: 1; }
+@media (prefers-color-scheme: dark) { .launch { color: var(--bg); } .launch-moon .disc { fill: rgba(0, 0, 0, .18); } .launch-moon .lit { fill: var(--bg); } .launch-cta { background: var(--bg); } }
+@media (max-width: 760px) {
+  .launch .wrap { flex-wrap: wrap; gap: 6px 10px; font-size: 13px; padding-inline-end: 40px; }
+  .launch-text { flex: 1 1 calc(100% - 60px); }
+  .launch-cta { margin-inline-start: 0; padding: 6px 12px; }
+  .launch-close { position: absolute; top: 6px; inset-inline-end: 8px; }
+}
 .note { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); }
 .note::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--sos); box-shadow: 0 0 0 4px color-mix(in srgb, var(--sos) 22%, transparent); }
 

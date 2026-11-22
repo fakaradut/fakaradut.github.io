@@ -95,13 +95,19 @@
 <link rel="apple-touch-icon" href="/petiverse/assets/icon-180.png">
 <link rel="preload" href="/petiverse/assets/fonts/Fraunces_700Bold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/petiverse/assets/fonts/Nunito_600SemiBold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/petiverse/assets/site.css?v=9890f826">
+<link rel="stylesheet" href="/petiverse/assets/site.css?v=dbf3cdd1">
 <link rel="stylesheet" href="/petiverse/assets/lang-menu.css?v=8738cf0e">
 <script src="/petiverse/assets/lang-menu.js?v=8738cf0e" defer></script>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en","mainEntity":[{"@type":"Question","name":"Can cats and dogs eat watermelon (seedless)?","acceptedAnswer":{"@type":"Answer","text":"Cats: Generally safe in small, plain amounts. Introduce it slowly. Dogs: Generally safe in small, plain amounts. Introduce it slowly."}}]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Petiverse","item":"https://moonarcworks.com/petiverse/"},{"@type":"ListItem","position":2,"name":"Is it toxic to cats and dogs?","item":"https://moonarcworks.com/petiverse/toxic/"},{"@type":"ListItem","position":3,"name":"Watermelon (seedless)"}]}]</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="launch" id="launch" data-launch="2027-01-14" data-href="https://apps.apple.com/app/id6758307180" hidden><div class="wrap">
+  <svg class="launch-moon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" class="disc"></circle><path class="lit" d=""></path></svg>
+  <span class="launch-text">Arrives on the App Store on January 14</span><span class="launch-count" aria-hidden="true"></span>
+  
+  <button class="launch-close" type="button" aria-label="×">×</button>
+</div></div>
 <header><div class="wrap bar">
   <a class="brand" href="/petiverse/"><img src="/petiverse/assets/icon-192.png" alt="" width="36" height="36">Petiverse</a>
   <nav><a href="/petiverse/toxic/" aria-current="page">Is it toxic?</a><a href="/petiverse/first-aid/">First aid</a><a href="/petiverse/food-calculator/">Food calculator</a><a href="/petiverse/support/">Support</a>
@@ -124,5 +130,32 @@
   <nav><a href="/petiverse/privacy/">Privacy</a><a href="/petiverse/terms/">Terms</a><a href="/petiverse/support/">Support</a><a href="mailto:support@moonarcworks.com">Contact</a></nav>
   <p><a href="https://moonarcworks.com/">Made by Moon Arc Works</a> · Place data © OpenStreetMap contributors (ODbL)</p>
 </div></footer>
+<script>(() => {
+  const band = document.getElementById('launch'); if (!band) return;
+  const at = new Date(band.dataset.launch + 'T00:00:00').getTime(), lang = document.documentElement.lang;
+  const [d, h, m] = ['day', 'hour', 'minute'].map((u) => new Intl.NumberFormat(lang, { style: 'unit', unit: u, unitDisplay: 'narrow' }));
+  const count = band.querySelector('.launch-count'), lit = band.querySelector('.lit');
+  const get = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
+  const set = (k, v) => { try { localStorage.setItem(k, v); } catch {} };
+  const moon = (f) => { const r = 10, k = Math.cos(Math.PI * f) * r; return 'M12 2 A' + r + ' ' + r + ' 0 0 1 12 22 A' + Math.abs(k) + ' ' + r + ' 0 0 ' + (k > 0 ? 0 : 1) + ' 12 2Z'; };
+  const release = () => {
+    band.remove();
+    document.querySelectorAll('[data-until-launch]').forEach((el) => el.remove());
+    document.querySelectorAll('a.store[data-appstore]').forEach((a) => {
+      a.href = band.dataset.href; a.rel = 'noopener'; a.classList.remove('pending'); a.removeAttribute('aria-disabled'); a.removeAttribute('data-tag');
+    });
+  };
+  const tick = () => {
+    const left = at - Date.now(); if (left <= 0) return release();
+    const days = Math.floor(left / 864e5), hours = Math.floor(left / 36e5) % 24, mins = Math.floor(left / 6e4) % 60;
+    count.textContent = [days && d.format(days), h.format(hours), m.format(mins)].filter(Boolean).join(' ');
+    lit.setAttribute('d', moon(Math.max(0.06, 1 - left / (45 * 864e5))));
+    setTimeout(tick, 1000 * (60 - new Date().getSeconds()));
+  };
+  if (Date.now() >= at) return release();
+  if (get('launch-closed') !== band.dataset.launch) band.hidden = false;
+  tick();
+  band.querySelector('.launch-close').addEventListener('click', () => { set('launch-closed', band.dataset.launch); band.hidden = true; });
+})();</script>
 </body>
 </html>
