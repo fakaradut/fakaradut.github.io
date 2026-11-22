@@ -1,6 +1,6 @@
 # Moon Arc Works
 
-> Moon Arc Works is an independent studio that makes mobile apps and games for iPhone and Android, each written for 34 languages. Its apps are AirAgain (formerly Exhale; Dumansız in Turkish), a quit smoking and vaping app launching on the App Store and Google Play on 7 December 2026, and Petiverse, a pet health and safety app for cat and dog owners. Its first game, Fluffytail: Squirrel Adventure, a 3D platformer for kids aged 6 to 8, is coming soon.
+> Moon Arc Works is an independent studio that makes mobile apps and games for iPhone and Android, each written for 34 languages. Its apps are AirAgain, a quit smoking and vaping app launching on the App Store and Google Play on 7 December 2026, and Petiverse, a pet health and safety app for cat and dog owners. Its first game, Fluffytail: Squirrel Adventure, a 3D platformer for kids aged 6 to 8, is coming soon.
 
 ## AirAgain: quit smoking and vaping
 

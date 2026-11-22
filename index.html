@@ -22,7 +22,7 @@
 <meta property="og:description" content="An independent studio making calm, useful mobile apps and games.">
 <meta property="og:image" content="https://moonarcworks.com/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","@id":"https://moonarcworks.com/#org","name":"Moon Arc Works","url":"https://moonarcworks.com/","logo":"https://moonarcworks.com/brand/out/icon-512.png","email":"support@moonarcworks.com","description":"An independent studio making calm, useful mobile apps and games."},{"@context":"https://schema.org","@type":"WebSite","name":"Moon Arc Works","url":"https://moonarcworks.com/","publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":"MobileApplication","name":"AirAgain","alternateName":"Exhale","url":"https://moonarcworks.com/airagain/","operatingSystem":"iOS, Android","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":"MobileApplication","@id":"https://moonarcworks.com/petiverse/#app","name":"Petiverse","url":"https://moonarcworks.com/petiverse/","operatingSystem":"iOS, Android","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":["VideoGame","MobileApplication"],"@id":"https://moonarcworks.com/fluffytail/#game","name":"Fluffytail: Squirrel Adventure","alternateName":"Fluffytail: Sincap Macerası","url":"https://moonarcworks.com/fluffytail/","operatingSystem":"iOS, Android","applicationCategory":"GameApplication","audience":{"@type":"PeopleAudience","suggestedMinAge":6,"suggestedMaxAge":8},"publisher":{"@id":"https://moonarcworks.com/#org"}}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","@id":"https://moonarcworks.com/#org","name":"Moon Arc Works","url":"https://moonarcworks.com/","logo":"https://moonarcworks.com/brand/out/icon-512.png","email":"support@moonarcworks.com","description":"An independent studio making calm, useful mobile apps and games."},{"@context":"https://schema.org","@type":"WebSite","name":"Moon Arc Works","url":"https://moonarcworks.com/","publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":"MobileApplication","name":"AirAgain","url":"https://moonarcworks.com/airagain/","operatingSystem":"iOS, Android","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":"MobileApplication","@id":"https://moonarcworks.com/petiverse/#app","name":"Petiverse","url":"https://moonarcworks.com/petiverse/","operatingSystem":"iOS, Android","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://moonarcworks.com/#org"}},{"@context":"https://schema.org","@type":["VideoGame","MobileApplication"],"@id":"https://moonarcworks.com/fluffytail/#game","name":"Fluffytail: Squirrel Adventure","alternateName":"Fluffytail: Sincap Macerası","url":"https://moonarcworks.com/fluffytail/","operatingSystem":"iOS, Android","applicationCategory":"GameApplication","audience":{"@type":"PeopleAudience","suggestedMinAge":6,"suggestedMaxAge":8},"publisher":{"@id":"https://moonarcworks.com/#org"}}]</script>
 <link rel="stylesheet" href="/assets/lang-menu.css">
 <script src="/assets/lang-menu.js" defer></script>
 <style>
@@ -310,7 +310,7 @@
       <div>
         <div class="kicker" data-reveal data-i18n="ourApps">Our apps</div>
         <div class="app-head" data-reveal style="--d:1">
-          <img src="/assets/exhale-icon.png" alt="AirAgain app icon">
+          <img src="/assets/airagain-icon.png" alt="AirAgain app icon">
           <div><h3 data-i18n="appName">AirAgain</h3><p data-i18n="appTag">Quit smoking &amp; vaping</p></div>
         </div>
         <div class="steps">
@@ -349,9 +349,9 @@
         <div class="phone" id="phone">
           <div class="island"></div>
           <div class="screen">
-            <img class="on" data-shot="home" src="/assets/exhale-home-en.webp" alt="AirAgain home screen: smoke-free days and money saved">
-            <img data-shot="health" src="/assets/exhale-health-en.webp" alt="AirAgain health screen: how the body recovers" loading="lazy">
-            <img data-shot="goals" src="/assets/exhale-goals-en.webp" alt="AirAgain goals screen: saving for a reward" loading="lazy">
+            <img class="on" data-shot="home" src="/assets/airagain-home-en.webp" alt="AirAgain home screen: smoke-free days and money saved">
+            <img data-shot="health" src="/assets/airagain-health-en.webp" alt="AirAgain health screen: how the body recovers" loading="lazy">
+            <img data-shot="goals" src="/assets/airagain-goals-en.webp" alt="AirAgain goals screen: saving for a reward" loading="lazy">
           </div>
           <div class="float f1"><span data-i18n="smokeFree">Smoke-free for</span><b id="clock">47d 05:23:02</b></div>
           <div class="float f2"><span data-i18n="cravings">Cravings beaten</span><b>14 ✓</b></div>
@@ -849,7 +849,7 @@
       : `<span class="rise" style="--i:${i++}">${w}</span>`).join(' ')).join('<br>');
     document.getElementById('site-link').href = t.site;
     document.getElementById('ft-link').href = t.ftSite; document.getElementById('ft-foot').href = t.ftSite;
-    document.querySelectorAll('[data-shot]').forEach((img) => { img.src = `/assets/exhale-${img.dataset.shot}-${lang}.webp`; });
+    document.querySelectorAll('[data-shot]').forEach((img) => { img.src = `/assets/airagain-${img.dataset.shot}-${lang}.webp`; });
     document.querySelectorAll('[data-pv]').forEach((img) => { img.src = `/assets/petiverse-${img.dataset.pv}-${lang}.webp`; });
     document.getElementById('pv-link').href = t.pvSite;
     document.querySelectorAll('[data-ft]').forEach((img) => { img.src = `/fluffytail/gen/shots/${lang}/${img.dataset.ft}-1600.webp`; });
