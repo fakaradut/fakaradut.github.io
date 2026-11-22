@@ -402,7 +402,13 @@
         </div>
         <div class="launch" data-reveal>
           <div class="label" id="ft-when">Arrives on the App Store on <b>December 17</b>. Coming soon to Google Play.</div>
-          <div class="stores" style="margin-top:16px">
+          <div class="countdown" id="ft-countdown">
+            <div><b>00</b><span data-i18n="days">days</span></div>
+            <div><b>00</b><span data-i18n="hours">hours</span></div>
+            <div><b>00</b><span data-i18n="min">min</span></div>
+            <div><b>00</b><span data-i18n="sec">sec</span></div>
+          </div>
+          <div class="stores">
             <a class="btn btn-ghost store" id="ft-appstore" hidden href="https://apps.apple.com/app/id6833829251" rel="noopener"><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.4-.6 3.1-1.5z"/></svg><span>App Store</span></a>
             <a class="btn btn-gold" id="ft-link" href="/fluffytail/tr/" data-i18n="ftVisit">Visit the Fluffytail site →</a>
             <a class="btn btn-ghost store" id="ft-trailer" href="https://www.youtube.com/watch?v=qovEDOjrpmY" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg><span data-i18n="ftTrailer">Watch the trailer</span></a>
@@ -442,6 +448,12 @@
         </div>
         <div class="launch" data-reveal>
           <div class="label" id="pv-when">Arrives on the App Store on <b>January 14</b>. Coming soon to Google Play.</div>
+          <div class="countdown" id="pv-countdown">
+            <div><b>00</b><span data-i18n="days">days</span></div>
+            <div><b>00</b><span data-i18n="hours">hours</span></div>
+            <div><b>00</b><span data-i18n="min">min</span></div>
+            <div><b>00</b><span data-i18n="sec">sec</span></div>
+          </div>
           <div class="label" data-i18n="pvFree" style="margin-top:6px">Free on iPhone and Android. No account: your pet's records stay on your phone.</div>
           <div class="stores" style="margin-top:16px">
             <a class="btn btn-ghost store" id="pv-appstore" hidden href="https://apps.apple.com/app/id6758307180" rel="noopener"><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.4-.6 3.1-1.5z"/></svg><span>App Store</span></a>
@@ -911,6 +923,18 @@
   }
   // Pages left open over midnight catch up within the hour.
   setInterval(releases, 36e5);
+  // The same live countdown as AirAgain's; on the day it goes and the App Store button shows.
+  const downs = () => {
+    for (const [id, r] of Object.entries(RELEASES)) {
+      const box = document.getElementById(`${id}-countdown`);
+      const left = r.at.getTime() - Date.now();
+      if (left <= 0) { if (!box.hidden) { box.hidden = true; releases(); } continue; }
+      const s = Math.floor(left / 1000), [d, h, m, sec] = box.querySelectorAll('b');
+      d.textContent = pad(Math.floor(s / 86400)); h.textContent = pad(Math.floor(s % 86400 / 3600));
+      m.textContent = pad(Math.floor(s % 3600 / 60)); sec.textContent = pad(s % 60);
+    }
+  };
+  downs(); setInterval(downs, 1000);
 
   /* ---------- Tonight's moon, from the real lunar cycle ---------- */
   const SYNODIC = 29.530588853, NEW_MOON = Date.UTC(2000, 0, 6, 18, 14);
