@@ -4,7 +4,7 @@
 
 ## AirAgain: quit smoking and vaping
 
-AirAgain helps people quit cigarettes and vapes: a smoke-free counter, money saved at real pack prices for 101 countries, a 30-day quit plan, a 3-minute craving rescue, a health recovery timeline and badges. It needs no account (data stays on the phone) and is free with ads; AirAgain Plus removes ads and opens the full 30-day program.
+AirAgain helps people quit cigarettes and vapes: a smoke-free counter, money saved at real pack prices for 101 countries, a 30-day quit plan, a 3-minute craving rescue, a health recovery timeline and badges. Version 1.1.0 adds a quit day chosen ahead with a countdown and preparation steps, gradual quitting (a daily limit that drops a little every day, down to zero), and, with Plus, resting heart rate and daily steps since quitting from Apple Health or Health Connect. It needs no account (data stays on the phone) and is free with ads; AirAgain Plus removes ads and opens the full 30-day program.
 
 - [AirAgain (English)](https://moonarcworks.com/airagain/en/): the app, the savings calculator and FAQ
 - [AirAgain in all 34 languages](https://moonarcworks.com/airagain/): pick a language
@@ -31,7 +31,6 @@ Petiverse is a free app for cat and dog owners on iPhone and Android, in 34 lang
 
 - [Petiverse (English)](https://moonarcworks.com/petiverse/): the app, features and FAQ
 - [Petiverse (Türkçe)](https://moonarcworks.com/petiverse/tr/)
-- [App Store](https://apps.apple.com/app/id6758307180) · [Google Play](https://play.google.com/store/apps/details?id=com.petiverse.mobile)
 - [Privacy policy](https://moonarcworks.com/petiverse/privacy/) · [Support](https://moonarcworks.com/petiverse/support/)
 
 ## Is it toxic for cats and dogs?
@@ -40,6 +39,11 @@ A reference of common foods, drinks and plants with separate answers for cats an
 
 - [Is it toxic? (English index)](https://moonarcworks.com/petiverse/toxic/)
 - Item pages follow the pattern https://moonarcworks.com/petiverse/toxic/<item>/ (for example [chocolate](https://moonarcworks.com/petiverse/toxic/chocolate/), [grapes and raisins](https://moonarcworks.com/petiverse/toxic/grapes_raisins/), [onion](https://moonarcworks.com/petiverse/toxic/onion/)); other languages add the language code, e.g. https://moonarcworks.com/petiverse/tr/toxic/chocolate/
+
+## Pet vaccines and the QR collar tag
+
+- [Puppy and kitten vaccination schedule](https://moonarcworks.com/petiverse/vaccine-schedule/): core and non-core vaccines, the 6-month booster and adult intervals for dogs and cats, based on the WSAVA 2024 guidelines
+- [Free QR pet tag](https://moonarcworks.com/petiverse/qr-tag/): a QR code for a pet's collar; a finder scans it with any phone camera, sees the pet's page and calls the owner. No app or account needed
 
 ## Pet first aid and calculators
 
@@ -54,7 +58,7 @@ Free pages in 34 languages, built from the app's own first-aid cards and formula
 A 3D platformer for kids aged 6 to 8 (Fluffytail: Sincap Macerası in Turkish): a little squirrel runs, climbs and glides through five worlds, all the way to the Moon, to bring little Peanut, stolen away by a fox, back home. No ads, no tracking, no accounts, no chat; it works offline and collects no personal data. The first two chapters are free; one optional purchase, behind a grown-up question, unlocks the Full Adventure. iPhone, iPad and Android, 34 languages. Coming soon.
 
 - [Fluffytail (English)](https://moonarcworks.com/fluffytail/)
-- [Fluffytail: Sincap Macerası (Türkçe)](https://moonarcworks.com/tr/fluffytail/)
+- [Fluffytail: Sincap Macerası (Türkçe)](https://moonarcworks.com/fluffytail/tr/)
 - [Privacy policy](https://moonarcworks.com/fluffytail/privacy/)
 - [Support and FAQ for parents](https://moonarcworks.com/fluffytail/support/)
 

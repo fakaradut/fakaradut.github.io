@@ -99,6 +99,8 @@ function page(code) {
   html = once(html, /(id="ft-link" href=")[^"]*/, `$1/fluffytail/${dir(code)}`);
   html = once(html, /(id="ft-foot" href=")[^"]*/, `$1/fluffytail/${dir(code)}`);
   html = once(html, /(id="pv-link" href=")[^"]*/, `$1/petiverse/${code === 'en' ? '' : `${code}/`}`);
+  html = once(html, /(id="pv-foot" href=")[^"]*/, `$1/petiverse/${code === 'en' ? '' : `${code}/`}`);
+  html = once(html, /(id="aa-foot" href=")[^"]*/, `$1/airagain/${lc}/`);
   html = once(html, /(id="ft-trailer" href="https:\/\/www\.youtube\.com\/watch\?v=)[^"]*/, `$1${t.ftVideo}`);
   html = html.replace(/(<img\b[^>]*\bdata-shot="(\w+)"[^>]*\bsrc=")[^"]*/g, (_, a, shot) => a + aaShot(code, shot));
   html = html.replace(/(<img\b[^>]*\bdata-pv="(\d+)"[^>]*\bsrc=")[^"]*/g, (_, a, n) => a + pvShot(code, n));
