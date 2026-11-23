@@ -30,9 +30,10 @@ for (const [code] of LANGS) {
   if (missing.length) throw new Error(`content/i18n/${code}.json is missing ${missing.join(', ')}`);
 }
 // Screens: AirAgain's and Petiverse's own frames for English and Turkish; AirAgain's other languages come from the
-// AirAgain site (same frames, /airagain/shots/), Petiverse's stay English until there are frames for them.
+// AirAgain site (same frames, /airagain/shots/). Petiverse: its iPhone frames with a 9:41 status bar, every language
+// (pet-care site/.cache/raw-ios shots 1, 2, 3 and 6, copied to assets/petiverse/<code>/1-4.webp).
 const aaShot = (code, shot) => (code === 'en' || code === 'tr' ? `/assets/airagain-${shot}-${code}.webp` : `/airagain/shots/${code}/${shot}-dark.webp`);
-const pvShot = (code, n) => `/assets/petiverse-${n}-${code === 'tr' ? 'tr' : 'en'}.webp`;
+const pvShot = (code, n) => `/assets/petiverse/${code.toLowerCase()}/${n}.webp`;
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const once = (html, re, to) => {

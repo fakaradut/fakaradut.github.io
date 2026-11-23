@@ -201,14 +201,19 @@
   .stores .btn { height: 48px; padding: 0 20px; font-size: 14px; }
 
   .stage { position: sticky; top: 90px; height: calc(100vh - 120px); min-height: 560px; display: grid; place-items: center; perspective: 1400px; }
-  .phone { position: relative; width: min(300px, 70vw); aspect-ratio: 1320 / 2868; border-radius: 46px; padding: 10px; background: linear-gradient(145deg, #2A3150, #0B0F22 40%, #1D2342);
+  .phone { position: relative; width: min(300px, 70vw); aspect-ratio: 1320 / 2868; border-radius: 30px; padding: 6px; background: linear-gradient(145deg, #2A3150, #0B0F22 40%, #1D2342);
     box-shadow: 0 60px 120px -30px rgba(0, 0, 0, .8), 0 0 0 1px rgba(255, 255, 255, .08), inset 0 0 0 1px rgba(255, 255, 255, .06);
     transform: rotateY(var(--ry, -14deg)) rotateX(var(--rx, 6deg)); transform-style: preserve-3d; transition: transform .9s var(--ease); }
-  .screen { position: relative; width: 100%; height: 100%; border-radius: 37px; overflow: hidden; background: #0d0f14; }
+  .screen { position: relative; width: 100%; height: 100%; border-radius: 24px; overflow: hidden; background: #0d0f14; }
   .screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.04); transition: opacity .8s var(--ease), transform 1.2s var(--ease); }
   .screen img.on { opacity: 1; transform: none; }
   .screen::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, rgba(255, 255, 255, .14), transparent 35%); pointer-events: none; }
-  .island { position: absolute; top: 18px; left: 50%; width: 30%; height: 22px; margin-left: -15%; border-radius: 99px; background: #000; z-index: 2; }
+  /* AirAgain web-demo captures have no status bar: draw a 9:41 bar above the whole capture, nothing cropped. */
+  .phone.aa { aspect-ratio: auto; }
+  .phone.aa .screen { height: auto; display: grid; background: #0e1011; color: #fff; }
+  .phone.aa .screen img { position: relative; grid-area: 2 / 1; height: auto; }
+  .sbar { grid-area: 1 / 1; height: 30px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px 0 24px; font-size: 12px; font-weight: 600; line-height: 1; }
+  .sbar svg { height: 10px; width: auto; }
   .float { position: absolute; padding: 12px 16px; border-radius: 18px; border: 1px solid var(--line); background: rgba(14, 19, 44, .7); backdrop-filter: blur(16px); font-size: 13px; color: var(--muted); box-shadow: 0 20px 50px -20px rgba(0, 0, 0, .8); transform: translateZ(60px); animation: bob 6s ease-in-out infinite; white-space: nowrap; }
   .float b { display: block; font-weight: 600; color: var(--ink); font-size: 20px; font-variant-numeric: tabular-nums; }
   .float.f1 { left: -34%; top: 64%; }
@@ -219,8 +224,6 @@
   /* Fluffytail: the second app, a card under AirAgain's showcase. */
   /* Fluffytail: mirrored showcase, a landscape tablet instead of the phone. */
   .showcase.pv { margin-top: 160px; }
-  /* Petiverse ekranları iPhone durum çubuğu şeridiyle gelir: oran ona göre, ada şeridin içinde kalır. */
-  .showcase.pv .phone { aspect-ratio: 1290 / 2906; }
   .showcase.ft { margin-top: 160px; grid-template-columns: 1.1fr 1fr; }
   .tablet { width: min(600px, 100%); aspect-ratio: 2796 / 1290; border-radius: 34px; padding: 10px; transform: rotateY(var(--ry, 12deg)) rotateX(var(--rx, 6deg)); }
   .tablet .screen { border-radius: 25px; }
@@ -378,9 +381,9 @@
         </div>
       </div>
       <div class="stage">
-        <div class="phone" id="phone">
-          <div class="island"></div>
+        <div class="phone aa" id="phone">
           <div class="screen">
+            <div class="sbar" dir="ltr" aria-hidden="true"><span>9:41</span><svg viewBox="0 0 61 12"><g fill="currentColor"><rect x="0" y="7.5" width="3" height="4" rx="1"/><rect x="4.5" y="5.5" width="3" height="6" rx="1"/><rect x="9" y="3" width="3" height="8.5" rx="1"/><rect x="13.5" y=".5" width="3" height="11" rx="1"/><path d="M28.5 2.7c2.1 0 4 .8 5.5 2.1l1.1-1.1a9.4 9.4 0 0 0-6.6-2.6 9.4 9.4 0 0 0-6.6 2.6L23 4.8a7.8 7.8 0 0 1 5.5-2.1Zm0 3.2c1.2 0 2.3.4 3.2 1.2l1.1-1.1a6.3 6.3 0 0 0-8.6 0l1.1 1.1c.9-.8 2-1.2 3.2-1.2Zm0 3.2c-.4 0-.8.1-1.1.4l1.1 1.1 1.1-1.1c-.3-.3-.7-.4-1.1-.4Z"/><rect x="38.5" y=".5" width="20" height="11" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="40" y="2" width="17" height="8" rx="2.2"/><path d="M59.8 4v4c.7-.3 1.2-1.1 1.2-2s-.5-1.7-1.2-2Z" fill-opacity=".45"/></g></svg></div>
             <img class="on" data-shot="home" data-i18n-alt="altAaHome" src="/airagain/shots/sv/home-dark.webp" alt="AirAgains hemskärm: rökfria dagar och sparade pengar">
             <img data-shot="health" data-i18n-alt="altAaHealth" src="/airagain/shots/sv/health-dark.webp" alt="AirAgains hälsoskärm: hur kroppen återhämtar sig" loading="lazy">
             <img data-shot="goals" data-i18n-alt="altAaGoals" src="/airagain/shots/sv/goals-dark.webp" alt="AirAgains målskärm: att spara till en belöning" loading="lazy">
@@ -495,12 +498,11 @@
       </div>
       <div class="stage">
         <div class="phone">
-          <div class="island"></div>
           <div class="screen">
-            <img class="on" data-pv="1" data-i18n-alt="altPv1" src="/assets/petiverse-1-en.webp" alt="Petiverse: kommande vaccinationer och påminnelser">
-            <img data-pv="2" data-i18n-alt="altPv2" src="/assets/petiverse-2-en.webp" alt="Petiverse: veterinärer och djuraffärer i närheten" loading="lazy">
-            <img data-pv="3" data-i18n-alt="altPv3" src="/assets/petiverse-3-en.webp" alt="Petiverse: symtomkoll och sökning efter giftig mat" loading="lazy">
-            <img data-pv="4" data-i18n-alt="altPv4" src="/assets/petiverse-4-en.webp" alt="Petiverse: kit för försvunna djur med QR-bricka" loading="lazy">
+            <img class="on" data-pv="1" data-i18n-alt="altPv1" src="/assets/petiverse/sv/1.webp" alt="Petiverse: kommande vaccinationer och påminnelser">
+            <img data-pv="2" data-i18n-alt="altPv2" src="/assets/petiverse/sv/2.webp" alt="Petiverse: veterinärer och djuraffärer i närheten" loading="lazy">
+            <img data-pv="3" data-i18n-alt="altPv3" src="/assets/petiverse/sv/3.webp" alt="Petiverse: symtomkoll och sökning efter giftig mat" loading="lazy">
+            <img data-pv="4" data-i18n-alt="altPv4" src="/assets/petiverse/sv/4.webp" alt="Petiverse: kit för försvunna djur med QR-bricka" loading="lazy">
           </div>
           <div class="float f1"><span data-i18n="pvCard">Vaccinkort</span><b>4/4 ✓</b></div>
           <div class="float f2"><span data-i18n="ftLangs">Språk</span><b>34</b></div>
