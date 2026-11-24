@@ -14,7 +14,7 @@ import { langMenu } from './lang-menu.mjs';
 
 const SITE = 'https://moonarcworks.com';
 const MAIL = 'support@moonarcworks.com';
-const UPDATED = { en: '20 November 2026', tr: '20 Kasım 2026', iso: '2026-11-20' };
+const UPDATED = { en: '24 November 2026', tr: '24 Kasım 2026', iso: '2026-11-24' };
 
 // The 39 languages of the game, each in its own words (the same list as the game's language picker).
 const LANGS = [
@@ -209,7 +209,7 @@ const privacyBody = {
   <h2>How long data is kept and how to delete it</h2>
   <p>Saves stay on the device until you delete them. We keep nothing about you or your child, because nothing reaches us.</p>
   <ul>
-    <li><strong>Start over:</strong> on the main menu, tap the gear (Settings), then the bin (Delete save), and answer the grown-up question. This erases all progress. The Full Adventure stays unlocked.</li>
+    <li><strong>Start over:</strong> on the main menu, tap the gear (Settings), then the bin (Delete save), and answer the grown-up question. This erases the progress of the child playing now; the other saves stay, and the Full Adventure stays unlocked.</li>
     <li><strong>Delete everything:</strong> delete the game from the device. This removes the save, the settings and any photo-mode pictures. A purchase is never lost: it stays with your Apple ID or Google account and can be restored (see <a href="${p.support}">Support</a>).</li>
   </ul>
   <p>Since the game collects no personal data, there is no consent to give or take back. If you have ever e-mailed us, you can ask us to delete those messages at any time (see below).</p>
@@ -283,7 +283,7 @@ const privacyBody = {
   <h2>Veriler ne kadar kalır, nasıl silinir</h2>
   <p>Kayıtlar sen silene kadar cihazda kalır. Bizde senin ya da çocuğunun hakkında hiçbir bilgi tutulmaz, çünkü bize hiçbir şey ulaşmaz.</p>
   <ul>
-    <li><strong>Baştan başlamak:</strong> ana menüde dişliye (Ayarlar), sonra çöp kutusuna (Kaydı sil) dokun ve ebeveyn sorusunu cevapla. Bu bütün ilerlemeyi siler. Tam Macera açık kalır.</li>
+    <li><strong>Baştan başlamak:</strong> ana menüde dişliye (Ayarlar), sonra çöp kutusuna (Kaydı sil) dokun ve ebeveyn sorusunu cevapla. Bu, o an oynayan çocuğun ilerlemesini siler; öbür kayıtlar kalır ve Tam Macera açık kalır.</li>
     <li><strong>Her şeyi silmek:</strong> oyunu cihazdan sil. Bu kaydı, ayarları ve fotoğraf modu resimlerini kaldırır. Satın alma hiçbir zaman kaybolmaz: Apple kimliğinde ya da Google hesabında kalır ve geri yüklenebilir (bkz. <a href="${p.support}">Destek</a>).</li>
   </ul>
   <p>Oyun kişisel veri toplamadığı için verilecek ya da geri alınacak bir onay yoktur. Bize daha önce e-posta yazdıysan, bu mesajların silinmesini istediğin zaman isteyebilirsin (aşağıya bak).</p>
