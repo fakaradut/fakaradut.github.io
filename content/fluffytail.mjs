@@ -16,14 +16,15 @@ const SITE = 'https://moonarcworks.com';
 const MAIL = 'support@moonarcworks.com';
 const UPDATED = { en: '20 November 2026', tr: '20 Kasım 2026', iso: '2026-11-20' };
 
-// The 34 languages of the game, each in its own words (the same list as the game's language picker).
+// The 39 languages of the game, each in its own words (the same list as the game's language picker).
 const LANGS = [
   ['en', 'English'], ['tr', 'Türkçe'], ['de', 'Deutsch'], ['fr', 'Français'], ['es', 'Español'], ['it', 'Italiano'],
   ['pt', 'Português'], ['nl', 'Nederlands'], ['pl', 'Polski'], ['cs', 'Čeština'], ['sk', 'Slovenčina'], ['hu', 'Magyar'],
   ['ro', 'Română'], ['hr', 'Hrvatski'], ['sr', 'Српски'], ['bg', 'Български'], ['el', 'Ελληνικά'], ['ru', 'Русский'],
   ['uk', 'Українська'], ['sv', 'Svenska'], ['nb', 'Norsk'], ['da', 'Dansk'], ['fi', 'Suomi'], ['ar', 'العربية'],
   ['he', 'עברית'], ['hi', 'हिन्दी'], ['th', 'ไทย'], ['vi', 'Tiếng Việt'], ['id', 'Bahasa Indonesia'], ['ms', 'Bahasa Melayu'],
-  ['ja', '日本語'], ['ko', '한국어'], ['zh-Hans', '简体中文'], ['zh-Hant', '繁體中文'],
+  ['ja', '日本語'], ['ko', '한국어'], ['zh-Hans', '简体中文'], ['zh-Hant', '繁體中文'], ['az', 'Azərbaycanca'], ['kk', 'Қазақша'],
+  ['ky', 'Кыргызча'], ['tk', 'Türkmençe'], ['uz', 'Oʻzbekcha'],
 ];
 const langList = LANGS.map(([code, name]) => `<span lang="${code}">${name}</span>`).join(', ');
 
@@ -373,7 +374,21 @@ const supportBody = {
   <details>
     <summary>How do I delete the save and start over?</summary>
     <div>
-      <p>On the main menu, tap the gear (Settings), then the bin (Delete save), and answer the grown-up question. All progress is erased and the game starts from the beginning. The Full Adventure stays unlocked. Deleting the game from the device removes everything it saved.</p>
+      <p>On the main menu, tap the gear (Settings), then the bin (Delete save), and answer the grown-up question. Only the save of the child playing now is erased, and their game starts from the beginning. The other saves and the Full Adventure stay. Deleting the game from the device removes everything it saved.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can brothers and sisters each have their own game?</summary>
+    <div>
+      <p>Yes. There are three save slots, one for each child, shown as three faces. Tap the face at the top left of the main menu, then pick who is playing. Each child keeps their own progress and stars; the Full Adventure, settings and photos are shared by the family.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can we play with a game controller?</summary>
+    <div>
+      <p>Yes. Connect a game controller and play: the left stick runs, A jumps, X spins the tail, the right stick turns the camera and Start pauses. The on-screen buttons hide while the controller is in use and come back when you touch the screen. Some screens, like the grown-up question, still need a tap.</p>
     </div>
   </details>
 
@@ -387,7 +402,7 @@ const supportBody = {
   <details>
     <summary>Which languages does it speak?</summary>
     <div>
-      <p>34 languages. The game starts in your device's language; to change it, tap the gear (Settings) and then the globe.</p>
+      <p>39 languages. The game starts in your device's language; to change it, tap the gear (Settings) and then the globe.</p>
       <p class="langs">${langList}</p>
     </div>
   </details>
@@ -475,7 +490,21 @@ const supportBody = {
   <details>
     <summary>Kaydı nasıl silip baştan başlarım?</summary>
     <div>
-      <p>Ana menüde dişliye (Ayarlar), sonra çöp kutusuna (Kaydı sil) dokun ve ebeveyn sorusunu cevapla. Bütün ilerleme silinir ve oyun en baştan başlar. Tam Macera açık kalır. Oyunu cihazdan silmek, kaydettiği her şeyi kaldırır.</p>
+      <p>Ana menüde dişliye (Ayarlar), sonra çöp kutusuna (Kaydı sil) dokun ve ebeveyn sorusunu cevapla. Yalnızca o an oynayan çocuğun kaydı silinir ve onun oyunu en baştan başlar. Öbür kayıtlar ve Tam Macera kalır. Oyunu cihazdan silmek, kaydettiği her şeyi kaldırır.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Kardeşlerin her biri kendi oyununu oynayabilir mi?</summary>
+    <div>
+      <p>Evet. Her çocuk için bir tane olmak üzere üç kayıt var; üç yüz olarak görünür. Ana menünün sol üstündeki yüze dokun, sonra kimin oynadığını seç. Her çocuğun ilerlemesi ve yıldızları kendine ait; Tam Macera, ayarlar ve fotoğraflar ailece ortak.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Oyun koluyla oynanır mı?</summary>
+    <div>
+      <p>Evet. Oyun kolunu bağlayıp oyna: sol çubukla koşarsın, A zıplar, X kuyruğu çevirir, sağ çubuk kamerayı döndürür, Start duraklatır. Kol kullanılırken ekrandaki düğmeler gizlenir, ekrana dokununca geri gelir. Ebeveyn sorusu gibi bazı ekranlar yine dokunarak geçilir.</p>
     </div>
   </details>
 
@@ -489,7 +518,7 @@ const supportBody = {
   <details>
     <summary>Hangi dilleri konuşuyor?</summary>
     <div>
-      <p>34 dil. Oyun cihazının diliyle açılır; değiştirmek için dişliye (Ayarlar), sonra dünyaya dokun.</p>
+      <p>39 dil. Oyun cihazının diliyle açılır; değiştirmek için dişliye (Ayarlar), sonra dünyaya dokun.</p>
       <p class="langs">${langList}</p>
     </div>
   </details>
