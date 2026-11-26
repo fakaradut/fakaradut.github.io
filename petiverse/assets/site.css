@@ -251,3 +251,8 @@ footer a { color: var(--muted); }
 .tools { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; }
 .tools a { display: inline-block; background: var(--soft); border-radius: 999px; padding: 8px 16px; text-decoration: none; font-weight: 800; }
 footer nav + nav { margin-top: 0; }
+.outcome { border-inline-start: 6px solid var(--line); border-radius: 14px; background: var(--card); padding: 4px 16px 6px; margin: 12px 0; }
+.outcome.now { border-color: var(--danger); } .outcome.today { border-color: var(--warn); } .outcome.watch { border-color: var(--ok); }
+.outcome h3 { margin: 12px 0 4px; font-size: 18px; }
+.sources { padding-inline-start: 20px; font-size: 15px; }
+.sources li { margin: 6px 0; overflow-wrap: anywhere; }
