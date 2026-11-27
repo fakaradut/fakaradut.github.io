@@ -14,7 +14,7 @@ import { langMenu } from './lang-menu.mjs';
 
 const SITE = 'https://moonarcworks.com';
 const MAIL = 'support@moonarcworks.com';
-const UPDATED = { en: '24 November 2026', tr: '24 Kasım 2026', iso: '2026-11-24' };
+const UPDATED = { en: '27 November 2026', tr: '27 Kasım 2026', iso: '2026-11-27' };
 
 // The 39 languages of the game, each in its own words (the same list as the game's language picker).
 const LANGS = [
@@ -177,7 +177,7 @@ const privacyBody = {
     <h2>In short</h2>
     <ul>
       <li>The game collects <strong>no personal data</strong> from anyone, children included.</li>
-      <li>No ads, no analytics, no tracking, no accounts and no chat. The game does not connect to the internet.</li>
+      <li>No ads, no analytics, no tracking, no accounts and no chat. The game plays offline and sends nothing to us.</li>
       <li>Progress and settings are saved only on your device (and in your own iCloud or Google backup, if you use one), and you can delete them at any time.</li>
       <li>The one optional purchase is handled by Apple or Google. We never see any payment details.</li>
     </ul>
@@ -193,7 +193,7 @@ const privacyBody = {
     <li>has no accounts, no sign-in, no chat, no friends list, no leaderboards and no way to share anything with other players;</li>
     <li>shows no ads and contains no advertising, analytics, crash-reporting, social-media or tracking software (SDKs) from anyone;</li>
     <li>does not read the advertising identifier (IDFA or Android advertising ID) or any other device identifier;</li>
-    <li>does not connect to the internet: it sends nothing to us or to anyone else. The Android version does not even ask for the internet permission.</li>
+    <li>sends nothing to us or to anyone else, and has no servers of ours to talk to. The only time it goes online is when you buy or restore the Full Adventure: then the App Store or Google Play handles the purchase on your device. On Android, the internet permission in the store listing is there for that purchase only.</li>
   </ul>
 
   <h2>What stays on your device</h2>
@@ -251,7 +251,7 @@ const privacyBody = {
     <h2>Kısaca</h2>
     <ul>
       <li>Oyun, çocuklar dahil hiç kimseden <strong>hiçbir kişisel veri toplamaz</strong>.</li>
-      <li>Reklam, analiz, takip, hesap ve sohbet yok. Oyun internete bağlanmaz.</li>
+      <li>Reklam, analiz, takip, hesap ve sohbet yok. Oyun internetsiz oynanır ve bize hiçbir şey göndermez.</li>
       <li>İlerleme ve ayarlar yalnızca cihazında (ve kullanıyorsan kendi iCloud ya da Google yedeğinde) saklanır; istediğin zaman silebilirsin.</li>
       <li>İsteğe bağlı tek satın almayı Apple ya da Google yapar. Ödeme bilgilerini hiçbir zaman görmeyiz.</li>
     </ul>
@@ -267,7 +267,7 @@ const privacyBody = {
     <li>hesap, giriş, sohbet, arkadaş listesi, skor tablosu ya da başka oyuncularla bir şey paylaşma yolu yoktur;</li>
     <li>reklam göstermez; hiçbir şirketin reklam, analiz, hata raporlama, sosyal medya ya da takip yazılımını (SDK) içermez;</li>
     <li>reklam kimliğini (IDFA ya da Android reklam kimliği) veya başka bir cihaz kimliğini okumaz;</li>
-    <li>internete bağlanmaz; ne bize ne de başka birine bir şey gönderir. Android sürümü internet izni bile istemez.</li>
+    <li>ne bize ne de başka birine bir şey gönderir; konuşacağı bir sunucumuz da yoktur. İnternete yalnızca Tam Macera'yı satın aldığında ya da geri yüklediğinde çıkar: o zaman satın almayı cihazda App Store veya Google Play yapar. Android'de mağaza sayfasında görünen internet izni yalnızca bu satın alma içindir.</li>
   </ul>
 
   <h2>Cihazında kalanlar</h2>
